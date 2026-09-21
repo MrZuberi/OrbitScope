@@ -120,6 +120,174 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/pstl/glue_memory_defs.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/pstl/execution_defs.h \
  D:/PROJECTSFIXING/OrbitScope/src/rendering/Renderer.h \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/glm.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/_fixes.hpp \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cmath \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/math.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/std_abs.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/stdlib.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/malloc.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/mm_malloc.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/specfun.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/stdexcept_throw.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/stdexcept_throwfwd.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/limits \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/gamma.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/special_function_util.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/bessel_function.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/beta_function.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/ell_integral.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/exp_integral.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/hypergeometric.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/legendre_function.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/modified_bessel_func.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/poly_hermite.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/poly_laguerre.tcc \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/tr1/riemann_zeta.tcc \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/setup.hpp \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cassert \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/assert.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cstdlib \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cstddef \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/simd/platform.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cstdint \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/climits \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cfloat \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/float.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/float.h \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/fwd.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/qualifier.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/setup.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/vec2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_bool2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_vec2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_vec2.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/compute_vector_relational.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_bool2_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_float2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_float2_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_double2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_double2_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_int2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_int2_sized.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/scalar_int_sized.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/setup.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_uint2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_uint2_sized.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/scalar_uint_sized.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/vec3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_bool3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_vec3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_vec3.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_bool3_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_float3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_float3_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_double3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_double3_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_int3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_int3_sized.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_uint3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_uint3_sized.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/vec4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_bool4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_vec4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_vec4.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_bool4_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_float4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_float4_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_double4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_double4_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_int4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_int4_sized.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_uint4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/vector_uint4_sized.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/mat2x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double2x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat2x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat2x2.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/matrix.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/mat2x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double2x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat2x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat2x3.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double2x3_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float2x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float2x3_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/mat2x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double2x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat2x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat2x4.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double2x4_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float2x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float2x4_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/mat3x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double3x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat3x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat3x2.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double3x2_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float3x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float3x2_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/mat3x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double3x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat3x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat3x3.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double3x3_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float3x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float3x3_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/mat3x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double3x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat3x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat3x4.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double3x4_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float3x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float3x4_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/mat4x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double4x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat4x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat4x2.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double4x2_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float4x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float4x2_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/mat4x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double4x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat4x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat4x3.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double4x3_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float4x3.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float4x3_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/mat4x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double4x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat4x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_mat4x4.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double4x4_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float4x4.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float4x4_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/func_matrix.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/geometric.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/func_geometric.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/exponential.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_vec1.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_vec1.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/func_exponential.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/vector_relational.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/func_vector_relational.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/_vectorize.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/common.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/func_common.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/compute_common.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_double2x2_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float2x2.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_float2x2_precision.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/trigonometric.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/func_trigonometric.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/packing.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/func_packing.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_half.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/type_half.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/integer.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/func_integer.inl \
  D:/PROJECTSFIXING/OrbitScope/src/rendering/Shader.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/string \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/char_traits.h \
@@ -133,8 +301,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/ctype.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/ostream_insert.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/cxxabi_forced.h \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/stdexcept_throw.h \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/stdexcept_throwfwd.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/range_access.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/initializer_list \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/erase_if.h \
@@ -142,23 +308,33 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/string_view \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/string_view.tcc \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/ext/string_conversions.h \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cstdlib \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/stdlib.h \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/stdlib.h \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/x86_64-w64-mingw32/include/malloc.h \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/mm_malloc.h \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/std_abs.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cstdio \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cerrno \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/charconv.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/basic_string.tcc \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/memory_resource.h \
- C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/cstddef \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/uses_allocator_args.h \
+ D:/PROJECTSFIXING/OrbitScope/src/models/SolarSystem.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/vector \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/stl_vector.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/stl_bvector.h \
+ C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/vector.tcc \
+ D:/PROJECTSFIXING/OrbitScope/src/models/Planet.h \
  D:/PROJECTSFIXING/OrbitScope/external/glad/include/glad/glad.h \
  D:/PROJECTSFIXING/OrbitScope/external/glad/include/KHR/khrplatform.h \
  D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-src/include/GLFW/glfw3.h \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/matrix_transform.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_projection.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/constants.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/scalar_constants.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/scalar_constants.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/constants.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_projection.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_clip_space.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_clip_space.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_transform.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_transform.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/matrix_transform.inl \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/iostream \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/ostream \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/ostream.h \

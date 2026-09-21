@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "rendering/Renderer.h"
+#include "models/SolarSystem.h"
 
 struct GLFWwindow;
 
@@ -21,4 +22,5 @@ private:
 
     GLFWwindow* m_Window;
     std::unique_ptr<Renderer> m_Renderer;
+    std::unique_ptr<SolarSystem> m_SolarSystem;
 };

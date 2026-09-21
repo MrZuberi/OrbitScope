@@ -32,7 +32,10 @@ add_executable(OrbitScope
     src/application/Application.cpp
     src/rendering/Renderer.cpp
     src/rendering/Shader.cpp
+    src/models/Planet.cpp
+    src/models/SolarSystem.cpp
 )
+
 
 target_include_directories(OrbitScope PRIVATE src)
 target_link_libraries(OrbitScope PRIVATE glfw glad glm::glm)

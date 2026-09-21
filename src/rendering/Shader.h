@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include <glm/glm.hpp>
+
 class Shader
 {
 public:
@@ -10,6 +12,9 @@ public:
 
     void Bind() const;
     void Unbind() const;
+
+    void SetMat4(const std::string& name, const glm::mat4& value) const;
+    void SetVec3(const std::string& name, const glm::vec3& value) const;
 
 private:
     std::string ReadFile(const std::string& path);

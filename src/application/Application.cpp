@@ -2,6 +2,9 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/gtc/matrix_transform.hpp>
+
+#include "models/Planet.h"
 
 #include <iostream>
 
@@ -41,18 +44,27 @@ bool Application::Initialize()
     }
 
     glViewport(0, 0, 1280, 720);
+    glEnable(GL_DEPTH_TEST);
 
     m_Renderer = std::make_unique<Renderer>();
+    m_SolarSystem = std::make_unique<SolarSystem>();
+
+    glm::mat4 view = glm::lookAt(glm::vec3(0.0f, 12.0f, 28.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1280.0f / 720.0f, 0.1f, 200.0f);
+    m_Renderer->SetViewProjection(view, projection);
 
     return true;
 }
 
 void Application::ProcessFrame()
 {
-    glClearColor(0.05f, 0.05f, 0.08f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0.02f, 0.02f, 0.05f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    m_Renderer->DrawTriangle();
+    for (const Planet& planet : m_SolarSystem->GetPlanets())
+    {
+        m_Renderer->DrawSphere(planet.GetModelMatrix(), planet.GetColor());
+    }
 
     glfwSwapBuffers(m_Window);
     glfwPollEvents();
@@ -76,6 +88,7 @@ void Application::Run()
 
 void Application::Shutdown()
 {
+    m_SolarSystem.reset();
     m_Renderer.reset();
 
     if (m_Window)

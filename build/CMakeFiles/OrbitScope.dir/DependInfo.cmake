@@ -10,6 +10,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/PROJECTSFIXING/OrbitScope/src/application/Application.cpp" "CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/main.cpp" "CMakeFiles/OrbitScope.dir/src/main.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/main.cpp.obj.d"
+  "D:/PROJECTSFIXING/OrbitScope/src/models/Planet.cpp" "CMakeFiles/OrbitScope.dir/src/models/Planet.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/models/Planet.cpp.obj.d"
+  "D:/PROJECTSFIXING/OrbitScope/src/models/SolarSystem.cpp" "CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/rendering/Renderer.cpp" "CMakeFiles/OrbitScope.dir/src/rendering/Renderer.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/rendering/Renderer.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/rendering/Shader.cpp" "CMakeFiles/OrbitScope.dir/src/rendering/Shader.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/rendering/Shader.cpp.obj.d"
   )

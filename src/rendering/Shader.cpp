@@ -1,6 +1,7 @@
 #include "rendering/Shader.h"
 
 #include <glad/glad.h>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <fstream>
 #include <sstream>
@@ -79,4 +80,16 @@ void Shader::Bind() const
 void Shader::Unbind() const
 {
     glUseProgram(0);
+}
+
+void Shader::SetMat4(const std::string& name, const glm::mat4& value) const
+{
+    int location = glGetUniformLocation(m_ProgramId, name.c_str());
+    glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
+}
+
+void Shader::SetVec3(const std::string& name, const glm::vec3& value) const
+{
+    int location = glGetUniformLocation(m_ProgramId, name.c_str());
+    glUniform3fv(location, 1, glm::value_ptr(value));
 }

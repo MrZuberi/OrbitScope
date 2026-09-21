@@ -310,6 +310,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/models/Planet.obj: src/models/Planet.cpp.obj
+.PHONY : src/models/Planet.obj
+
+# target to build an object file
+src/models/Planet.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/models/Planet.cpp.obj
+.PHONY : src/models/Planet.cpp.obj
+
+src/models/Planet.i: src/models/Planet.cpp.i
+.PHONY : src/models/Planet.i
+
+# target to preprocess a source file
+src/models/Planet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/models/Planet.cpp.i
+.PHONY : src/models/Planet.cpp.i
+
+src/models/Planet.s: src/models/Planet.cpp.s
+.PHONY : src/models/Planet.s
+
+# target to generate assembly for a file
+src/models/Planet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/models/Planet.cpp.s
+.PHONY : src/models/Planet.cpp.s
+
+src/models/SolarSystem.obj: src/models/SolarSystem.cpp.obj
+.PHONY : src/models/SolarSystem.obj
+
+# target to build an object file
+src/models/SolarSystem.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.obj
+.PHONY : src/models/SolarSystem.cpp.obj
+
+src/models/SolarSystem.i: src/models/SolarSystem.cpp.i
+.PHONY : src/models/SolarSystem.i
+
+# target to preprocess a source file
+src/models/SolarSystem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.i
+.PHONY : src/models/SolarSystem.cpp.i
+
+src/models/SolarSystem.s: src/models/SolarSystem.cpp.s
+.PHONY : src/models/SolarSystem.s
+
+# target to generate assembly for a file
+src/models/SolarSystem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.s
+.PHONY : src/models/SolarSystem.cpp.s
+
 src/rendering/Renderer.obj: src/rendering/Renderer.cpp.obj
 .PHONY : src/rendering/Renderer.obj
 
@@ -385,6 +433,12 @@ help:
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/models/Planet.obj
+	@echo ... src/models/Planet.i
+	@echo ... src/models/Planet.s
+	@echo ... src/models/SolarSystem.obj
+	@echo ... src/models/SolarSystem.i
+	@echo ... src/models/SolarSystem.s
 	@echo ... src/rendering/Renderer.obj
 	@echo ... src/rendering/Renderer.i
 	@echo ... src/rendering/Renderer.s
