@@ -1,5 +1,9 @@
 #pragma once
 
+#include <memory>
+
+#include "rendering/Renderer.h"
+
 struct GLFWwindow;
 
 class Application
@@ -16,4 +20,5 @@ private:
     void ProcessFrame();
 
     GLFWwindow* m_Window;
+    std::unique_ptr<Renderer> m_Renderer;
 };

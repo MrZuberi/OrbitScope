@@ -41,6 +41,9 @@ bool Application::Initialize()
     }
 
     glViewport(0, 0, 1280, 720);
+
+    m_Renderer = std::make_unique<Renderer>();
+
     return true;
 }
 
@@ -48,6 +51,8 @@ void Application::ProcessFrame()
 {
     glClearColor(0.05f, 0.05f, 0.08f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+
+    m_Renderer->DrawTriangle();
 
     glfwSwapBuffers(m_Window);
     glfwPollEvents();
@@ -71,6 +76,8 @@ void Application::Run()
 
 void Application::Shutdown()
 {
+    m_Renderer.reset();
+
     if (m_Window)
     {
         glfwDestroyWindow(m_Window);

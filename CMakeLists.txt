@@ -30,6 +30,8 @@ target_include_directories(glad PUBLIC external/glad/include)
 add_executable(OrbitScope
     src/main.cpp
     src/application/Application.cpp
+    src/rendering/Renderer.cpp
+    src/rendering/Shader.cpp
 )
 
 target_include_directories(OrbitScope PRIVATE src)

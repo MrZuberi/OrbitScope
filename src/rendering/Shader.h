@@ -1,0 +1,20 @@
+#pragma once
+
+#include <string>
+
+class Shader
+{
+public:
+    Shader(const std::string& vertexPath, const std::string& fragmentPath);
+    ~Shader();
+
+    void Bind() const;
+    void Unbind() const;
+
+private:
+    std::string ReadFile(const std::string& path);
+    unsigned int CompileShader(unsigned int type, const std::string& source);
+    unsigned int CreateProgram(const std::string& vertexSource, const std::string& fragmentSource);
+
+    unsigned int m_ProgramId;
+};
