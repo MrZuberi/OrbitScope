@@ -49,6 +49,7 @@ bool Application::Initialize()
     glfwSetCursorPosCallback(m_Window, MouseCallback);
     glfwSetScrollCallback(m_Window, ScrollCallback);
     glfwSetFramebufferSizeCallback(m_Window, FramebufferSizeCallback);
+    glfwSetKeyCallback(m_Window, KeyCallback);
 
     if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress)))
     {
@@ -61,6 +62,7 @@ bool Application::Initialize()
     m_Renderer = std::make_unique<Renderer>();
     m_SolarSystem = std::make_unique<SolarSystem>();
     m_Camera = std::make_unique<Camera>(glm::vec3(0.0f, 12.0f, 28.0f));
+    m_Simulation = std::make_unique<Simulation>();
 
     return true;
 }
@@ -89,14 +91,17 @@ void Application::ProcessFrame()
     }
 
     m_Camera->ProcessKeyboard(m_Window, deltaTime);
+    m_Simulation->Update(deltaTime);
     UpdateProjection();
 
     glClearColor(0.02f, 0.02f, 0.05f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    float elapsedDays = m_Simulation->GetElapsedDays();
+
     for (const Planet& planet : m_SolarSystem->GetPlanets())
     {
-        m_Renderer->DrawSphere(planet.GetModelMatrix(), planet.GetColor());
+        m_Renderer->DrawSphere(planet.GetModelMatrix(elapsedDays), planet.GetColor());
     }
 
     glfwSwapBuffers(m_Window);
@@ -121,6 +126,7 @@ void Application::Run()
 
 void Application::Shutdown()
 {
+    m_Simulation.reset();
     m_Camera.reset();
     m_SolarSystem.reset();
     m_Renderer.reset();
@@ -169,4 +175,31 @@ void Application::FramebufferSizeCallback(GLFWwindow* window, int width, int hei
     app->m_ViewportWidth = width;
     app->m_ViewportHeight = height;
     glViewport(0, 0, width, height);
+}
+
+void Application::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    Application* app = static_cast<Application*>(glfwGetWindowUserPointer(window));
+
+    if (action != GLFW_PRESS)
+    {
+        return;
+    }
+
+    if (key == GLFW_KEY_SPACE)
+    {
+        app->m_Simulation->TogglePause();
+    }
+    else if (key == GLFW_KEY_EQUAL || key == GLFW_KEY_KP_ADD)
+    {
+        app->m_Simulation->IncreaseSpeed();
+    }
+    else if (key == GLFW_KEY_MINUS || key == GLFW_KEY_KP_SUBTRACT)
+    {
+        app->m_Simulation->DecreaseSpeed();
+    }
+    else if (key == GLFW_KEY_R)
+    {
+        app->m_Simulation->Reset();
+    }
 }

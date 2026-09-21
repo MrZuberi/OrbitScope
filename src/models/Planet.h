@@ -14,7 +14,8 @@ public:
     float GetDistanceFromSun() const;
     float GetOrbitalPeriod() const;
     const glm::vec3& GetColor() const;
-    glm::mat4 GetModelMatrix() const;
+
+    glm::mat4 GetModelMatrix(float elapsedDays) const;
 
 private:
     std::string m_Name;

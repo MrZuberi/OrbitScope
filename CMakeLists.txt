@@ -35,8 +35,9 @@ add_executable(OrbitScope
     src/rendering/Camera.cpp
     src/models/Planet.cpp
     src/models/SolarSystem.cpp
+    src/simulation/Simulation.cpp
+    src/simulation/OrbitCalculator.cpp
 )
-
 
 
 target_include_directories(OrbitScope PRIVATE src)
