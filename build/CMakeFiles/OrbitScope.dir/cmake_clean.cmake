@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/OrbitScope.dir/src/models/Planet.cpp.obj.d"
   "CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.obj"
   "CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.obj.d"
+  "CMakeFiles/OrbitScope.dir/src/rendering/Camera.cpp.obj"
+  "CMakeFiles/OrbitScope.dir/src/rendering/Camera.cpp.obj.d"
   "CMakeFiles/OrbitScope.dir/src/rendering/Renderer.cpp.obj"
   "CMakeFiles/OrbitScope.dir/src/rendering/Renderer.cpp.obj.d"
   "CMakeFiles/OrbitScope.dir/src/rendering/Shader.cpp.obj"

@@ -314,6 +314,7 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/basic_string.tcc \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/memory_resource.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/uses_allocator_args.h \
+ D:/PROJECTSFIXING/OrbitScope/src/rendering/Camera.h \
  D:/PROJECTSFIXING/OrbitScope/src/models/SolarSystem.h \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/vector \
  C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/include/c++/16.1.0/bits/stl_vector.h \

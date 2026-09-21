@@ -358,6 +358,30 @@ src/models/SolarSystem.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.s
 .PHONY : src/models/SolarSystem.cpp.s
 
+src/rendering/Camera.obj: src/rendering/Camera.cpp.obj
+.PHONY : src/rendering/Camera.obj
+
+# target to build an object file
+src/rendering/Camera.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Camera.cpp.obj
+.PHONY : src/rendering/Camera.cpp.obj
+
+src/rendering/Camera.i: src/rendering/Camera.cpp.i
+.PHONY : src/rendering/Camera.i
+
+# target to preprocess a source file
+src/rendering/Camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Camera.cpp.i
+.PHONY : src/rendering/Camera.cpp.i
+
+src/rendering/Camera.s: src/rendering/Camera.cpp.s
+.PHONY : src/rendering/Camera.s
+
+# target to generate assembly for a file
+src/rendering/Camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Camera.cpp.s
+.PHONY : src/rendering/Camera.cpp.s
+
 src/rendering/Renderer.obj: src/rendering/Renderer.cpp.obj
 .PHONY : src/rendering/Renderer.obj
 
@@ -439,6 +463,9 @@ help:
 	@echo ... src/models/SolarSystem.obj
 	@echo ... src/models/SolarSystem.i
 	@echo ... src/models/SolarSystem.s
+	@echo ... src/rendering/Camera.obj
+	@echo ... src/rendering/Camera.i
+	@echo ... src/rendering/Camera.s
 	@echo ... src/rendering/Renderer.obj
 	@echo ... src/rendering/Renderer.i
 	@echo ... src/rendering/Renderer.s
