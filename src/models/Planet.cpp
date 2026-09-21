@@ -38,12 +38,17 @@ const glm::vec3& Planet::GetColor() const
     return m_Color;
 }
 
-glm::mat4 Planet::GetModelMatrix(float elapsedDays) const
+glm::mat4 Planet::GetModelMatrix(float elapsedDays, float radiusScale) const
 {
     glm::vec3 position = OrbitCalculator::CalculatePosition(m_DistanceFromSun, m_OrbitalPeriod, elapsedDays);
 
     glm::mat4 model(1.0f);
     model = glm::translate(model, position);
-    model = glm::scale(model, glm::vec3(m_Radius));
+    model = glm::scale(model, glm::vec3(m_Radius * radiusScale));
     return model;
+}
+
+glm::mat4 Planet::GetOrbitModelMatrix() const
+{
+    return glm::scale(glm::mat4(1.0f), glm::vec3(m_DistanceFromSun));
 }

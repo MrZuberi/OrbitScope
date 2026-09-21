@@ -3,10 +3,17 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
+#include <vector>
 
 #include "models/Planet.h"
 
 #include <iostream>
+
+namespace
+{
+    const glm::vec3 OrbitLineColor(0.4f, 0.4f, 0.4f);
+    const float VisualScaleMultiplier = 3.0f;
+}
 
 Application::Application()
     : m_Window(nullptr)
@@ -16,6 +23,9 @@ Application::Application()
     , m_FirstMouse(true)
     , m_ViewportWidth(1280)
     , m_ViewportHeight(720)
+    , m_ShowOrbitLines(true)
+    , m_VisualScaleMode(false)
+    , m_SelectedPlanetIndex(-1)
 {
 }
 
@@ -98,10 +108,21 @@ void Application::ProcessFrame()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     float elapsedDays = m_Simulation->GetElapsedDays();
+    float radiusScale = m_VisualScaleMode ? VisualScaleMultiplier : 1.0f;
 
-    for (const Planet& planet : m_SolarSystem->GetPlanets())
+    const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
+
+    for (const Planet& planet : planets)
     {
-        m_Renderer->DrawSphere(planet.GetModelMatrix(elapsedDays), planet.GetColor());
+        if (m_ShowOrbitLines && planet.GetDistanceFromSun() > 0.0f)
+        {
+            m_Renderer->DrawOrbitLine(planet.GetOrbitModelMatrix(), OrbitLineColor);
+        }
+    }
+
+    for (const Planet& planet : planets)
+    {
+        m_Renderer->DrawSphere(planet.GetModelMatrix(elapsedDays, radiusScale), planet.GetColor());
     }
 
     glfwSwapBuffers(m_Window);
@@ -138,6 +159,23 @@ void Application::Shutdown()
     }
 
     glfwTerminate();
+}
+
+void Application::PrintSelectedPlanetInfo()
+{
+    const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
+
+    if (m_SelectedPlanetIndex < 0 || m_SelectedPlanetIndex >= static_cast<int>(planets.size()))
+    {
+        return;
+    }
+
+    const Planet& planet = planets[m_SelectedPlanetIndex];
+
+    std::cout << "Selected: " << planet.GetName() << std::endl;
+    std::cout << "Radius: " << planet.GetRadius() << std::endl;
+    std::cout << "Distance from Sun: " << planet.GetDistanceFromSun() << std::endl;
+    std::cout << "Orbital period: " << planet.GetOrbitalPeriod() << " days" << std::endl;
 }
 
 void Application::MouseCallback(GLFWwindow* window, double xPos, double yPos)
@@ -201,5 +239,19 @@ void Application::KeyCallback(GLFWwindow* window, int key, int scancode, int act
     else if (key == GLFW_KEY_R)
     {
         app->m_Simulation->Reset();
+    }
+    else if (key == GLFW_KEY_O)
+    {
+        app->m_ShowOrbitLines = !app->m_ShowOrbitLines;
+    }
+    else if (key == GLFW_KEY_V)
+    {
+        app->m_VisualScaleMode = !app->m_VisualScaleMode;
+    }
+    else if (key >= GLFW_KEY_0 && key <= GLFW_KEY_9)
+    {
+        int index = key - GLFW_KEY_0;
+        app->m_SelectedPlanetIndex = index;
+        app->PrintSelectedPlanetInfo();
     }
 }

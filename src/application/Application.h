@@ -22,7 +22,7 @@ private:
     void Shutdown();
     void ProcessFrame();
     void UpdateProjection();
-    void HandleSimulationInput();
+    void PrintSelectedPlanetInfo();
 
     static void MouseCallback(GLFWwindow* window, double xPos, double yPos);
     static void ScrollCallback(GLFWwindow* window, double xOffset, double yOffset);
@@ -41,4 +41,8 @@ private:
     bool m_FirstMouse;
     int m_ViewportWidth;
     int m_ViewportHeight;
+
+    bool m_ShowOrbitLines;
+    bool m_VisualScaleMode;
+    int m_SelectedPlanetIndex;
 };
