@@ -1,0 +1,14 @@
+#pragma once
+
+#include <string>
+
+struct PlanetRecord
+{
+    std::string name;
+    float radius;
+    float distanceFromSun;
+    float orbitalPeriod;
+    float colorR;
+    float colorG;
+    float colorB;
+};
