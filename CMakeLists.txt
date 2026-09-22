@@ -24,6 +24,16 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(glm)
 
+FetchContent_Declare(
+    json
+    GIT_REPOSITORY https://github.com/nlohmann/json.git
+    GIT_TAG v3.11.3
+)
+FetchContent_MakeAvailable(json)
+
+find_package(bsoncxx CONFIG REQUIRED)
+find_package(mongocxx CONFIG REQUIRED)
+
 add_library(glad STATIC external/glad/src/glad.c)
 target_include_directories(glad PUBLIC external/glad/include)
 
@@ -37,12 +47,19 @@ add_executable(OrbitScope
     src/models/SolarSystem.cpp
     src/simulation/Simulation.cpp
     src/simulation/OrbitCalculator.cpp
+    src/data/Http.cpp
+    src/data/MongoEnvironment.cpp
+    src/data/MongoRepository.cpp
+    src/data/PlanetRepository.cpp
+    src/data/NASAClient.cpp
 )
 
-
 target_include_directories(OrbitScope PRIVATE src)
-target_link_libraries(OrbitScope PRIVATE glfw glad glm::glm)
+
+target_link_libraries(OrbitScope PRIVATE glfw glad glm::glm nlohmann_json::nlohmann_json)
+target_link_libraries(OrbitScope PRIVATE $<IF:$<TARGET_EXISTS:mongo::bsoncxx_static>,mongo::bsoncxx_static,mongo::bsoncxx_shared>)
+target_link_libraries(OrbitScope PRIVATE $<IF:$<TARGET_EXISTS:mongo::mongocxx_static>,mongo::mongocxx_static,mongo::mongocxx_shared>)
 
 if (WIN32)
-    target_link_libraries(OrbitScope PRIVATE opengl32)
+    target_link_libraries(OrbitScope PRIVATE opengl32 winhttp)
 endif()

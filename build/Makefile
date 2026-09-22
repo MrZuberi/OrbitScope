@@ -47,10 +47,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\devtools\cmake\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\devtools\cmake\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = D:\PROJECTSFIXING\OrbitScope\build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	"C:\Program Files\CMake\bin\cmake-gui.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\devtools\cmake\bin\cmake-gui.exe -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\devtools\cmake\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -96,37 +96,37 @@ list_install_components/fast: list_install_components
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+	C:\devtools\cmake\bin\cmake.exe -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+	C:\devtools\cmake\bin\cmake.exe -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	C:\devtools\cmake\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	C:\devtools\cmake\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	C:\devtools\cmake\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	C:\devtools\cmake\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # The main all target
@@ -285,6 +285,126 @@ src/application/Application.s: src/application/Application.cpp.s
 src/application/Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/application/Application.cpp.s
 .PHONY : src/application/Application.cpp.s
+
+src/data/Http.obj: src/data/Http.cpp.obj
+.PHONY : src/data/Http.obj
+
+# target to build an object file
+src/data/Http.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj
+.PHONY : src/data/Http.cpp.obj
+
+src/data/Http.i: src/data/Http.cpp.i
+.PHONY : src/data/Http.i
+
+# target to preprocess a source file
+src/data/Http.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/Http.cpp.i
+.PHONY : src/data/Http.cpp.i
+
+src/data/Http.s: src/data/Http.cpp.s
+.PHONY : src/data/Http.s
+
+# target to generate assembly for a file
+src/data/Http.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/Http.cpp.s
+.PHONY : src/data/Http.cpp.s
+
+src/data/MongoEnvironment.obj: src/data/MongoEnvironment.cpp.obj
+.PHONY : src/data/MongoEnvironment.obj
+
+# target to build an object file
+src/data/MongoEnvironment.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj
+.PHONY : src/data/MongoEnvironment.cpp.obj
+
+src/data/MongoEnvironment.i: src/data/MongoEnvironment.cpp.i
+.PHONY : src/data/MongoEnvironment.i
+
+# target to preprocess a source file
+src/data/MongoEnvironment.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.i
+.PHONY : src/data/MongoEnvironment.cpp.i
+
+src/data/MongoEnvironment.s: src/data/MongoEnvironment.cpp.s
+.PHONY : src/data/MongoEnvironment.s
+
+# target to generate assembly for a file
+src/data/MongoEnvironment.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.s
+.PHONY : src/data/MongoEnvironment.cpp.s
+
+src/data/MongoRepository.obj: src/data/MongoRepository.cpp.obj
+.PHONY : src/data/MongoRepository.obj
+
+# target to build an object file
+src/data/MongoRepository.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj
+.PHONY : src/data/MongoRepository.cpp.obj
+
+src/data/MongoRepository.i: src/data/MongoRepository.cpp.i
+.PHONY : src/data/MongoRepository.i
+
+# target to preprocess a source file
+src/data/MongoRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.i
+.PHONY : src/data/MongoRepository.cpp.i
+
+src/data/MongoRepository.s: src/data/MongoRepository.cpp.s
+.PHONY : src/data/MongoRepository.s
+
+# target to generate assembly for a file
+src/data/MongoRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.s
+.PHONY : src/data/MongoRepository.cpp.s
+
+src/data/NASAClient.obj: src/data/NASAClient.cpp.obj
+.PHONY : src/data/NASAClient.obj
+
+# target to build an object file
+src/data/NASAClient.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj
+.PHONY : src/data/NASAClient.cpp.obj
+
+src/data/NASAClient.i: src/data/NASAClient.cpp.i
+.PHONY : src/data/NASAClient.i
+
+# target to preprocess a source file
+src/data/NASAClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.i
+.PHONY : src/data/NASAClient.cpp.i
+
+src/data/NASAClient.s: src/data/NASAClient.cpp.s
+.PHONY : src/data/NASAClient.s
+
+# target to generate assembly for a file
+src/data/NASAClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.s
+.PHONY : src/data/NASAClient.cpp.s
+
+src/data/PlanetRepository.obj: src/data/PlanetRepository.cpp.obj
+.PHONY : src/data/PlanetRepository.obj
+
+# target to build an object file
+src/data/PlanetRepository.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj
+.PHONY : src/data/PlanetRepository.cpp.obj
+
+src/data/PlanetRepository.i: src/data/PlanetRepository.cpp.i
+.PHONY : src/data/PlanetRepository.i
+
+# target to preprocess a source file
+src/data/PlanetRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.i
+.PHONY : src/data/PlanetRepository.cpp.i
+
+src/data/PlanetRepository.s: src/data/PlanetRepository.cpp.s
+.PHONY : src/data/PlanetRepository.s
+
+# target to generate assembly for a file
+src/data/PlanetRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.s
+.PHONY : src/data/PlanetRepository.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
@@ -502,6 +622,21 @@ help:
 	@echo ... src/application/Application.obj
 	@echo ... src/application/Application.i
 	@echo ... src/application/Application.s
+	@echo ... src/data/Http.obj
+	@echo ... src/data/Http.i
+	@echo ... src/data/Http.s
+	@echo ... src/data/MongoEnvironment.obj
+	@echo ... src/data/MongoEnvironment.i
+	@echo ... src/data/MongoEnvironment.s
+	@echo ... src/data/MongoRepository.obj
+	@echo ... src/data/MongoRepository.i
+	@echo ... src/data/MongoRepository.s
+	@echo ... src/data/NASAClient.obj
+	@echo ... src/data/NASAClient.i
+	@echo ... src/data/NASAClient.s
+	@echo ... src/data/PlanetRepository.obj
+	@echo ... src/data/PlanetRepository.i
+	@echo ... src/data/PlanetRepository.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

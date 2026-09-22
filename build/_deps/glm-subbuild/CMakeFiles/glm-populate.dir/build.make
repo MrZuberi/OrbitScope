@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\devtools\cmake\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\devtools\cmake\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -77,59 +77,59 @@ CMakeFiles/glm-populate-complete: glm-populate-prefix/src/glm-populate-stamp/glm
 CMakeFiles/glm-populate-complete: glm-populate-prefix/src/glm-populate-stamp/glm-populate-install
 CMakeFiles/glm-populate-complete: glm-populate-prefix/src/glm-populate-stamp/glm-populate-test
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'glm-populate'"
-	"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/CMakeFiles
-	"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/CMakeFiles/glm-populate-complete
-	"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-done
+	C:\devtools\cmake\bin\cmake.exe -E make_directory D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/CMakeFiles
+	C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/CMakeFiles/glm-populate-complete
+	C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-done
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-update:
 .PHONY : glm-populate-prefix/src/glm-populate-stamp/glm-populate-update
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-build: glm-populate-prefix/src/glm-populate-stamp/glm-populate-configure
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "No build step for 'glm-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-build
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && C:\devtools\cmake\bin\cmake.exe -E echo_append
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-build
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-configure: glm-populate-prefix/tmp/glm-populate-cfgcmd.txt
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-configure: glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "No configure step for 'glm-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-configure
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && C:\devtools\cmake\bin\cmake.exe -E echo_append
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-configure
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-download: glm-populate-prefix/src/glm-populate-stamp/glm-populate-gitinfo.txt
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-download: glm-populate-prefix/src/glm-populate-stamp/glm-populate-mkdir
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (git clone) for 'glm-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/tmp/glm-populate-gitclone.cmake
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-download
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps && C:\devtools\cmake\bin\cmake.exe -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/tmp/glm-populate-gitclone.cmake
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-download
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-install: glm-populate-prefix/src/glm-populate-stamp/glm-populate-build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'glm-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-install
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && C:\devtools\cmake\bin\cmake.exe -E echo_append
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-install
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-mkdir:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'glm-populate'"
-	"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir= -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/tmp/glm-populate-mkdirs.cmake
-	"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-mkdir
+	C:\devtools\cmake\bin\cmake.exe -Dcfgdir= -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/tmp/glm-populate-mkdirs.cmake
+	C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-mkdir
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch: glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch-info.txt
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch: glm-populate-prefix/src/glm-populate-stamp/glm-populate-update
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'glm-populate'"
-	"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch
+	C:\devtools\cmake\bin\cmake.exe -E echo_append
+	C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-update:
 .PHONY : glm-populate-prefix/src/glm-populate-stamp/glm-populate-update
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-test: glm-populate-prefix/src/glm-populate-stamp/glm-populate-install
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No test step for 'glm-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-test
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && C:\devtools\cmake\bin\cmake.exe -E echo_append
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-test
 
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-update: glm-populate-prefix/tmp/glm-populate-gitupdate.cmake
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-update: glm-populate-prefix/src/glm-populate-stamp/glm-populate-update-info.txt
 glm-populate-prefix/src/glm-populate-stamp/glm-populate-update: glm-populate-prefix/src/glm-populate-stamp/glm-populate-download
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Performing update step for 'glm-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-src && "C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/tmp/glm-populate-gitupdate.cmake
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-src && C:\devtools\cmake\bin\cmake.exe -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-subbuild/glm-populate-prefix/tmp/glm-populate-gitupdate.cmake
 
 CMakeFiles/glm-populate.dir/codegen:
 .PHONY : CMakeFiles/glm-populate.dir/codegen

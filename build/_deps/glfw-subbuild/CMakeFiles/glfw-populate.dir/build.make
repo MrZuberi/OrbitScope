@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\devtools\cmake\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\devtools\cmake\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -77,59 +77,59 @@ CMakeFiles/glfw-populate-complete: glfw-populate-prefix/src/glfw-populate-stamp/
 CMakeFiles/glfw-populate-complete: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install
 CMakeFiles/glfw-populate-complete: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'glfw-populate'"
-	"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/CMakeFiles
-	"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate-complete
-	"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-done
+	C:\devtools\cmake\bin\cmake.exe -E make_directory D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/CMakeFiles
+	C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate-complete
+	C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-done
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update:
 .PHONY : glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "No build step for 'glfw-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && C:\devtools\cmake\bin\cmake.exe -E echo_append
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure: glfw-populate-prefix/tmp/glfw-populate-cfgcmd.txt
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "No configure step for 'glfw-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && C:\devtools\cmake\bin\cmake.exe -E echo_append
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-gitinfo.txt
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (git clone) for 'glfw-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/tmp/glfw-populate-gitclone.cmake
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps && C:\devtools\cmake\bin\cmake.exe -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/tmp/glfw-populate-gitclone.cmake
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'glfw-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && C:\devtools\cmake\bin\cmake.exe -E echo_append
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'glfw-populate'"
-	"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir= -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/tmp/glfw-populate-mkdirs.cmake
-	"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir
+	C:\devtools\cmake\bin\cmake.exe -Dcfgdir= -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/tmp/glfw-populate-mkdirs.cmake
+	C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch-info.txt
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'glfw-populate'"
-	"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch
+	C:\devtools\cmake\bin\cmake.exe -E echo_append
+	C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update:
 .PHONY : glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No test step for 'glfw-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && C:\devtools\cmake\bin\cmake.exe -E echo_append
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && C:\devtools\cmake\bin\cmake.exe -E touch D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test
 
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update: glfw-populate-prefix/tmp/glfw-populate-gitupdate.cmake
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update-info.txt
 glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update: glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-subbuild\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Performing update step for 'glfw-populate'"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-src && "C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/tmp/glfw-populate-gitupdate.cmake
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-src && C:\devtools\cmake\bin\cmake.exe -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-subbuild/glfw-populate-prefix/tmp/glfw-populate-gitupdate.cmake
 
 CMakeFiles/glfw-populate.dir/codegen:
 .PHONY : CMakeFiles/glfw-populate.dir/codegen

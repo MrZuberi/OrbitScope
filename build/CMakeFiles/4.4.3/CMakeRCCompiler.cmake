@@ -1,4 +1,4 @@
-set(CMAKE_RC_COMPILER "C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/windres.exe")
+set(CMAKE_RC_COMPILER "C:/devtools/mingw64/bin/windres.exe")
 set(CMAKE_RC_COMPILER_ARG1 "")
 set(CMAKE_RC_COMPILER_LOADED 1)
 set(CMAKE_RC_SOURCE_FILE_EXTENSIONS rc;RC)

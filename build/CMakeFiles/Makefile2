@@ -44,10 +44,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\devtools\cmake\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\devtools\cmake\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -66,6 +66,7 @@ all: CMakeFiles/glad.dir/all
 all: CMakeFiles/OrbitScope.dir/all
 all: _deps/glfw-build/all
 all: _deps/glm-build/all
+all: _deps/json-build/all
 .PHONY : all
 
 # The main recursive "codegen" target.
@@ -73,11 +74,13 @@ codegen: CMakeFiles/glad.dir/codegen
 codegen: CMakeFiles/OrbitScope.dir/codegen
 codegen: _deps/glfw-build/codegen
 codegen: _deps/glm-build/codegen
+codegen: _deps/json-build/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
 preinstall: _deps/glfw-build/preinstall
 preinstall: _deps/glm-build/preinstall
+preinstall: _deps/json-build/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -85,6 +88,7 @@ clean: CMakeFiles/glad.dir/clean
 clean: CMakeFiles/OrbitScope.dir/clean
 clean: _deps/glfw-build/clean
 clean: _deps/glm-build/clean
+clean: _deps/json-build/clean
 .PHONY : clean
 
 #=============================================================================
@@ -166,13 +170,32 @@ _deps/glm-build/glm/clean: _deps/glm-build/glm/CMakeFiles/glm.dir/clean
 .PHONY : _deps/glm-build/glm/clean
 
 #=============================================================================
+# Directory level rules for directory _deps/json-build
+
+# Recursive "all" directory target.
+_deps/json-build/all:
+.PHONY : _deps/json-build/all
+
+# Recursive "codegen" directory target.
+_deps/json-build/codegen:
+.PHONY : _deps/json-build/codegen
+
+# Recursive "preinstall" directory target.
+_deps/json-build/preinstall:
+.PHONY : _deps/json-build/preinstall
+
+# Recursive "clean" directory target.
+_deps/json-build/clean:
+.PHONY : _deps/json-build/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/glad.dir
 
 # All Build rule for target.
 CMakeFiles/glad.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=11,12 "Built target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=16,17 "Built target glad"
 .PHONY : CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.
@@ -189,7 +212,7 @@ glad: CMakeFiles/glad.dir/rule
 # codegen rule for target.
 CMakeFiles/glad.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=11,12 "Finished codegen for target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=16,17 "Finished codegen for target glad"
 .PHONY : CMakeFiles/glad.dir/codegen
 
 # clean rule for target.
@@ -206,12 +229,12 @@ CMakeFiles/OrbitScope.dir/all: _deps/glfw-build/src/CMakeFiles/glfw.dir/all
 CMakeFiles/OrbitScope.dir/all: _deps/glm-build/glm/CMakeFiles/glm.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target OrbitScope"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target OrbitScope"
 .PHONY : CMakeFiles/OrbitScope.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OrbitScope.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles 41
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/OrbitScope.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles 0
 .PHONY : CMakeFiles/OrbitScope.dir/rule
@@ -223,7 +246,7 @@ OrbitScope: CMakeFiles/OrbitScope.dir/rule
 # codegen rule for target.
 CMakeFiles/OrbitScope.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Finished codegen for target OrbitScope"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Finished codegen for target OrbitScope"
 .PHONY : CMakeFiles/OrbitScope.dir/codegen
 
 # clean rule for target.
@@ -270,7 +293,7 @@ _deps/glfw-build/CMakeFiles/uninstall.dir/clean:
 _deps/glfw-build/src/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\glfw-build\src\CMakeFiles\glfw.dir\build.make _deps/glfw-build/src/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\glfw-build\src\CMakeFiles\glfw.dir\build.make _deps/glfw-build/src/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39 "Built target glfw"
 .PHONY : _deps/glfw-build/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
@@ -287,7 +310,7 @@ glfw: _deps/glfw-build/src/CMakeFiles/glfw.dir/rule
 # codegen rule for target.
 _deps/glfw-build/src/CMakeFiles/glfw.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\glfw-build\src\CMakeFiles\glfw.dir\build.make _deps/glfw-build/src/CMakeFiles/glfw.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34 "Finished codegen for target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39 "Finished codegen for target glfw"
 .PHONY : _deps/glfw-build/src/CMakeFiles/glfw.dir/codegen
 
 # clean rule for target.
@@ -302,7 +325,7 @@ _deps/glfw-build/src/CMakeFiles/glfw.dir/clean:
 _deps/glfw-build/src/CMakeFiles/update_mappings.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\glfw-build\src\CMakeFiles\update_mappings.dir\build.make _deps/glfw-build/src/CMakeFiles/update_mappings.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\glfw-build\src\CMakeFiles\update_mappings.dir\build.make _deps/glfw-build/src/CMakeFiles/update_mappings.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=37 "Built target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=42 "Built target update_mappings"
 .PHONY : _deps/glfw-build/src/CMakeFiles/update_mappings.dir/all
 
 # Build rule for subdir invocation for target.
@@ -319,7 +342,7 @@ update_mappings: _deps/glfw-build/src/CMakeFiles/update_mappings.dir/rule
 # codegen rule for target.
 _deps/glfw-build/src/CMakeFiles/update_mappings.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\glfw-build\src\CMakeFiles\update_mappings.dir\build.make _deps/glfw-build/src/CMakeFiles/update_mappings.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=37 "Finished codegen for target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=42 "Finished codegen for target update_mappings"
 .PHONY : _deps/glfw-build/src/CMakeFiles/update_mappings.dir/codegen
 
 # clean rule for target.
@@ -334,7 +357,7 @@ _deps/glfw-build/src/CMakeFiles/update_mappings.dir/clean:
 _deps/glm-build/glm/CMakeFiles/glm.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\glm-build\glm\CMakeFiles\glm.dir\build.make _deps/glm-build/glm/CMakeFiles/glm.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\glm-build\glm\CMakeFiles\glm.dir\build.make _deps/glm-build/glm/CMakeFiles/glm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=35,36 "Built target glm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=40,41 "Built target glm"
 .PHONY : _deps/glm-build/glm/CMakeFiles/glm.dir/all
 
 # Build rule for subdir invocation for target.
@@ -351,7 +374,7 @@ glm: _deps/glm-build/glm/CMakeFiles/glm.dir/rule
 # codegen rule for target.
 _deps/glm-build/glm/CMakeFiles/glm.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps\glm-build\glm\CMakeFiles\glm.dir\build.make _deps/glm-build/glm/CMakeFiles/glm.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=35,36 "Finished codegen for target glm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=40,41 "Finished codegen for target glm"
 .PHONY : _deps/glm-build/glm/CMakeFiles/glm.dir/codegen
 
 # clean rule for target.

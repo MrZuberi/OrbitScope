@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\devtools\cmake\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\devtools\cmake\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -76,15 +76,15 @@ _deps/glm-build/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj: _deps/glm-build/glm/C
 _deps/glm-build/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj: _deps/glm-src/glm/detail/glm.cpp
 _deps/glm-build/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj: _deps/glm-build/glm/CMakeFiles/glm.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/glm-build/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build\glm && C:\Users\tahad\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/glm-build/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj -MF CMakeFiles\glm.dir\detail\glm.cpp.obj.d -o CMakeFiles\glm.dir\detail\glm.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-src\glm\detail\glm.cpp
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build\glm && C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/glm-build/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj -MF CMakeFiles\glm.dir\detail\glm.cpp.obj.d -o CMakeFiles\glm.dir\detail\glm.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-src\glm\detail\glm.cpp
 
 _deps/glm-build/glm/CMakeFiles/glm.dir/detail/glm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/glm.dir/detail/glm.cpp.i"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build\glm && C:\Users\tahad\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-src\glm\detail\glm.cpp > CMakeFiles\glm.dir\detail\glm.cpp.i
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build\glm && C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-src\glm\detail\glm.cpp > CMakeFiles\glm.dir\detail\glm.cpp.i
 
 _deps/glm-build/glm/CMakeFiles/glm.dir/detail/glm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/glm.dir/detail/glm.cpp.s"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build\glm && C:\Users\tahad\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-src\glm\detail\glm.cpp -o CMakeFiles\glm.dir\detail\glm.cpp.s
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-build\glm && C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\PROJECTSFIXING\OrbitScope\build\_deps\glm-src\glm\detail\glm.cpp -o CMakeFiles\glm.dir\detail\glm.cpp.s
 
 # Object files for target glm
 glm_OBJECTS = \

@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\devtools\cmake\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\devtools\cmake\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -66,7 +66,7 @@ include _deps/glfw-build/CMakeFiles/uninstall.dir/compiler_depend.make
 include _deps/glfw-build/CMakeFiles/uninstall.dir/progress.make
 
 _deps/glfw-build/CMakeFiles/uninstall:
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-build/cmake_uninstall.cmake
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-build && C:\devtools\cmake\bin\cmake.exe -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-build/cmake_uninstall.cmake
 
 _deps/glfw-build/CMakeFiles/uninstall.dir/codegen:
 .PHONY : _deps/glfw-build/CMakeFiles/uninstall.dir/codegen

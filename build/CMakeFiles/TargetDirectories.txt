@@ -34,3 +34,9 @@ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-build/glm/CMakeFiles/list_install_c
 D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-build/glm/CMakeFiles/install.dir
 D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-build/glm/CMakeFiles/install/local.dir
 D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-build/glm/CMakeFiles/install/strip.dir
+D:/PROJECTSFIXING/OrbitScope/build/_deps/json-build/CMakeFiles/edit_cache.dir
+D:/PROJECTSFIXING/OrbitScope/build/_deps/json-build/CMakeFiles/rebuild_cache.dir
+D:/PROJECTSFIXING/OrbitScope/build/_deps/json-build/CMakeFiles/list_install_components.dir
+D:/PROJECTSFIXING/OrbitScope/build/_deps/json-build/CMakeFiles/install.dir
+D:/PROJECTSFIXING/OrbitScope/build/_deps/json-build/CMakeFiles/install/local.dir
+D:/PROJECTSFIXING/OrbitScope/build/_deps/json-build/CMakeFiles/install/strip.dir

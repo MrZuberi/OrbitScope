@@ -34,7 +34,7 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/tahad/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.MCF.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/devtools/mingw64/bin/objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

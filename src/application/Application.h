@@ -34,6 +34,7 @@ private:
     std::unique_ptr<SolarSystem> m_SolarSystem;
     std::unique_ptr<Camera> m_Camera;
     std::unique_ptr<Simulation> m_Simulation;
+    std::unique_ptr<class MongoEnvironment> m_MongoEnvironment;
 
     float m_LastFrameTime;
     float m_LastMouseX;

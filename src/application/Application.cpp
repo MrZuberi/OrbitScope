@@ -4,6 +4,15 @@
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
+#include "data/MongoEnvironment.h"
+#include "data/MongoRepository.h"
+#include "data/PlanetRepository.h"
+#include "data/NASAClient.h"
+
+#include <bsoncxx/builder/basic/document.hpp>
+#include <bsoncxx/builder/basic/kvp.hpp>
+
+#include <cstdlib>
 
 #include "models/Planet.h"
 
@@ -70,9 +79,71 @@ bool Application::Initialize()
     glEnable(GL_DEPTH_TEST);
 
     m_Renderer = std::make_unique<Renderer>();
-    m_SolarSystem = std::make_unique<SolarSystem>();
     m_Camera = std::make_unique<Camera>(glm::vec3(0.0f, 12.0f, 28.0f));
     m_Simulation = std::make_unique<Simulation>();
+
+    const char* mongoUri = std::getenv("MONGODB_URI");
+    const char* nasaApiKey = std::getenv("NASA_API_KEY");
+
+    std::vector<PlanetRecord> records;
+    bool loadedFromMongo = false;
+    std::unique_ptr<MongoRepository> mongoRepository;
+
+    if (mongoUri)
+    {
+        m_MongoEnvironment = std::make_unique<MongoEnvironment>();
+        mongoRepository = std::make_unique<MongoRepository>(std::string(mongoUri), "orbitscope");
+
+        PlanetRepository planetRepository(*mongoRepository);
+
+        if (planetRepository.LoadPlanets(records))
+        {
+            loadedFromMongo = true;
+        }
+        else
+        {
+            std::vector<PlanetRecord> defaults = SolarSystem::GetDefaultRecords();
+            planetRepository.SeedPlanets(defaults);
+            records = defaults;
+        }
+    }
+
+    if (records.empty())
+    {
+        m_SolarSystem = std::make_unique<SolarSystem>();
+        std::cout << "Using built in planetary data" << std::endl;
+    }
+    else
+    {
+        m_SolarSystem = std::make_unique<SolarSystem>(records);
+        std::cout << (loadedFromMongo ? "Loaded planetary data from MongoDB" : "Seeded MongoDB with default planetary data") << std::endl;
+    }
+
+    if (nasaApiKey)
+    {
+        NASAClient nasaClient(nasaApiKey);
+        std::string title;
+        std::string explanation;
+
+        if (nasaClient.FetchAstronomyPictureOfDay(title, explanation))
+        {
+            std::cout << "NASA Astronomy Picture of the Day: " << title << std::endl;
+
+            if (mongoRepository)
+            {
+                using bsoncxx::builder::basic::kvp;
+                using bsoncxx::builder::basic::make_document;
+
+                std::vector<bsoncxx::document::value> facts;
+                facts.push_back(make_document(kvp("title", title), kvp("explanation", explanation)));
+                mongoRepository->InsertMany("facts", facts);
+            }
+        }
+        else
+        {
+            std::cout << "Could not reach NASA API, continuing without it" << std::endl;
+        }
+    }
 
     return true;
 }

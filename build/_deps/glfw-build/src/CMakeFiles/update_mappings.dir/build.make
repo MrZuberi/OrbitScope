@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\devtools\cmake\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\devtools\cmake\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -67,7 +67,7 @@ include _deps/glfw-build/src/CMakeFiles/update_mappings.dir/progress.make
 
 _deps/glfw-build/src/CMakeFiles/update_mappings:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
-	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-src\src && "C:\Program Files\CMake\bin\cmake.exe" -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-src/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+	cd /d D:\PROJECTSFIXING\OrbitScope\build\_deps\glfw-src\src && C:\devtools\cmake\bin\cmake.exe -P D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-src/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 
 _deps/glfw-build/src/CMakeFiles/update_mappings.dir/codegen:
 .PHONY : _deps/glfw-build/src/CMakeFiles/update_mappings.dir/codegen
