@@ -1,11 +1,15 @@
 #pragma once
 
 #include <memory>
+#include <vector>
 
 #include "rendering/Renderer.h"
 #include "rendering/Camera.h"
 #include "models/SolarSystem.h"
+#include "models/AsteroidRecord.h"
 #include "simulation/Simulation.h"
+#include "data/MongoEnvironment.h"
+#include "data/MongoRepository.h"
 
 struct GLFWwindow;
 
@@ -23,6 +27,10 @@ private:
     void ProcessFrame();
     void UpdateProjection();
     void PrintSelectedPlanetInfo();
+    void PrintControls();
+    void SaveCurrentConfig();
+    void LoadNamedConfig();
+    void LoadAsteroidData();
 
     static void MouseCallback(GLFWwindow* window, double xPos, double yPos);
     static void ScrollCallback(GLFWwindow* window, double xOffset, double yOffset);
@@ -34,7 +42,9 @@ private:
     std::unique_ptr<SolarSystem> m_SolarSystem;
     std::unique_ptr<Camera> m_Camera;
     std::unique_ptr<Simulation> m_Simulation;
-    std::unique_ptr<class MongoEnvironment> m_MongoEnvironment;
+    std::unique_ptr<MongoEnvironment> m_MongoEnvironment;
+    std::unique_ptr<MongoRepository> m_MongoRepository;
+    std::vector<AsteroidRecord> m_Asteroids;
 
     float m_LastFrameTime;
     float m_LastMouseX;

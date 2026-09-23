@@ -206,11 +206,41 @@ CMakeFiles/OrbitScope.dir/src/simulation/OrbitCalculator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OrbitScope.dir/src/simulation/OrbitCalculator.cpp.s"
 	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\PROJECTSFIXING\OrbitScope\src\simulation\OrbitCalculator.cpp -o CMakeFiles\OrbitScope.dir\src\simulation\OrbitCalculator.cpp.s
 
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj: CMakeFiles/OrbitScope.dir/flags.make
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj: CMakeFiles/OrbitScope.dir/includes_CXX.rsp
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidFilter.cpp
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj: CMakeFiles/OrbitScope.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj -MF CMakeFiles\OrbitScope.dir\src\simulation\AsteroidFilter.cpp.obj.d -o CMakeFiles\OrbitScope.dir\src\simulation\AsteroidFilter.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\src\simulation\AsteroidFilter.cpp
+
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.i"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\PROJECTSFIXING\OrbitScope\src\simulation\AsteroidFilter.cpp > CMakeFiles\OrbitScope.dir\src\simulation\AsteroidFilter.cpp.i
+
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.s"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\PROJECTSFIXING\OrbitScope\src\simulation\AsteroidFilter.cpp -o CMakeFiles\OrbitScope.dir\src\simulation\AsteroidFilter.cpp.s
+
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj: CMakeFiles/OrbitScope.dir/flags.make
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj: CMakeFiles/OrbitScope.dir/includes_CXX.rsp
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidPositioner.cpp
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj: CMakeFiles/OrbitScope.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj -MF CMakeFiles\OrbitScope.dir\src\simulation\AsteroidPositioner.cpp.obj.d -o CMakeFiles\OrbitScope.dir\src\simulation\AsteroidPositioner.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\src\simulation\AsteroidPositioner.cpp
+
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.i"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\PROJECTSFIXING\OrbitScope\src\simulation\AsteroidPositioner.cpp > CMakeFiles\OrbitScope.dir\src\simulation\AsteroidPositioner.cpp.i
+
+CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.s"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\PROJECTSFIXING\OrbitScope\src\simulation\AsteroidPositioner.cpp -o CMakeFiles\OrbitScope.dir\src\simulation\AsteroidPositioner.cpp.s
+
 CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj: CMakeFiles/OrbitScope.dir/flags.make
 CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj: CMakeFiles/OrbitScope.dir/includes_CXX.rsp
 CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/data/Http.cpp
 CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj: CMakeFiles/OrbitScope.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj"
 	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj -MF CMakeFiles\OrbitScope.dir\src\data\Http.cpp.obj.d -o CMakeFiles\OrbitScope.dir\src\data\Http.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\src\data\Http.cpp
 
 CMakeFiles/OrbitScope.dir/src/data/Http.cpp.i: cmake_force
@@ -225,7 +255,7 @@ CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj: CMakeFiles/OrbitSco
 CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj: CMakeFiles/OrbitScope.dir/includes_CXX.rsp
 CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/data/MongoEnvironment.cpp
 CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj: CMakeFiles/OrbitScope.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj"
 	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj -MF CMakeFiles\OrbitScope.dir\src\data\MongoEnvironment.cpp.obj.d -o CMakeFiles\OrbitScope.dir\src\data\MongoEnvironment.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\src\data\MongoEnvironment.cpp
 
 CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.i: cmake_force
@@ -240,7 +270,7 @@ CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj: CMakeFiles/OrbitScop
 CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj: CMakeFiles/OrbitScope.dir/includes_CXX.rsp
 CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/data/MongoRepository.cpp
 CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj: CMakeFiles/OrbitScope.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj"
 	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj -MF CMakeFiles\OrbitScope.dir\src\data\MongoRepository.cpp.obj.d -o CMakeFiles\OrbitScope.dir\src\data\MongoRepository.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\src\data\MongoRepository.cpp
 
 CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.i: cmake_force
@@ -255,7 +285,7 @@ CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj: CMakeFiles/OrbitSco
 CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj: CMakeFiles/OrbitScope.dir/includes_CXX.rsp
 CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/data/PlanetRepository.cpp
 CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj: CMakeFiles/OrbitScope.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj"
 	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj -MF CMakeFiles\OrbitScope.dir\src\data\PlanetRepository.cpp.obj.d -o CMakeFiles\OrbitScope.dir\src\data\PlanetRepository.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\src\data\PlanetRepository.cpp
 
 CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.i: cmake_force
@@ -266,11 +296,26 @@ CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.s"
 	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\PROJECTSFIXING\OrbitScope\src\data\PlanetRepository.cpp -o CMakeFiles\OrbitScope.dir\src\data\PlanetRepository.cpp.s
 
+CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj: CMakeFiles/OrbitScope.dir/flags.make
+CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj: CMakeFiles/OrbitScope.dir/includes_CXX.rsp
+CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/data/ConfigRepository.cpp
+CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj: CMakeFiles/OrbitScope.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj -MF CMakeFiles\OrbitScope.dir\src\data\ConfigRepository.cpp.obj.d -o CMakeFiles\OrbitScope.dir\src\data\ConfigRepository.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\src\data\ConfigRepository.cpp
+
+CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.i"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\PROJECTSFIXING\OrbitScope\src\data\ConfigRepository.cpp > CMakeFiles\OrbitScope.dir\src\data\ConfigRepository.cpp.i
+
+CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.s"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\PROJECTSFIXING\OrbitScope\src\data\ConfigRepository.cpp -o CMakeFiles\OrbitScope.dir\src\data\ConfigRepository.cpp.s
+
 CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj: CMakeFiles/OrbitScope.dir/flags.make
 CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj: CMakeFiles/OrbitScope.dir/includes_CXX.rsp
 CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/data/NASAClient.cpp
 CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj: CMakeFiles/OrbitScope.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj"
 	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj -MF CMakeFiles\OrbitScope.dir\src\data\NASAClient.cpp.obj.d -o CMakeFiles\OrbitScope.dir\src\data\NASAClient.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\src\data\NASAClient.cpp
 
 CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.i: cmake_force
@@ -280,6 +325,21 @@ CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.i: cmake_force
 CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.s"
 	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\PROJECTSFIXING\OrbitScope\src\data\NASAClient.cpp -o CMakeFiles\OrbitScope.dir\src\data\NASAClient.cpp.s
+
+CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj: CMakeFiles/OrbitScope.dir/flags.make
+CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj: CMakeFiles/OrbitScope.dir/includes_CXX.rsp
+CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/data/AsteroidClient.cpp
+CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj: CMakeFiles/OrbitScope.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj -MF CMakeFiles\OrbitScope.dir\src\data\AsteroidClient.cpp.obj.d -o CMakeFiles\OrbitScope.dir\src\data\AsteroidClient.cpp.obj -c D:\PROJECTSFIXING\OrbitScope\src\data\AsteroidClient.cpp
+
+CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.i"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\PROJECTSFIXING\OrbitScope\src\data\AsteroidClient.cpp > CMakeFiles\OrbitScope.dir\src\data\AsteroidClient.cpp.i
+
+CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.s"
+	C:\devtools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\PROJECTSFIXING\OrbitScope\src\data\AsteroidClient.cpp -o CMakeFiles\OrbitScope.dir\src\data\AsteroidClient.cpp.s
 
 # Object files for target OrbitScope
 OrbitScope_OBJECTS = \
@@ -292,11 +352,15 @@ OrbitScope_OBJECTS = \
 "CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.obj" \
 "CMakeFiles/OrbitScope.dir/src/simulation/Simulation.cpp.obj" \
 "CMakeFiles/OrbitScope.dir/src/simulation/OrbitCalculator.cpp.obj" \
+"CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj" \
+"CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj" \
 "CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj" \
 "CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj" \
 "CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj" \
 "CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj" \
-"CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj"
+"CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj" \
+"CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj" \
+"CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj"
 
 # External object files for target OrbitScope
 OrbitScope_EXTERNAL_OBJECTS =
@@ -310,11 +374,15 @@ OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/models/Planet.cpp.obj
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/models/SolarSystem.cpp.obj
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/simulation/Simulation.cpp.obj
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/simulation/OrbitCalculator.cpp.obj
+OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj
+OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.obj
+OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj
+OrbitScope.exe: CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/build.make
 OrbitScope.exe: _deps/glfw-build/src/libglfw3.a
 OrbitScope.exe: libglad.a
@@ -324,7 +392,7 @@ OrbitScope.exe: D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/debug/lib/li
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/linkLibs.rsp
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/objects1.rsp
 OrbitScope.exe: CMakeFiles/OrbitScope.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable OrbitScope.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\PROJECTSFIXING\OrbitScope\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable OrbitScope.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\OrbitScope.dir\link.txt --verbose=$(VERBOSE)
 	D:\PROJECTSFIXING\vcpkg\vcpkg.exe z-applocal --target-binary=D:/PROJECTSFIXING/OrbitScope/build/OrbitScope.exe --installed-bin-dir=D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/bin
 

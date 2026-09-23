@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/PROJECTSFIXING/OrbitScope/src/application/Application.cpp" "CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj.d"
+  "D:/PROJECTSFIXING/OrbitScope/src/data/AsteroidClient.cpp" "CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj.d"
+  "D:/PROJECTSFIXING/OrbitScope/src/data/ConfigRepository.cpp" "CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/data/Http.cpp" "CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/data/Http.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/data/MongoEnvironment.cpp" "CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/data/MongoEnvironment.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/data/MongoRepository.cpp" "CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.obj.d"
@@ -20,6 +22,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/PROJECTSFIXING/OrbitScope/src/rendering/Camera.cpp" "CMakeFiles/OrbitScope.dir/src/rendering/Camera.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/rendering/Camera.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/rendering/Renderer.cpp" "CMakeFiles/OrbitScope.dir/src/rendering/Renderer.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/rendering/Renderer.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/rendering/Shader.cpp" "CMakeFiles/OrbitScope.dir/src/rendering/Shader.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/rendering/Shader.cpp.obj.d"
+  "D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidFilter.cpp" "CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj.d"
+  "D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidPositioner.cpp" "CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/simulation/OrbitCalculator.cpp" "CMakeFiles/OrbitScope.dir/src/simulation/OrbitCalculator.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/simulation/OrbitCalculator.cpp.obj.d"
   "D:/PROJECTSFIXING/OrbitScope/src/simulation/Simulation.cpp" "CMakeFiles/OrbitScope.dir/src/simulation/Simulation.cpp.obj" "gcc" "CMakeFiles/OrbitScope.dir/src/simulation/Simulation.cpp.obj.d"
   )

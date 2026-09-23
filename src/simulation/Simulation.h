@@ -9,6 +9,7 @@ public:
     void TogglePause();
     void IncreaseSpeed();
     void DecreaseSpeed();
+    void SetSpeedMultiplier(float speed);
     void Reset();
 
     float GetElapsedDays() const;

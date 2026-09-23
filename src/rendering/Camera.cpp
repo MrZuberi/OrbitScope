@@ -11,6 +11,7 @@ namespace
     const float DefaultYaw = -90.0f;
     const float DefaultPitch = 0.0f;
     const float DefaultSpeed = 12.0f;
+    const float SprintMultiplier = 2.5f;
     const float DefaultSensitivity = 0.1f;
     const float DefaultFov = 45.0f;
     const float MinFov = 5.0f;
@@ -34,7 +35,14 @@ Camera::Camera(const glm::vec3& position)
 
 void Camera::ProcessKeyboard(GLFWwindow* window, float deltaTime)
 {
-    float velocity = m_MovementSpeed * deltaTime;
+    float speed = m_MovementSpeed;
+
+    if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+    {
+        speed *= SprintMultiplier;
+    }
+
+    float velocity = speed * deltaTime;
 
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {

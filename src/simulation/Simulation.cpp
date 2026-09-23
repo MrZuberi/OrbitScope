@@ -42,6 +42,11 @@ void Simulation::DecreaseSpeed()
     m_SpeedMultiplier = std::clamp(m_SpeedMultiplier / SpeedStep, MinSpeed, MaxSpeed);
 }
 
+void Simulation::SetSpeedMultiplier(float speed)
+{
+    m_SpeedMultiplier = std::clamp(speed, MinSpeed, MaxSpeed);
+}
+
 void Simulation::Reset()
 {
     m_ElapsedDays = 0.0f;

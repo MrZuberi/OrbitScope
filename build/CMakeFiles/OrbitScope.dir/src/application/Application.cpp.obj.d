@@ -111,6 +111,18 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/include/c++/16.2.0/backward/auto_ptr.h \
  C:/devtools/mingw64/include/c++/16.2.0/pstl/glue_memory_defs.h \
  C:/devtools/mingw64/include/c++/16.2.0/pstl/execution_defs.h \
+ C:/devtools/mingw64/include/c++/16.2.0/vector \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/stl_vector.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_throw.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_throwfwd.h \
+ C:/devtools/mingw64/include/c++/16.2.0/initializer_list \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/stl_bvector.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/range_access.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/erase_if.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/vector.tcc \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/memory_resource.h \
+ C:/devtools/mingw64/include/c++/16.2.0/cstddef \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/uses_allocator_args.h \
  D:/PROJECTSFIXING/OrbitScope/src/rendering/Renderer.h \
  D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/glm.hpp \
  D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/_fixes.hpp \
@@ -123,8 +135,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/malloc.h \
  C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/mm_malloc.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/specfun.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_throw.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_throwfwd.h \
  C:/devtools/mingw64/include/c++/16.2.0/limits \
  C:/devtools/mingw64/include/c++/16.2.0/tr1/gamma.tcc \
  C:/devtools/mingw64/include/c++/16.2.0/tr1/special_function_util.h \
@@ -142,7 +152,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/include/c++/16.2.0/cassert \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/assert.h \
  C:/devtools/mingw64/include/c++/16.2.0/cstdlib \
- C:/devtools/mingw64/include/c++/16.2.0/cstddef \
  D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/simd/platform.h \
  C:/devtools/mingw64/include/c++/16.2.0/cstdint \
  C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/stdint.h \
@@ -295,9 +304,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/ctype.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/ostream_insert.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/cxxabi_forced.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/range_access.h \
- C:/devtools/mingw64/include/c++/16.2.0/initializer_list \
- C:/devtools/mingw64/include/c++/16.2.0/bits/erase_if.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/basic_string.h \
  C:/devtools/mingw64/include/c++/16.2.0/string_view \
  C:/devtools/mingw64/include/c++/16.2.0/bits/string_view.tcc \
@@ -306,32 +312,12 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/include/c++/16.2.0/cerrno \
  C:/devtools/mingw64/include/c++/16.2.0/bits/charconv.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/basic_string.tcc \
- C:/devtools/mingw64/include/c++/16.2.0/bits/memory_resource.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/uses_allocator_args.h \
  D:/PROJECTSFIXING/OrbitScope/src/rendering/Camera.h \
  D:/PROJECTSFIXING/OrbitScope/src/models/SolarSystem.h \
- C:/devtools/mingw64/include/c++/16.2.0/vector \
- C:/devtools/mingw64/include/c++/16.2.0/bits/stl_vector.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/stl_bvector.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/vector.tcc \
  D:/PROJECTSFIXING/OrbitScope/src/models/Planet.h \
  D:/PROJECTSFIXING/OrbitScope/src/models/PlanetRecord.h \
+ D:/PROJECTSFIXING/OrbitScope/src/models/AsteroidRecord.h \
  D:/PROJECTSFIXING/OrbitScope/src/simulation/Simulation.h \
- D:/PROJECTSFIXING/OrbitScope/external/glad/include/glad/glad.h \
- D:/PROJECTSFIXING/OrbitScope/external/glad/include/KHR/khrplatform.h \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-src/include/GLFW/glfw3.h \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/matrix_transform.hpp \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_projection.hpp \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/constants.hpp \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/scalar_constants.hpp \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/scalar_constants.inl \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/constants.inl \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_projection.inl \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_clip_space.hpp \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_clip_space.inl \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_transform.hpp \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_transform.inl \
- D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/matrix_transform.inl \
  D:/PROJECTSFIXING/OrbitScope/src/data/MongoEnvironment.h \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/instance.hpp \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/instance-fwd.hpp \
@@ -795,5 +781,25 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/rewrap_many_datakey_result-fwd.hpp \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/uri.hpp \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/uri.hpp \
+ D:/PROJECTSFIXING/OrbitScope/external/glad/include/glad/glad.h \
+ D:/PROJECTSFIXING/OrbitScope/external/glad/include/KHR/khrplatform.h \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glfw-src/include/GLFW/glfw3.h \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/matrix_transform.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_projection.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/constants.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/scalar_constants.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/scalar_constants.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/constants.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_projection.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_clip_space.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_clip_space.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_transform.hpp \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_transform.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/matrix_transform.inl \
  D:/PROJECTSFIXING/OrbitScope/src/data/PlanetRepository.h \
- D:/PROJECTSFIXING/OrbitScope/src/data/NASAClient.h
+ D:/PROJECTSFIXING/OrbitScope/src/data/ConfigRepository.h \
+ D:/PROJECTSFIXING/OrbitScope/src/simulation/SimulationConfig.h \
+ D:/PROJECTSFIXING/OrbitScope/src/data/NASAClient.h \
+ D:/PROJECTSFIXING/OrbitScope/src/data/AsteroidClient.h \
+ D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidFilter.h \
+ D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidPositioner.h

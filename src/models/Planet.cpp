@@ -52,3 +52,8 @@ glm::mat4 Planet::GetOrbitModelMatrix() const
 {
     return glm::scale(glm::mat4(1.0f), glm::vec3(m_DistanceFromSun));
 }
+
+glm::vec3 Planet::GetPosition(float elapsedDays) const
+{
+    return OrbitCalculator::CalculatePosition(m_DistanceFromSun, m_OrbitalPeriod, elapsedDays);
+}

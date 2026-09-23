@@ -17,6 +17,7 @@ public:
 
     glm::mat4 GetModelMatrix(float elapsedDays, float radiusScale) const;
     glm::mat4 GetOrbitModelMatrix() const;
+    glm::vec3 GetPosition(float elapsedDays) const;
 
 private:
     std::string m_Name;

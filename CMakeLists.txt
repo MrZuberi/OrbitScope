@@ -47,11 +47,15 @@ add_executable(OrbitScope
     src/models/SolarSystem.cpp
     src/simulation/Simulation.cpp
     src/simulation/OrbitCalculator.cpp
+    src/simulation/AsteroidFilter.cpp
+    src/simulation/AsteroidPositioner.cpp
     src/data/Http.cpp
     src/data/MongoEnvironment.cpp
     src/data/MongoRepository.cpp
     src/data/PlanetRepository.cpp
+    src/data/ConfigRepository.cpp
     src/data/NASAClient.cpp
+    src/data/AsteroidClient.cpp
 )
 
 target_include_directories(OrbitScope PRIVATE src)

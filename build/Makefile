@@ -286,6 +286,54 @@ src/application/Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/application/Application.cpp.s
 .PHONY : src/application/Application.cpp.s
 
+src/data/AsteroidClient.obj: src/data/AsteroidClient.cpp.obj
+.PHONY : src/data/AsteroidClient.obj
+
+# target to build an object file
+src/data/AsteroidClient.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.obj
+.PHONY : src/data/AsteroidClient.cpp.obj
+
+src/data/AsteroidClient.i: src/data/AsteroidClient.cpp.i
+.PHONY : src/data/AsteroidClient.i
+
+# target to preprocess a source file
+src/data/AsteroidClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.i
+.PHONY : src/data/AsteroidClient.cpp.i
+
+src/data/AsteroidClient.s: src/data/AsteroidClient.cpp.s
+.PHONY : src/data/AsteroidClient.s
+
+# target to generate assembly for a file
+src/data/AsteroidClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/AsteroidClient.cpp.s
+.PHONY : src/data/AsteroidClient.cpp.s
+
+src/data/ConfigRepository.obj: src/data/ConfigRepository.cpp.obj
+.PHONY : src/data/ConfigRepository.obj
+
+# target to build an object file
+src/data/ConfigRepository.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.obj
+.PHONY : src/data/ConfigRepository.cpp.obj
+
+src/data/ConfigRepository.i: src/data/ConfigRepository.cpp.i
+.PHONY : src/data/ConfigRepository.i
+
+# target to preprocess a source file
+src/data/ConfigRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.i
+.PHONY : src/data/ConfigRepository.cpp.i
+
+src/data/ConfigRepository.s: src/data/ConfigRepository.cpp.s
+.PHONY : src/data/ConfigRepository.s
+
+# target to generate assembly for a file
+src/data/ConfigRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/ConfigRepository.cpp.s
+.PHONY : src/data/ConfigRepository.cpp.s
+
 src/data/Http.obj: src/data/Http.cpp.obj
 .PHONY : src/data/Http.obj
 
@@ -550,6 +598,54 @@ src/rendering/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Shader.cpp.s
 .PHONY : src/rendering/Shader.cpp.s
 
+src/simulation/AsteroidFilter.obj: src/simulation/AsteroidFilter.cpp.obj
+.PHONY : src/simulation/AsteroidFilter.obj
+
+# target to build an object file
+src/simulation/AsteroidFilter.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.obj
+.PHONY : src/simulation/AsteroidFilter.cpp.obj
+
+src/simulation/AsteroidFilter.i: src/simulation/AsteroidFilter.cpp.i
+.PHONY : src/simulation/AsteroidFilter.i
+
+# target to preprocess a source file
+src/simulation/AsteroidFilter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.i
+.PHONY : src/simulation/AsteroidFilter.cpp.i
+
+src/simulation/AsteroidFilter.s: src/simulation/AsteroidFilter.cpp.s
+.PHONY : src/simulation/AsteroidFilter.s
+
+# target to generate assembly for a file
+src/simulation/AsteroidFilter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.s
+.PHONY : src/simulation/AsteroidFilter.cpp.s
+
+src/simulation/AsteroidPositioner.obj: src/simulation/AsteroidPositioner.cpp.obj
+.PHONY : src/simulation/AsteroidPositioner.obj
+
+# target to build an object file
+src/simulation/AsteroidPositioner.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.obj
+.PHONY : src/simulation/AsteroidPositioner.cpp.obj
+
+src/simulation/AsteroidPositioner.i: src/simulation/AsteroidPositioner.cpp.i
+.PHONY : src/simulation/AsteroidPositioner.i
+
+# target to preprocess a source file
+src/simulation/AsteroidPositioner.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.i
+.PHONY : src/simulation/AsteroidPositioner.cpp.i
+
+src/simulation/AsteroidPositioner.s: src/simulation/AsteroidPositioner.cpp.s
+.PHONY : src/simulation/AsteroidPositioner.s
+
+# target to generate assembly for a file
+src/simulation/AsteroidPositioner.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.s
+.PHONY : src/simulation/AsteroidPositioner.cpp.s
+
 src/simulation/OrbitCalculator.obj: src/simulation/OrbitCalculator.cpp.obj
 .PHONY : src/simulation/OrbitCalculator.obj
 
@@ -622,6 +718,12 @@ help:
 	@echo ... src/application/Application.obj
 	@echo ... src/application/Application.i
 	@echo ... src/application/Application.s
+	@echo ... src/data/AsteroidClient.obj
+	@echo ... src/data/AsteroidClient.i
+	@echo ... src/data/AsteroidClient.s
+	@echo ... src/data/ConfigRepository.obj
+	@echo ... src/data/ConfigRepository.i
+	@echo ... src/data/ConfigRepository.s
 	@echo ... src/data/Http.obj
 	@echo ... src/data/Http.i
 	@echo ... src/data/Http.s
@@ -655,6 +757,12 @@ help:
 	@echo ... src/rendering/Shader.obj
 	@echo ... src/rendering/Shader.i
 	@echo ... src/rendering/Shader.s
+	@echo ... src/simulation/AsteroidFilter.obj
+	@echo ... src/simulation/AsteroidFilter.i
+	@echo ... src/simulation/AsteroidFilter.s
+	@echo ... src/simulation/AsteroidPositioner.obj
+	@echo ... src/simulation/AsteroidPositioner.i
+	@echo ... src/simulation/AsteroidPositioner.s
 	@echo ... src/simulation/OrbitCalculator.obj
 	@echo ... src/simulation/OrbitCalculator.i
 	@echo ... src/simulation/OrbitCalculator.s
