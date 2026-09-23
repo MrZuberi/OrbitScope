@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
+#include <imgui.h>
 
 #include "data/PlanetRepository.h"
 #include "data/ConfigRepository.h"
@@ -81,14 +82,11 @@ bool Application::Initialize()
     glViewport(0, 0, m_ViewportWidth, m_ViewportHeight);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_PROGRAM_POINT_SIZE);
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     m_Renderer = std::make_unique<Renderer>();
     m_Camera = std::make_unique<Camera>(glm::vec3(0.0f, 12.0f, 28.0f));
     m_Simulation = std::make_unique<Simulation>();
-    m_TextRenderer = std::make_unique<TextRenderer>("resources/fonts/arial.ttf", 22.0f);
-    m_TextRenderer->SetScreenSize(m_ViewportWidth, m_ViewportHeight);
+    m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window);
 
     const char* mongoUri = std::getenv("MONGODB_URI");
     const char* nasaApiKey = std::getenv("NASA_API_KEY");
@@ -255,41 +253,86 @@ void Application::RenderAsteroidMarkers(float elapsedDays)
 
 void Application::RenderUI()
 {
-    glDisable(GL_DEPTH_TEST);
+    m_ImGuiLayer->BeginFrame();
 
-    float panelWidth = 320.0f;
-    float panelX = static_cast<float>(m_ViewportWidth) - panelWidth - 20.0f;
-    float panelY = 20.0f;
-    float lineHeight = 24.0f;
+    ImGuiIO& io = ImGui::GetIO();
+
+    ImGui::SetNextWindowPos(ImVec2(20.0f, 20.0f), ImGuiCond_Always);
+    ImGui::SetNextWindowBgAlpha(0.78f);
+    ImGui::Begin("Simulation", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("Status: %s", m_Simulation->IsPaused() ? "Paused" : "Running");
+    ImGui::Text("Speed: %.2fx", m_Simulation->GetSpeedMultiplier());
+    ImGui::Text("Orbit lines: %s", m_ShowOrbitLines ? "On" : "Off");
+    ImGui::Text("Scale mode: %s", m_VisualScaleMode ? "Visual" : "Realistic");
+    ImGui::End();
+
+    float panelWidth = 340.0f;
+    ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x - panelWidth - 20.0f, 20.0f), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(panelWidth, 0.0f), ImGuiCond_Always);
+    ImGui::SetNextWindowBgAlpha(0.78f);
+    ImGui::Begin("Asteroid Tracker", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+
+    ImGui::Text("Filter: %s", m_AsteroidListState.GetCurrentFilter().c_str());
+    ImGui::TextDisabled("Press Tab to change filter");
+    ImGui::Separator();
 
     const std::vector<AsteroidRecord>& visible = m_AsteroidListState.GetVisibleAsteroids();
-    float panelHeight = lineHeight * (static_cast<float>(visible.size()) + 2.0f) + 20.0f;
 
-    m_TextRenderer->RenderQuad(panelX, panelY, panelWidth, panelHeight, glm::vec3(0.0f, 0.0f, 0.0f), 0.55f);
-    m_TextRenderer->RenderText("Filter: " + m_AsteroidListState.GetCurrentFilter(), panelX + 10.0f, panelY + lineHeight, glm::vec3(1.0f, 1.0f, 1.0f));
-
-    for (size_t i = 0; i < visible.size(); ++i)
+    if (visible.empty())
     {
-        glm::vec3 color = (static_cast<int>(i) == m_AsteroidListState.GetSelectedIndex()) ? glm::vec3(1.0f, 0.85f, 0.2f) : glm::vec3(0.8f, 0.8f, 0.8f);
-        std::string line = visible[i].designation + "  " + visible[i].targetBody;
-        m_TextRenderer->RenderText(line, panelX + 10.0f, panelY + lineHeight * (static_cast<float>(i) + 2.0f), color);
+        ImGui::TextDisabled("No close approaches found for this filter");
     }
+    else
+    {
+        for (int i = 0; i < static_cast<int>(visible.size()); ++i)
+        {
+            bool isSelected = (i == m_AsteroidListState.GetSelectedIndex());
+
+            if (isSelected)
+            {
+                ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.85f, 0.2f, 1.0f));
+            }
+
+            ImGui::BulletText("%s toward %s", visible[i].designation.c_str(), visible[i].targetBody.c_str());
+
+            if (isSelected)
+            {
+                ImGui::PopStyleColor();
+            }
+        }
+    }
+
+    ImGui::End();
 
     if (m_AsteroidListState.HasSelection())
     {
         const AsteroidRecord& selected = m_AsteroidListState.GetSelected();
 
-        m_TextRenderer->RenderQuad(20.0f, 20.0f, 380.0f, 140.0f, glm::vec3(0.0f, 0.0f, 0.0f), 0.55f);
-        m_TextRenderer->RenderText("Asteroid " + selected.designation, 30.0f, 44.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-        m_TextRenderer->RenderText("Approaching " + selected.targetBody, 30.0f, 68.0f, glm::vec3(0.8f, 0.8f, 0.8f));
-        m_TextRenderer->RenderText("Date " + selected.closeApproachDate, 30.0f, 92.0f, glm::vec3(0.8f, 0.8f, 0.8f));
-        m_TextRenderer->RenderText("Distance " + std::to_string(selected.distanceAu) + " AU", 30.0f, 116.0f, glm::vec3(0.8f, 0.8f, 0.8f));
-        m_TextRenderer->RenderText("Velocity " + std::to_string(selected.relativeVelocityKmS) + " km per second", 30.0f, 140.0f, glm::vec3(0.8f, 0.8f, 0.8f));
+        ImGui::SetNextWindowPos(ImVec2(20.0f, 160.0f), ImGuiCond_Always);
+        ImGui::SetNextWindowBgAlpha(0.78f);
+        ImGui::Begin("Selected Asteroid", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
+        ImGui::Text("Designation: %s", selected.designation.c_str());
+        ImGui::Text("Target planet: %s", selected.targetBody.c_str());
+        ImGui::Text("Approach date: %s", selected.closeApproachDate.c_str());
+        ImGui::Text("Distance: %.5f AU", selected.distanceAu);
+        ImGui::Text("Relative velocity: %.2f km/s", selected.relativeVelocityKmS);
+        ImGui::Spacing();
+        ImGui::TextDisabled(m_FocusMode ? "Press Backspace to exit focus" : "Press Enter to focus camera");
+        ImGui::End();
     }
 
-    m_TextRenderer->RenderText("Tab changes filter, Up and Down select, Enter focuses, Backspace exits focus", 20.0f, static_cast<float>(m_ViewportHeight) - 20.0f, glm::vec3(0.6f, 0.6f, 0.6f));
+    ImGui::SetNextWindowPos(ImVec2(20.0f, io.DisplaySize.y - 190.0f), ImGuiCond_Always);
+    ImGui::SetNextWindowBgAlpha(0.65f);
+    ImGui::Begin("Controls", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("WASD move, Shift sprint, mouse look, scroll zoom");
+    ImGui::Text("Space pause, plus/minus speed, R reset");
+    ImGui::Text("O orbit lines, V scale mode");
+    ImGui::Text("0-8 select planet, K save, L load");
+    ImGui::Text("Up/Down select asteroid, Tab filter");
+    ImGui::Text("Enter focus, Backspace exit focus, Escape quit");
+    ImGui::End();
 
-    glEnable(GL_DEPTH_TEST);
+    m_ImGuiLayer->EndFrame();
 }
 
 void Application::ProcessFrame()
@@ -370,7 +413,7 @@ void Application::Run()
 
 void Application::Shutdown()
 {
-    m_TextRenderer.reset();
+    m_ImGuiLayer.reset();
     m_MongoRepository.reset();
     m_MongoEnvironment.reset();
     m_Simulation.reset();
@@ -532,11 +575,6 @@ void Application::FramebufferSizeCallback(GLFWwindow* window, int width, int hei
     app->m_ViewportWidth = width;
     app->m_ViewportHeight = height;
     glViewport(0, 0, width, height);
-
-    if (app->m_TextRenderer)
-    {
-        app->m_TextRenderer->SetScreenSize(width, height);
-    }
 }
 
 void Application::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)

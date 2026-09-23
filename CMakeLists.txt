@@ -31,6 +31,26 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(json)
 
+FetchContent_Declare(
+    imgui
+    GIT_REPOSITORY https://github.com/ocornut/imgui.git
+    GIT_TAG master
+)
+FetchContent_MakeAvailable(imgui)
+
+add_library(imgui STATIC
+    ${imgui_SOURCE_DIR}/imgui.cpp
+    ${imgui_SOURCE_DIR}/imgui_draw.cpp
+    ${imgui_SOURCE_DIR}/imgui_tables.cpp
+    ${imgui_SOURCE_DIR}/imgui_widgets.cpp
+    ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
+    ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
+)
+
+target_include_directories(imgui PUBLIC ${imgui_SOURCE_DIR} ${imgui_SOURCE_DIR}/backends)
+target_link_libraries(imgui PUBLIC glfw glad)
+target_compile_definitions(imgui PUBLIC IMGUI_IMPL_OPENGL_LOADER_GLAD)
+
 find_package(bsoncxx CONFIG REQUIRED)
 find_package(mongocxx CONFIG REQUIRED)
 
@@ -43,8 +63,7 @@ add_executable(OrbitScope
     src/rendering/Renderer.cpp
     src/rendering/Shader.cpp
     src/rendering/Camera.cpp
-    src/rendering/TextRenderer.cpp
-    src/rendering/StbTrueTypeImpl.cpp
+    src/rendering/ImGuiLayer.cpp
     src/models/Planet.cpp
     src/models/SolarSystem.cpp
     src/simulation/Simulation.cpp
@@ -61,9 +80,9 @@ add_executable(OrbitScope
     src/data/AsteroidClient.cpp
 )
 
-target_include_directories(OrbitScope PRIVATE src external/stb)
+target_include_directories(OrbitScope PRIVATE src)
 
-target_link_libraries(OrbitScope PRIVATE glfw glad glm::glm nlohmann_json::nlohmann_json)
+target_link_libraries(OrbitScope PRIVATE glfw glad glm::glm nlohmann_json::nlohmann_json imgui)
 target_link_libraries(OrbitScope PRIVATE $<IF:$<TARGET_EXISTS:mongo::bsoncxx_static>,mongo::bsoncxx_static,mongo::bsoncxx_shared>)
 target_link_libraries(OrbitScope PRIVATE $<IF:$<TARGET_EXISTS:mongo::mongocxx_static>,mongo::mongocxx_static,mongo::mongocxx_shared>)
 

@@ -6,7 +6,7 @@
 
 #include "rendering/Renderer.h"
 #include "rendering/Camera.h"
-#include "rendering/TextRenderer.h"
+#include "rendering/ImGuiLayer.h"
 #include "models/SolarSystem.h"
 #include "models/Planet.h"
 #include "models/AsteroidRecord.h"
@@ -51,7 +51,7 @@ private:
     std::unique_ptr<Simulation> m_Simulation;
     std::unique_ptr<MongoEnvironment> m_MongoEnvironment;
     std::unique_ptr<MongoRepository> m_MongoRepository;
-    std::unique_ptr<TextRenderer> m_TextRenderer;
+    std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
     std::vector<AsteroidRecord> m_Asteroids;
     AsteroidListState m_AsteroidListState;
 
