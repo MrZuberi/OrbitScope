@@ -4,13 +4,11 @@
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "models/Planet.h"
 #include "data/PlanetRepository.h"
 #include "data/ConfigRepository.h"
 #include "data/NASAClient.h"
 #include "data/AsteroidClient.h"
 #include "simulation/SimulationConfig.h"
-#include "simulation/AsteroidFilter.h"
 #include "simulation/AsteroidPositioner.h"
 
 #include <bsoncxx/builder/basic/document.hpp>
@@ -39,6 +37,7 @@ Application::Application()
     , m_ShowOrbitLines(true)
     , m_VisualScaleMode(false)
     , m_SelectedPlanetIndex(-1)
+    , m_FocusMode(false)
 {
 }
 
@@ -82,10 +81,14 @@ bool Application::Initialize()
     glViewport(0, 0, m_ViewportWidth, m_ViewportHeight);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_PROGRAM_POINT_SIZE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     m_Renderer = std::make_unique<Renderer>();
     m_Camera = std::make_unique<Camera>(glm::vec3(0.0f, 12.0f, 28.0f));
     m_Simulation = std::make_unique<Simulation>();
+    m_TextRenderer = std::make_unique<TextRenderer>("resources/fonts/arial.ttf", 22.0f);
+    m_TextRenderer->SetScreenSize(m_ViewportWidth, m_ViewportHeight);
 
     const char* mongoUri = std::getenv("MONGODB_URI");
     const char* nasaApiKey = std::getenv("NASA_API_KEY");
@@ -168,45 +171,125 @@ void Application::LoadAsteroidData()
 
     std::cout << "Fetched " << m_Asteroids.size() << " asteroid close approaches" << std::endl;
 
+    std::vector<std::string> planetNames;
+    for (const Planet& planet : m_SolarSystem->GetPlanets())
+    {
+        if (planet.GetDistanceFromSun() > 0.0f)
+        {
+            planetNames.push_back(planet.GetName());
+        }
+    }
+
+    m_AsteroidListState.SetSource(m_Asteroids, planetNames);
+}
+
+const Planet* Application::FindPlanetByName(const std::string& name) const
+{
     const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
 
     for (const Planet& planet : planets)
     {
-        std::vector<AsteroidRecord> filtered = AsteroidFilter::ByPlanet(m_Asteroids, planet.GetName());
+        if (planet.GetName() == name)
+        {
+            return &planet;
+        }
+    }
 
-        if (filtered.empty())
+    return nullptr;
+}
+
+glm::mat4 Application::GetActiveViewMatrix(float elapsedDays)
+{
+    if (!m_FocusMode || !m_AsteroidListState.HasSelection())
+    {
+        return m_Camera->GetViewMatrix();
+    }
+
+    const AsteroidRecord& selected = m_AsteroidListState.GetSelected();
+    const Planet* targetPlanet = FindPlanetByName(selected.targetBody);
+
+    if (!targetPlanet)
+    {
+        return m_Camera->GetViewMatrix();
+    }
+
+    glm::vec3 planetPosition = targetPlanet->GetPosition(elapsedDays);
+    float closeUpOffset = AsteroidPositioner::CalculateCloseUpOffset(selected.distanceAu);
+    glm::vec3 markerPosition = AsteroidPositioner::CalculateMarkerPosition(planetPosition, selected.designation, closeUpOffset);
+
+    glm::vec3 direction = glm::normalize(markerPosition - planetPosition);
+    glm::vec3 cameraPosition = markerPosition + direction * 4.0f + glm::vec3(0.0f, 2.0f, 0.0f);
+
+    return glm::lookAt(cameraPosition, markerPosition, glm::vec3(0.0f, 1.0f, 0.0f));
+}
+
+void Application::RenderAsteroidMarkers(float elapsedDays)
+{
+    const std::vector<AsteroidRecord>& visible = m_AsteroidListState.GetVisibleAsteroids();
+
+    for (int i = 0; i < static_cast<int>(visible.size()); ++i)
+    {
+        const AsteroidRecord& asteroid = visible[i];
+        const Planet* targetPlanet = FindPlanetByName(asteroid.targetBody);
+
+        if (!targetPlanet)
         {
             continue;
         }
 
-        std::cout << planet.GetName() << " has " << filtered.size() << " close approaching asteroids" << std::endl;
+        glm::vec3 planetPosition = targetPlanet->GetPosition(elapsedDays);
+        float overviewOffset = targetPlanet->GetRadius() * 3.0f;
+        glm::vec3 markerPosition = AsteroidPositioner::CalculateMarkerPosition(planetPosition, asteroid.designation, overviewOffset);
 
-        glm::vec3 planetPosition = planet.GetPosition(m_Simulation->GetElapsedDays());
+        bool isSelected = m_AsteroidListState.HasSelection() && i == m_AsteroidListState.GetSelectedIndex();
+        glm::vec3 color = isSelected ? glm::vec3(1.0f, 0.85f, 0.2f) : glm::vec3(0.9f, 0.9f, 0.9f);
+        float radius = isSelected ? 0.09f : 0.05f;
 
-        for (const AsteroidRecord& asteroid : filtered)
-        {
-            glm::vec3 markerPosition = AsteroidPositioner::CalculateMarkerPosition(planetPosition, asteroid.designation, planet.GetRadius() * 3.0f);
+        glm::mat4 model(1.0f);
+        model = glm::translate(model, markerPosition);
+        model = glm::scale(model, glm::vec3(radius));
 
-            std::cout << "  " << asteroid.designation
-                << " approaches on " << asteroid.closeApproachDate
-                << " at " << asteroid.distanceAu << " AU"
-                << " relative velocity " << asteroid.relativeVelocityKmS << " km per second"
-                << " marker position " << markerPosition.x << " " << markerPosition.y << " " << markerPosition.z
-                << std::endl;
-        }
+        m_Renderer->DrawSphere(model, color, true);
     }
 }
 
-void Application::UpdateProjection()
+void Application::RenderUI()
 {
-    glm::mat4 projection = glm::perspective(
-        glm::radians(m_Camera->GetFieldOfView()),
-        static_cast<float>(m_ViewportWidth) / static_cast<float>(m_ViewportHeight),
-        0.1f,
-        300.0f
-    );
+    glDisable(GL_DEPTH_TEST);
 
-    m_Renderer->SetViewProjection(m_Camera->GetViewMatrix(), projection);
+    float panelWidth = 320.0f;
+    float panelX = static_cast<float>(m_ViewportWidth) - panelWidth - 20.0f;
+    float panelY = 20.0f;
+    float lineHeight = 24.0f;
+
+    const std::vector<AsteroidRecord>& visible = m_AsteroidListState.GetVisibleAsteroids();
+    float panelHeight = lineHeight * (static_cast<float>(visible.size()) + 2.0f) + 20.0f;
+
+    m_TextRenderer->RenderQuad(panelX, panelY, panelWidth, panelHeight, glm::vec3(0.0f, 0.0f, 0.0f), 0.55f);
+    m_TextRenderer->RenderText("Filter: " + m_AsteroidListState.GetCurrentFilter(), panelX + 10.0f, panelY + lineHeight, glm::vec3(1.0f, 1.0f, 1.0f));
+
+    for (size_t i = 0; i < visible.size(); ++i)
+    {
+        glm::vec3 color = (static_cast<int>(i) == m_AsteroidListState.GetSelectedIndex()) ? glm::vec3(1.0f, 0.85f, 0.2f) : glm::vec3(0.8f, 0.8f, 0.8f);
+        std::string line = visible[i].designation + "  " + visible[i].targetBody;
+        m_TextRenderer->RenderText(line, panelX + 10.0f, panelY + lineHeight * (static_cast<float>(i) + 2.0f), color);
+    }
+
+    if (m_AsteroidListState.HasSelection())
+    {
+        const AsteroidRecord& selected = m_AsteroidListState.GetSelected();
+
+        m_TextRenderer->RenderQuad(20.0f, 20.0f, 380.0f, 140.0f, glm::vec3(0.0f, 0.0f, 0.0f), 0.55f);
+        m_TextRenderer->RenderText("Asteroid " + selected.designation, 30.0f, 44.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+        m_TextRenderer->RenderText("Approaching " + selected.targetBody, 30.0f, 68.0f, glm::vec3(0.8f, 0.8f, 0.8f));
+        m_TextRenderer->RenderText("Date " + selected.closeApproachDate, 30.0f, 92.0f, glm::vec3(0.8f, 0.8f, 0.8f));
+        m_TextRenderer->RenderText("Distance " + std::to_string(selected.distanceAu) + " AU", 30.0f, 116.0f, glm::vec3(0.8f, 0.8f, 0.8f));
+        m_TextRenderer->RenderText("Velocity " + std::to_string(selected.relativeVelocityKmS) + " km per second", 30.0f, 140.0f, glm::vec3(0.8f, 0.8f, 0.8f));
+    }
+
+    m_TextRenderer->RenderText("Tab changes filter, Up and Down select, Enter focuses, Backspace exits focus", 20.0f, static_cast<float>(m_ViewportHeight) - 20.0f, glm::vec3(0.6f, 0.6f, 0.6f));
+
+    glEnable(GL_DEPTH_TEST);
 }
 
 void Application::ProcessFrame()
@@ -220,16 +303,30 @@ void Application::ProcessFrame()
         glfwSetWindowShouldClose(m_Window, true);
     }
 
-    m_Camera->ProcessKeyboard(m_Window, deltaTime);
+    if (!m_FocusMode)
+    {
+        m_Camera->ProcessKeyboard(m_Window, deltaTime);
+    }
+
     m_Simulation->Update(deltaTime);
-    UpdateProjection();
+
+    float elapsedDays = m_Simulation->GetElapsedDays();
+
+    glm::mat4 projection = glm::perspective(
+        glm::radians(m_Camera->GetFieldOfView()),
+        static_cast<float>(m_ViewportWidth) / static_cast<float>(m_ViewportHeight),
+        0.1f,
+        300.0f
+    );
+
+    glm::mat4 view = GetActiveViewMatrix(elapsedDays);
+    m_Renderer->SetViewProjection(view, projection);
 
     glClearColor(0.02f, 0.02f, 0.05f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     m_Renderer->DrawStars();
 
-    float elapsedDays = m_Simulation->GetElapsedDays();
     float radiusScale = m_VisualScaleMode ? VisualScaleMultiplier : 1.0f;
 
     const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
@@ -247,6 +344,9 @@ void Application::ProcessFrame()
         bool isLightSource = (planet.GetDistanceFromSun() <= 0.0f);
         m_Renderer->DrawSphere(planet.GetModelMatrix(elapsedDays, radiusScale), planet.GetColor(), isLightSource);
     }
+
+    RenderAsteroidMarkers(elapsedDays);
+    RenderUI();
 
     glfwSwapBuffers(m_Window);
     glfwPollEvents();
@@ -270,6 +370,7 @@ void Application::Run()
 
 void Application::Shutdown()
 {
+    m_TextRenderer.reset();
     m_MongoRepository.reset();
     m_MongoEnvironment.reset();
     m_Simulation.reset();
@@ -319,6 +420,10 @@ void Application::PrintControls()
     std::cout << "0 through 8 selects the Sun and each planet" << std::endl;
     std::cout << "K saves the current configuration" << std::endl;
     std::cout << "L loads the saved configuration" << std::endl;
+    std::cout << "Up and Down arrows move the asteroid list selection" << std::endl;
+    std::cout << "Tab cycles the asteroid planet filter" << std::endl;
+    std::cout << "Enter focuses the camera on the selected asteroid" << std::endl;
+    std::cout << "Backspace exits asteroid focus mode" << std::endl;
     std::cout << "H prints this control list again" << std::endl;
     std::cout << "Escape closes the application" << std::endl;
 }
@@ -427,6 +532,11 @@ void Application::FramebufferSizeCallback(GLFWwindow* window, int width, int hei
     app->m_ViewportWidth = width;
     app->m_ViewportHeight = height;
     glViewport(0, 0, width, height);
+
+    if (app->m_TextRenderer)
+    {
+        app->m_TextRenderer->SetScreenSize(width, height);
+    }
 }
 
 void Application::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -473,6 +583,29 @@ void Application::KeyCallback(GLFWwindow* window, int key, int scancode, int act
     else if (key == GLFW_KEY_H)
     {
         app->PrintControls();
+    }
+    else if (key == GLFW_KEY_UP)
+    {
+        app->m_AsteroidListState.MoveSelectionUp();
+    }
+    else if (key == GLFW_KEY_DOWN)
+    {
+        app->m_AsteroidListState.MoveSelectionDown();
+    }
+    else if (key == GLFW_KEY_TAB)
+    {
+        app->m_AsteroidListState.CycleFilter();
+    }
+    else if (key == GLFW_KEY_ENTER)
+    {
+        if (app->m_AsteroidListState.HasSelection())
+        {
+            app->m_FocusMode = true;
+        }
+    }
+    else if (key == GLFW_KEY_BACKSPACE)
+    {
+        app->m_FocusMode = false;
     }
     else if (key >= GLFW_KEY_0 && key <= GLFW_KEY_9)
     {

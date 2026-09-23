@@ -43,12 +43,15 @@ add_executable(OrbitScope
     src/rendering/Renderer.cpp
     src/rendering/Shader.cpp
     src/rendering/Camera.cpp
+    src/rendering/TextRenderer.cpp
+    src/rendering/StbTrueTypeImpl.cpp
     src/models/Planet.cpp
     src/models/SolarSystem.cpp
     src/simulation/Simulation.cpp
     src/simulation/OrbitCalculator.cpp
     src/simulation/AsteroidFilter.cpp
     src/simulation/AsteroidPositioner.cpp
+    src/simulation/AsteroidListState.cpp
     src/data/Http.cpp
     src/data/MongoEnvironment.cpp
     src/data/MongoRepository.cpp
@@ -58,7 +61,7 @@ add_executable(OrbitScope
     src/data/AsteroidClient.cpp
 )
 
-target_include_directories(OrbitScope PRIVATE src)
+target_include_directories(OrbitScope PRIVATE src external/stb)
 
 target_link_libraries(OrbitScope PRIVATE glfw glad glm::glm nlohmann_json::nlohmann_json)
 target_link_libraries(OrbitScope PRIVATE $<IF:$<TARGET_EXISTS:mongo::bsoncxx_static>,mongo::bsoncxx_static,mongo::bsoncxx_shared>)

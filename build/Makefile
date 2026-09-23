@@ -598,6 +598,54 @@ src/rendering/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Shader.cpp.s
 .PHONY : src/rendering/Shader.cpp.s
 
+src/rendering/StbTrueTypeImpl.obj: src/rendering/StbTrueTypeImpl.cpp.obj
+.PHONY : src/rendering/StbTrueTypeImpl.obj
+
+# target to build an object file
+src/rendering/StbTrueTypeImpl.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/StbTrueTypeImpl.cpp.obj
+.PHONY : src/rendering/StbTrueTypeImpl.cpp.obj
+
+src/rendering/StbTrueTypeImpl.i: src/rendering/StbTrueTypeImpl.cpp.i
+.PHONY : src/rendering/StbTrueTypeImpl.i
+
+# target to preprocess a source file
+src/rendering/StbTrueTypeImpl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/StbTrueTypeImpl.cpp.i
+.PHONY : src/rendering/StbTrueTypeImpl.cpp.i
+
+src/rendering/StbTrueTypeImpl.s: src/rendering/StbTrueTypeImpl.cpp.s
+.PHONY : src/rendering/StbTrueTypeImpl.s
+
+# target to generate assembly for a file
+src/rendering/StbTrueTypeImpl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/StbTrueTypeImpl.cpp.s
+.PHONY : src/rendering/StbTrueTypeImpl.cpp.s
+
+src/rendering/TextRenderer.obj: src/rendering/TextRenderer.cpp.obj
+.PHONY : src/rendering/TextRenderer.obj
+
+# target to build an object file
+src/rendering/TextRenderer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/TextRenderer.cpp.obj
+.PHONY : src/rendering/TextRenderer.cpp.obj
+
+src/rendering/TextRenderer.i: src/rendering/TextRenderer.cpp.i
+.PHONY : src/rendering/TextRenderer.i
+
+# target to preprocess a source file
+src/rendering/TextRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/TextRenderer.cpp.i
+.PHONY : src/rendering/TextRenderer.cpp.i
+
+src/rendering/TextRenderer.s: src/rendering/TextRenderer.cpp.s
+.PHONY : src/rendering/TextRenderer.s
+
+# target to generate assembly for a file
+src/rendering/TextRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/TextRenderer.cpp.s
+.PHONY : src/rendering/TextRenderer.cpp.s
+
 src/simulation/AsteroidFilter.obj: src/simulation/AsteroidFilter.cpp.obj
 .PHONY : src/simulation/AsteroidFilter.obj
 
@@ -621,6 +669,30 @@ src/simulation/AsteroidFilter.s: src/simulation/AsteroidFilter.cpp.s
 src/simulation/AsteroidFilter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidFilter.cpp.s
 .PHONY : src/simulation/AsteroidFilter.cpp.s
+
+src/simulation/AsteroidListState.obj: src/simulation/AsteroidListState.cpp.obj
+.PHONY : src/simulation/AsteroidListState.obj
+
+# target to build an object file
+src/simulation/AsteroidListState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidListState.cpp.obj
+.PHONY : src/simulation/AsteroidListState.cpp.obj
+
+src/simulation/AsteroidListState.i: src/simulation/AsteroidListState.cpp.i
+.PHONY : src/simulation/AsteroidListState.i
+
+# target to preprocess a source file
+src/simulation/AsteroidListState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidListState.cpp.i
+.PHONY : src/simulation/AsteroidListState.cpp.i
+
+src/simulation/AsteroidListState.s: src/simulation/AsteroidListState.cpp.s
+.PHONY : src/simulation/AsteroidListState.s
+
+# target to generate assembly for a file
+src/simulation/AsteroidListState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidListState.cpp.s
+.PHONY : src/simulation/AsteroidListState.cpp.s
 
 src/simulation/AsteroidPositioner.obj: src/simulation/AsteroidPositioner.cpp.obj
 .PHONY : src/simulation/AsteroidPositioner.obj
@@ -757,9 +829,18 @@ help:
 	@echo ... src/rendering/Shader.obj
 	@echo ... src/rendering/Shader.i
 	@echo ... src/rendering/Shader.s
+	@echo ... src/rendering/StbTrueTypeImpl.obj
+	@echo ... src/rendering/StbTrueTypeImpl.i
+	@echo ... src/rendering/StbTrueTypeImpl.s
+	@echo ... src/rendering/TextRenderer.obj
+	@echo ... src/rendering/TextRenderer.i
+	@echo ... src/rendering/TextRenderer.s
 	@echo ... src/simulation/AsteroidFilter.obj
 	@echo ... src/simulation/AsteroidFilter.i
 	@echo ... src/simulation/AsteroidFilter.s
+	@echo ... src/simulation/AsteroidListState.obj
+	@echo ... src/simulation/AsteroidListState.i
+	@echo ... src/simulation/AsteroidListState.s
 	@echo ... src/simulation/AsteroidPositioner.obj
 	@echo ... src/simulation/AsteroidPositioner.i
 	@echo ... src/simulation/AsteroidPositioner.s

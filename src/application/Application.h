@@ -1,13 +1,17 @@
 #pragma once
 
 #include <memory>
+#include <string>
 #include <vector>
 
 #include "rendering/Renderer.h"
 #include "rendering/Camera.h"
+#include "rendering/TextRenderer.h"
 #include "models/SolarSystem.h"
+#include "models/Planet.h"
 #include "models/AsteroidRecord.h"
 #include "simulation/Simulation.h"
+#include "simulation/AsteroidListState.h"
 #include "data/MongoEnvironment.h"
 #include "data/MongoRepository.h"
 
@@ -25,12 +29,15 @@ private:
     bool Initialize();
     void Shutdown();
     void ProcessFrame();
-    void UpdateProjection();
     void PrintSelectedPlanetInfo();
     void PrintControls();
     void SaveCurrentConfig();
     void LoadNamedConfig();
     void LoadAsteroidData();
+    void RenderAsteroidMarkers(float elapsedDays);
+    void RenderUI();
+    const Planet* FindPlanetByName(const std::string& name) const;
+    glm::mat4 GetActiveViewMatrix(float elapsedDays);
 
     static void MouseCallback(GLFWwindow* window, double xPos, double yPos);
     static void ScrollCallback(GLFWwindow* window, double xOffset, double yOffset);
@@ -44,7 +51,9 @@ private:
     std::unique_ptr<Simulation> m_Simulation;
     std::unique_ptr<MongoEnvironment> m_MongoEnvironment;
     std::unique_ptr<MongoRepository> m_MongoRepository;
+    std::unique_ptr<TextRenderer> m_TextRenderer;
     std::vector<AsteroidRecord> m_Asteroids;
+    AsteroidListState m_AsteroidListState;
 
     float m_LastFrameTime;
     float m_LastMouseX;
@@ -56,4 +65,5 @@ private:
     bool m_ShowOrbitLines;
     bool m_VisualScaleMode;
     int m_SelectedPlanetIndex;
+    bool m_FocusMode;
 };
