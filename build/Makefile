@@ -161,6 +161,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named imgui
+
+# Build rule for target.
+imgui: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 imgui
+.PHONY : imgui
+
+# fast build rule for target.
+imgui/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/build
+.PHONY : imgui/fast
+
+#=============================================================================
 # Target rules for targets named glad
 
 # Build rule for target.
@@ -237,6 +250,150 @@ glm: cmake_check_build_system
 glm/fast:
 	$(MAKE) $(MAKESILENT) -f _deps\glm-build\glm\CMakeFiles\glm.dir\build.make _deps/glm-build/glm/CMakeFiles/glm.dir/build
 .PHONY : glm/fast
+
+_deps/imgui-src/backends/imgui_impl_glfw.obj: _deps/imgui-src/backends/imgui_impl_glfw.cpp.obj
+.PHONY : _deps/imgui-src/backends/imgui_impl_glfw.obj
+
+# target to build an object file
+_deps/imgui-src/backends/imgui_impl_glfw.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_glfw.cpp.obj
+.PHONY : _deps/imgui-src/backends/imgui_impl_glfw.cpp.obj
+
+_deps/imgui-src/backends/imgui_impl_glfw.i: _deps/imgui-src/backends/imgui_impl_glfw.cpp.i
+.PHONY : _deps/imgui-src/backends/imgui_impl_glfw.i
+
+# target to preprocess a source file
+_deps/imgui-src/backends/imgui_impl_glfw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_glfw.cpp.i
+.PHONY : _deps/imgui-src/backends/imgui_impl_glfw.cpp.i
+
+_deps/imgui-src/backends/imgui_impl_glfw.s: _deps/imgui-src/backends/imgui_impl_glfw.cpp.s
+.PHONY : _deps/imgui-src/backends/imgui_impl_glfw.s
+
+# target to generate assembly for a file
+_deps/imgui-src/backends/imgui_impl_glfw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_glfw.cpp.s
+.PHONY : _deps/imgui-src/backends/imgui_impl_glfw.cpp.s
+
+_deps/imgui-src/backends/imgui_impl_opengl3.obj: _deps/imgui-src/backends/imgui_impl_opengl3.cpp.obj
+.PHONY : _deps/imgui-src/backends/imgui_impl_opengl3.obj
+
+# target to build an object file
+_deps/imgui-src/backends/imgui_impl_opengl3.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_opengl3.cpp.obj
+.PHONY : _deps/imgui-src/backends/imgui_impl_opengl3.cpp.obj
+
+_deps/imgui-src/backends/imgui_impl_opengl3.i: _deps/imgui-src/backends/imgui_impl_opengl3.cpp.i
+.PHONY : _deps/imgui-src/backends/imgui_impl_opengl3.i
+
+# target to preprocess a source file
+_deps/imgui-src/backends/imgui_impl_opengl3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_opengl3.cpp.i
+.PHONY : _deps/imgui-src/backends/imgui_impl_opengl3.cpp.i
+
+_deps/imgui-src/backends/imgui_impl_opengl3.s: _deps/imgui-src/backends/imgui_impl_opengl3.cpp.s
+.PHONY : _deps/imgui-src/backends/imgui_impl_opengl3.s
+
+# target to generate assembly for a file
+_deps/imgui-src/backends/imgui_impl_opengl3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_opengl3.cpp.s
+.PHONY : _deps/imgui-src/backends/imgui_impl_opengl3.cpp.s
+
+_deps/imgui-src/imgui.obj: _deps/imgui-src/imgui.cpp.obj
+.PHONY : _deps/imgui-src/imgui.obj
+
+# target to build an object file
+_deps/imgui-src/imgui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui.cpp.obj
+.PHONY : _deps/imgui-src/imgui.cpp.obj
+
+_deps/imgui-src/imgui.i: _deps/imgui-src/imgui.cpp.i
+.PHONY : _deps/imgui-src/imgui.i
+
+# target to preprocess a source file
+_deps/imgui-src/imgui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui.cpp.i
+.PHONY : _deps/imgui-src/imgui.cpp.i
+
+_deps/imgui-src/imgui.s: _deps/imgui-src/imgui.cpp.s
+.PHONY : _deps/imgui-src/imgui.s
+
+# target to generate assembly for a file
+_deps/imgui-src/imgui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui.cpp.s
+.PHONY : _deps/imgui-src/imgui.cpp.s
+
+_deps/imgui-src/imgui_draw.obj: _deps/imgui-src/imgui_draw.cpp.obj
+.PHONY : _deps/imgui-src/imgui_draw.obj
+
+# target to build an object file
+_deps/imgui-src/imgui_draw.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_draw.cpp.obj
+.PHONY : _deps/imgui-src/imgui_draw.cpp.obj
+
+_deps/imgui-src/imgui_draw.i: _deps/imgui-src/imgui_draw.cpp.i
+.PHONY : _deps/imgui-src/imgui_draw.i
+
+# target to preprocess a source file
+_deps/imgui-src/imgui_draw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_draw.cpp.i
+.PHONY : _deps/imgui-src/imgui_draw.cpp.i
+
+_deps/imgui-src/imgui_draw.s: _deps/imgui-src/imgui_draw.cpp.s
+.PHONY : _deps/imgui-src/imgui_draw.s
+
+# target to generate assembly for a file
+_deps/imgui-src/imgui_draw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_draw.cpp.s
+.PHONY : _deps/imgui-src/imgui_draw.cpp.s
+
+_deps/imgui-src/imgui_tables.obj: _deps/imgui-src/imgui_tables.cpp.obj
+.PHONY : _deps/imgui-src/imgui_tables.obj
+
+# target to build an object file
+_deps/imgui-src/imgui_tables.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_tables.cpp.obj
+.PHONY : _deps/imgui-src/imgui_tables.cpp.obj
+
+_deps/imgui-src/imgui_tables.i: _deps/imgui-src/imgui_tables.cpp.i
+.PHONY : _deps/imgui-src/imgui_tables.i
+
+# target to preprocess a source file
+_deps/imgui-src/imgui_tables.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_tables.cpp.i
+.PHONY : _deps/imgui-src/imgui_tables.cpp.i
+
+_deps/imgui-src/imgui_tables.s: _deps/imgui-src/imgui_tables.cpp.s
+.PHONY : _deps/imgui-src/imgui_tables.s
+
+# target to generate assembly for a file
+_deps/imgui-src/imgui_tables.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_tables.cpp.s
+.PHONY : _deps/imgui-src/imgui_tables.cpp.s
+
+_deps/imgui-src/imgui_widgets.obj: _deps/imgui-src/imgui_widgets.cpp.obj
+.PHONY : _deps/imgui-src/imgui_widgets.obj
+
+# target to build an object file
+_deps/imgui-src/imgui_widgets.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_widgets.cpp.obj
+.PHONY : _deps/imgui-src/imgui_widgets.cpp.obj
+
+_deps/imgui-src/imgui_widgets.i: _deps/imgui-src/imgui_widgets.cpp.i
+.PHONY : _deps/imgui-src/imgui_widgets.i
+
+# target to preprocess a source file
+_deps/imgui-src/imgui_widgets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_widgets.cpp.i
+.PHONY : _deps/imgui-src/imgui_widgets.cpp.i
+
+_deps/imgui-src/imgui_widgets.s: _deps/imgui-src/imgui_widgets.cpp.s
+.PHONY : _deps/imgui-src/imgui_widgets.s
+
+# target to generate assembly for a file
+_deps/imgui-src/imgui_widgets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/_deps/imgui-src/imgui_widgets.cpp.s
+.PHONY : _deps/imgui-src/imgui_widgets.cpp.s
 
 external/glad/src/glad.obj: external/glad/src/glad.c.obj
 .PHONY : external/glad/src/glad.obj
@@ -406,30 +563,6 @@ src/data/MongoRepository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/MongoRepository.cpp.s
 .PHONY : src/data/MongoRepository.cpp.s
 
-src/data/NASAClient.obj: src/data/NASAClient.cpp.obj
-.PHONY : src/data/NASAClient.obj
-
-# target to build an object file
-src/data/NASAClient.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.obj
-.PHONY : src/data/NASAClient.cpp.obj
-
-src/data/NASAClient.i: src/data/NASAClient.cpp.i
-.PHONY : src/data/NASAClient.i
-
-# target to preprocess a source file
-src/data/NASAClient.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.i
-.PHONY : src/data/NASAClient.cpp.i
-
-src/data/NASAClient.s: src/data/NASAClient.cpp.s
-.PHONY : src/data/NASAClient.s
-
-# target to generate assembly for a file
-src/data/NASAClient.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/NASAClient.cpp.s
-.PHONY : src/data/NASAClient.cpp.s
-
 src/data/PlanetRepository.obj: src/data/PlanetRepository.cpp.obj
 .PHONY : src/data/PlanetRepository.obj
 
@@ -453,6 +586,30 @@ src/data/PlanetRepository.s: src/data/PlanetRepository.cpp.s
 src/data/PlanetRepository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/PlanetRepository.cpp.s
 .PHONY : src/data/PlanetRepository.cpp.s
+
+src/data/SBDBClient.obj: src/data/SBDBClient.cpp.obj
+.PHONY : src/data/SBDBClient.obj
+
+# target to build an object file
+src/data/SBDBClient.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/SBDBClient.cpp.obj
+.PHONY : src/data/SBDBClient.cpp.obj
+
+src/data/SBDBClient.i: src/data/SBDBClient.cpp.i
+.PHONY : src/data/SBDBClient.i
+
+# target to preprocess a source file
+src/data/SBDBClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/SBDBClient.cpp.i
+.PHONY : src/data/SBDBClient.cpp.i
+
+src/data/SBDBClient.s: src/data/SBDBClient.cpp.s
+.PHONY : src/data/SBDBClient.s
+
+# target to generate assembly for a file
+src/data/SBDBClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/data/SBDBClient.cpp.s
+.PHONY : src/data/SBDBClient.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
@@ -550,6 +707,30 @@ src/rendering/Camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Camera.cpp.s
 .PHONY : src/rendering/Camera.cpp.s
 
+src/rendering/ImGuiLayer.obj: src/rendering/ImGuiLayer.cpp.obj
+.PHONY : src/rendering/ImGuiLayer.obj
+
+# target to build an object file
+src/rendering/ImGuiLayer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/ImGuiLayer.cpp.obj
+.PHONY : src/rendering/ImGuiLayer.cpp.obj
+
+src/rendering/ImGuiLayer.i: src/rendering/ImGuiLayer.cpp.i
+.PHONY : src/rendering/ImGuiLayer.i
+
+# target to preprocess a source file
+src/rendering/ImGuiLayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/ImGuiLayer.cpp.i
+.PHONY : src/rendering/ImGuiLayer.cpp.i
+
+src/rendering/ImGuiLayer.s: src/rendering/ImGuiLayer.cpp.s
+.PHONY : src/rendering/ImGuiLayer.s
+
+# target to generate assembly for a file
+src/rendering/ImGuiLayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/ImGuiLayer.cpp.s
+.PHONY : src/rendering/ImGuiLayer.cpp.s
+
 src/rendering/Renderer.obj: src/rendering/Renderer.cpp.obj
 .PHONY : src/rendering/Renderer.obj
 
@@ -598,53 +779,53 @@ src/rendering/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Shader.cpp.s
 .PHONY : src/rendering/Shader.cpp.s
 
-src/rendering/StbTrueTypeImpl.obj: src/rendering/StbTrueTypeImpl.cpp.obj
-.PHONY : src/rendering/StbTrueTypeImpl.obj
+src/rendering/StbImageImpl.obj: src/rendering/StbImageImpl.cpp.obj
+.PHONY : src/rendering/StbImageImpl.obj
 
 # target to build an object file
-src/rendering/StbTrueTypeImpl.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/StbTrueTypeImpl.cpp.obj
-.PHONY : src/rendering/StbTrueTypeImpl.cpp.obj
+src/rendering/StbImageImpl.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/StbImageImpl.cpp.obj
+.PHONY : src/rendering/StbImageImpl.cpp.obj
 
-src/rendering/StbTrueTypeImpl.i: src/rendering/StbTrueTypeImpl.cpp.i
-.PHONY : src/rendering/StbTrueTypeImpl.i
+src/rendering/StbImageImpl.i: src/rendering/StbImageImpl.cpp.i
+.PHONY : src/rendering/StbImageImpl.i
 
 # target to preprocess a source file
-src/rendering/StbTrueTypeImpl.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/StbTrueTypeImpl.cpp.i
-.PHONY : src/rendering/StbTrueTypeImpl.cpp.i
+src/rendering/StbImageImpl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/StbImageImpl.cpp.i
+.PHONY : src/rendering/StbImageImpl.cpp.i
 
-src/rendering/StbTrueTypeImpl.s: src/rendering/StbTrueTypeImpl.cpp.s
-.PHONY : src/rendering/StbTrueTypeImpl.s
+src/rendering/StbImageImpl.s: src/rendering/StbImageImpl.cpp.s
+.PHONY : src/rendering/StbImageImpl.s
 
 # target to generate assembly for a file
-src/rendering/StbTrueTypeImpl.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/StbTrueTypeImpl.cpp.s
-.PHONY : src/rendering/StbTrueTypeImpl.cpp.s
+src/rendering/StbImageImpl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/StbImageImpl.cpp.s
+.PHONY : src/rendering/StbImageImpl.cpp.s
 
-src/rendering/TextRenderer.obj: src/rendering/TextRenderer.cpp.obj
-.PHONY : src/rendering/TextRenderer.obj
+src/rendering/Texture.obj: src/rendering/Texture.cpp.obj
+.PHONY : src/rendering/Texture.obj
 
 # target to build an object file
-src/rendering/TextRenderer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/TextRenderer.cpp.obj
-.PHONY : src/rendering/TextRenderer.cpp.obj
+src/rendering/Texture.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Texture.cpp.obj
+.PHONY : src/rendering/Texture.cpp.obj
 
-src/rendering/TextRenderer.i: src/rendering/TextRenderer.cpp.i
-.PHONY : src/rendering/TextRenderer.i
+src/rendering/Texture.i: src/rendering/Texture.cpp.i
+.PHONY : src/rendering/Texture.i
 
 # target to preprocess a source file
-src/rendering/TextRenderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/TextRenderer.cpp.i
-.PHONY : src/rendering/TextRenderer.cpp.i
+src/rendering/Texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Texture.cpp.i
+.PHONY : src/rendering/Texture.cpp.i
 
-src/rendering/TextRenderer.s: src/rendering/TextRenderer.cpp.s
-.PHONY : src/rendering/TextRenderer.s
+src/rendering/Texture.s: src/rendering/Texture.cpp.s
+.PHONY : src/rendering/Texture.s
 
 # target to generate assembly for a file
-src/rendering/TextRenderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/TextRenderer.cpp.s
-.PHONY : src/rendering/TextRenderer.cpp.s
+src/rendering/Texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/rendering/Texture.cpp.s
+.PHONY : src/rendering/Texture.cpp.s
 
 src/simulation/AsteroidFilter.obj: src/simulation/AsteroidFilter.cpp.obj
 .PHONY : src/simulation/AsteroidFilter.obj
@@ -718,6 +899,30 @@ src/simulation/AsteroidPositioner.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/AsteroidPositioner.cpp.s
 .PHONY : src/simulation/AsteroidPositioner.cpp.s
 
+src/simulation/KeplerOrbitCalculator.obj: src/simulation/KeplerOrbitCalculator.cpp.obj
+.PHONY : src/simulation/KeplerOrbitCalculator.obj
+
+# target to build an object file
+src/simulation/KeplerOrbitCalculator.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/KeplerOrbitCalculator.cpp.obj
+.PHONY : src/simulation/KeplerOrbitCalculator.cpp.obj
+
+src/simulation/KeplerOrbitCalculator.i: src/simulation/KeplerOrbitCalculator.cpp.i
+.PHONY : src/simulation/KeplerOrbitCalculator.i
+
+# target to preprocess a source file
+src/simulation/KeplerOrbitCalculator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/KeplerOrbitCalculator.cpp.i
+.PHONY : src/simulation/KeplerOrbitCalculator.cpp.i
+
+src/simulation/KeplerOrbitCalculator.s: src/simulation/KeplerOrbitCalculator.cpp.s
+.PHONY : src/simulation/KeplerOrbitCalculator.s
+
+# target to generate assembly for a file
+src/simulation/KeplerOrbitCalculator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OrbitScope.dir\build.make CMakeFiles/OrbitScope.dir/src/simulation/KeplerOrbitCalculator.cpp.s
+.PHONY : src/simulation/KeplerOrbitCalculator.cpp.s
+
 src/simulation/OrbitCalculator.obj: src/simulation/OrbitCalculator.cpp.obj
 .PHONY : src/simulation/OrbitCalculator.obj
 
@@ -784,6 +989,25 @@ help:
 	@echo ... glad
 	@echo ... glfw
 	@echo ... glm
+	@echo ... imgui
+	@echo ... _deps/imgui-src/backends/imgui_impl_glfw.obj
+	@echo ... _deps/imgui-src/backends/imgui_impl_glfw.i
+	@echo ... _deps/imgui-src/backends/imgui_impl_glfw.s
+	@echo ... _deps/imgui-src/backends/imgui_impl_opengl3.obj
+	@echo ... _deps/imgui-src/backends/imgui_impl_opengl3.i
+	@echo ... _deps/imgui-src/backends/imgui_impl_opengl3.s
+	@echo ... _deps/imgui-src/imgui.obj
+	@echo ... _deps/imgui-src/imgui.i
+	@echo ... _deps/imgui-src/imgui.s
+	@echo ... _deps/imgui-src/imgui_draw.obj
+	@echo ... _deps/imgui-src/imgui_draw.i
+	@echo ... _deps/imgui-src/imgui_draw.s
+	@echo ... _deps/imgui-src/imgui_tables.obj
+	@echo ... _deps/imgui-src/imgui_tables.i
+	@echo ... _deps/imgui-src/imgui_tables.s
+	@echo ... _deps/imgui-src/imgui_widgets.obj
+	@echo ... _deps/imgui-src/imgui_widgets.i
+	@echo ... _deps/imgui-src/imgui_widgets.s
 	@echo ... external/glad/src/glad.obj
 	@echo ... external/glad/src/glad.i
 	@echo ... external/glad/src/glad.s
@@ -805,12 +1029,12 @@ help:
 	@echo ... src/data/MongoRepository.obj
 	@echo ... src/data/MongoRepository.i
 	@echo ... src/data/MongoRepository.s
-	@echo ... src/data/NASAClient.obj
-	@echo ... src/data/NASAClient.i
-	@echo ... src/data/NASAClient.s
 	@echo ... src/data/PlanetRepository.obj
 	@echo ... src/data/PlanetRepository.i
 	@echo ... src/data/PlanetRepository.s
+	@echo ... src/data/SBDBClient.obj
+	@echo ... src/data/SBDBClient.i
+	@echo ... src/data/SBDBClient.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
@@ -823,18 +1047,21 @@ help:
 	@echo ... src/rendering/Camera.obj
 	@echo ... src/rendering/Camera.i
 	@echo ... src/rendering/Camera.s
+	@echo ... src/rendering/ImGuiLayer.obj
+	@echo ... src/rendering/ImGuiLayer.i
+	@echo ... src/rendering/ImGuiLayer.s
 	@echo ... src/rendering/Renderer.obj
 	@echo ... src/rendering/Renderer.i
 	@echo ... src/rendering/Renderer.s
 	@echo ... src/rendering/Shader.obj
 	@echo ... src/rendering/Shader.i
 	@echo ... src/rendering/Shader.s
-	@echo ... src/rendering/StbTrueTypeImpl.obj
-	@echo ... src/rendering/StbTrueTypeImpl.i
-	@echo ... src/rendering/StbTrueTypeImpl.s
-	@echo ... src/rendering/TextRenderer.obj
-	@echo ... src/rendering/TextRenderer.i
-	@echo ... src/rendering/TextRenderer.s
+	@echo ... src/rendering/StbImageImpl.obj
+	@echo ... src/rendering/StbImageImpl.i
+	@echo ... src/rendering/StbImageImpl.s
+	@echo ... src/rendering/Texture.obj
+	@echo ... src/rendering/Texture.i
+	@echo ... src/rendering/Texture.s
 	@echo ... src/simulation/AsteroidFilter.obj
 	@echo ... src/simulation/AsteroidFilter.i
 	@echo ... src/simulation/AsteroidFilter.s
@@ -844,6 +1071,9 @@ help:
 	@echo ... src/simulation/AsteroidPositioner.obj
 	@echo ... src/simulation/AsteroidPositioner.i
 	@echo ... src/simulation/AsteroidPositioner.s
+	@echo ... src/simulation/KeplerOrbitCalculator.obj
+	@echo ... src/simulation/KeplerOrbitCalculator.i
+	@echo ... src/simulation/KeplerOrbitCalculator.s
 	@echo ... src/simulation/OrbitCalculator.obj
 	@echo ... src/simulation/OrbitCalculator.i
 	@echo ... src/simulation/OrbitCalculator.s

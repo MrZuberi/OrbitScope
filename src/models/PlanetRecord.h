@@ -11,4 +11,6 @@ struct PlanetRecord
     float colorR;
     float colorG;
     float colorB;
+    std::string texturePath;
+    float rotationPeriodHours;
 };

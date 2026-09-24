@@ -18,15 +18,15 @@ const std::vector<Planet>& SolarSystem::GetPlanets() const
 std::vector<PlanetRecord> SolarSystem::GetDefaultRecords()
 {
     return {
-        { "Sun", 2.5f, 0.0f, 0.0f, 1.0f, 0.8f, 0.2f },
-        { "Mercury", 0.2f, 4.0f, 88.0f, 0.6f, 0.6f, 0.6f },
-        { "Venus", 0.35f, 5.5f, 224.7f, 0.9f, 0.7f, 0.4f },
-        { "Earth", 0.4f, 7.0f, 365.25f, 0.2f, 0.5f, 0.9f },
-        { "Mars", 0.3f, 8.5f, 687.0f, 0.8f, 0.3f, 0.2f },
-        { "Jupiter", 1.2f, 11.0f, 4331.0f, 0.8f, 0.6f, 0.4f },
-        { "Saturn", 1.0f, 14.0f, 10747.0f, 0.9f, 0.8f, 0.6f },
-        { "Uranus", 0.7f, 17.0f, 30589.0f, 0.5f, 0.8f, 0.9f },
-        { "Neptune", 0.65f, 20.0f, 59800.0f, 0.3f, 0.4f, 0.9f }
+        { "Sun", 4.6520f, 0.0f, 0.0f, 1.0f, 0.8f, 0.2f, "resources/textures/sun.jpg", 609.12f },
+        { "Mercury", 0.1915f, 42.57f, 88.0f, 0.6f, 0.6f, 0.6f, "resources/textures/mercury.jpg", 1407.6f },
+        { "Venus", 0.4752f, 79.53f, 224.7f, 0.9f, 0.7f, 0.4f, "resources/textures/venus.jpg", -5832.5f },
+        { "Earth", 0.5000f, 110.00f, 365.25f, 0.2f, 0.5f, 0.9f, "resources/textures/earth.jpg", 23.93f },
+        { "Mars", 0.2661f, 167.64f, 687.0f, 0.8f, 0.3f, 0.2f, "resources/textures/mars.jpg", 24.62f },
+        { "Jupiter", 5.4870f, 572.33f, 4331.0f, 0.8f, 0.6f, 0.4f, "resources/textures/jupiter.jpg", 9.93f },
+        { "Saturn", 4.5720f, 1049.07f, 10747.0f, 0.9f, 0.8f, 0.6f, "resources/textures/saturn.jpg", 10.66f },
+        { "Uranus", 1.9910f, 2111.01f, 30589.0f, 0.5f, 0.8f, 0.9f, "resources/textures/uranus.jpg", -17.24f },
+        { "Neptune", 1.9330f, 3307.59f, 59800.0f, 0.3f, 0.4f, 0.9f, "resources/textures/neptune.jpg", 16.11f }
     };
 }
 
@@ -39,6 +39,6 @@ void SolarSystem::BuildFromRecords(const std::vector<PlanetRecord>& records)
 {
     for (const PlanetRecord& record : records)
     {
-        m_Planets.emplace_back(record.name, record.radius, record.distanceFromSun, record.orbitalPeriod, glm::vec3(record.colorR, record.colorG, record.colorB));
+        m_Planets.emplace_back(record.name, record.radius, record.distanceFromSun, record.orbitalPeriod, glm::vec3(record.colorR, record.colorG, record.colorB), record.texturePath, record.rotationPeriodHours);
     }
 }

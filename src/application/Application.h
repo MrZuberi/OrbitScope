@@ -1,12 +1,16 @@
 #pragma once
 
+#include <atomic>
 #include <memory>
+#include <mutex>
 #include <string>
+#include <thread>
 #include <vector>
 
 #include "rendering/Renderer.h"
 #include "rendering/Camera.h"
 #include "rendering/ImGuiLayer.h"
+#include "rendering/Texture.h"
 #include "models/SolarSystem.h"
 #include "models/Planet.h"
 #include "models/AsteroidRecord.h"
@@ -33,11 +37,16 @@ private:
     void PrintControls();
     void SaveCurrentConfig();
     void LoadNamedConfig();
-    void LoadAsteroidData();
-    void RenderAsteroidMarkers(float elapsedDays);
+    void LoadPlanetTextures();
+    void EnableAsteroids();
+    void AsteroidLoadWorker();
+    void PollAsteroidLoad();
+    void DrawPlanetWithRing(const Planet& planet, float elapsedDays, size_t planetIndex);
+    void RenderAsteroidMarkers(float elapsedDays, double currentJulianDate);
     void RenderUI();
+    float ComputeEffectiveRadius(const Planet& planet) const;
     const Planet* FindPlanetByName(const std::string& name) const;
-    glm::mat4 GetActiveViewMatrix(float elapsedDays);
+    glm::mat4 GetActiveViewMatrix(float elapsedDays, double currentJulianDate);
 
     static void MouseCallback(GLFWwindow* window, double xPos, double yPos);
     static void ScrollCallback(GLFWwindow* window, double xOffset, double yOffset);
@@ -54,6 +63,15 @@ private:
     std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
     std::vector<AsteroidRecord> m_Asteroids;
     AsteroidListState m_AsteroidListState;
+    std::vector<std::unique_ptr<Texture>> m_PlanetTextures;
+    std::unique_ptr<Texture> m_SaturnRingTexture;
+
+    std::thread m_AsteroidLoadThread;
+    std::atomic<bool> m_AsteroidLoadInProgress;
+    std::atomic<bool> m_AsteroidLoadComplete;
+    std::mutex m_AsteroidStagingMutex;
+    std::vector<AsteroidRecord> m_StagedAsteroids;
+    std::vector<std::string> m_StagedPlanetNames;
 
     float m_LastFrameTime;
     float m_LastMouseX;
@@ -63,7 +81,11 @@ private:
     int m_ViewportHeight;
 
     bool m_ShowOrbitLines;
-    bool m_VisualScaleMode;
+    bool m_TrueScaleMode;
     int m_SelectedPlanetIndex;
     bool m_FocusMode;
+    bool m_PlanetFocusActive;
+    bool m_AsteroidsEnabled;
+    bool m_AsteroidsLoaded;
+    bool m_CursorLocked;
 };

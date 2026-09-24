@@ -1,23 +1,37 @@
 CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  D:\PROJECTSFIXING\OrbitScope\src\application\Application.cpp \
  D:/PROJECTSFIXING/OrbitScope/src/application/Application.h \
- C:/devtools/mingw64/include/c++/16.2.0/memory \
- C:/devtools/mingw64/include/c++/16.2.0/bits/memoryfwd.h \
+ C:/devtools/mingw64/include/c++/16.2.0/atomic \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/version.h \
  C:/devtools/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/c++config.h \
  C:/devtools/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/os_defines.h \
  C:/devtools/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
  C:/devtools/mingw64/include/c++/16.2.0/pstl/pstl_config.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/version.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/allocator.h \
- C:/devtools/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/new_allocator.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/atomic_base.h \
  C:/devtools/mingw64/include/c++/16.2.0/new \
  C:/devtools/mingw64/include/c++/16.2.0/bits/exception.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/new_except.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/exception_defines.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/new_throw.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/atomic_lockfree_defines.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/move.h \
  C:/devtools/mingw64/include/c++/16.2.0/type_traits \
+ C:/devtools/mingw64/include/c++/16.2.0/cstdint \
+ C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/stdint.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/stdint.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+ C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/stddef.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/stddef.h \
+ C:/devtools/mingw64/include/c++/16.2.0/memory \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/memoryfwd.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/allocator.h \
+ C:/devtools/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/new_allocator.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/new_throw.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/stl_tempbuf.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/stl_construct.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/stl_iterator_base_types.h \
@@ -56,16 +70,8 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/include/c++/16.2.0/bits/postypes.h \
  C:/devtools/mingw64/include/c++/16.2.0/cwchar \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/wchar.h \
- C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt.h \
- C:/devtools/mingw64/x86_64-w64-mingw32/include/_mingw.h \
- C:/devtools/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
- C:/devtools/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
- C:/devtools/mingw64/x86_64-w64-mingw32/include/vadefs.h \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt_wconio.h \
- C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/stddef.h \
- C:/devtools/mingw64/x86_64-w64-mingw32/include/stddef.h \
- C:/devtools/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/sec_api/wconio_s.h \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt_wctype.h \
@@ -106,11 +112,20 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/include/c++/16.2.0/bits/cxxabi_init_exception.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/nested_exception.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/shared_ptr_atomic.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/atomic_base.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/atomic_lockfree_defines.h \
  C:/devtools/mingw64/include/c++/16.2.0/backward/auto_ptr.h \
  C:/devtools/mingw64/include/c++/16.2.0/pstl/glue_memory_defs.h \
  C:/devtools/mingw64/include/c++/16.2.0/pstl/execution_defs.h \
+ C:/devtools/mingw64/include/c++/16.2.0/mutex \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/chrono.h \
+ C:/devtools/mingw64/include/c++/16.2.0/ratio \
+ C:/devtools/mingw64/include/c++/16.2.0/limits \
+ C:/devtools/mingw64/include/c++/16.2.0/ctime \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/parse_numbers.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/functexcept.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/std_mutex.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/unique_lock.h \
+ C:/devtools/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/error_constants.h \
+ C:/devtools/mingw64/include/c++/16.2.0/cerrno \
  C:/devtools/mingw64/include/c++/16.2.0/string \
  C:/devtools/mingw64/include/c++/16.2.0/bits/char_traits.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/localefwd.h \
@@ -140,12 +155,14 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/mm_malloc.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/std_abs.h \
  C:/devtools/mingw64/include/c++/16.2.0/cstdio \
- C:/devtools/mingw64/include/c++/16.2.0/cerrno \
  C:/devtools/mingw64/include/c++/16.2.0/bits/charconv.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/basic_string.tcc \
  C:/devtools/mingw64/include/c++/16.2.0/bits/memory_resource.h \
  C:/devtools/mingw64/include/c++/16.2.0/cstddef \
  C:/devtools/mingw64/include/c++/16.2.0/bits/uses_allocator_args.h \
+ C:/devtools/mingw64/include/c++/16.2.0/thread \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/std_thread.h \
+ C:/devtools/mingw64/include/c++/16.2.0/bits/this_thread_sleep.h \
  C:/devtools/mingw64/include/c++/16.2.0/vector \
  C:/devtools/mingw64/include/c++/16.2.0/bits/stl_vector.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/stl_bvector.h \
@@ -156,7 +173,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/include/c++/16.2.0/cmath \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/math.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/specfun.h \
- C:/devtools/mingw64/include/c++/16.2.0/limits \
  C:/devtools/mingw64/include/c++/16.2.0/tr1/gamma.tcc \
  C:/devtools/mingw64/include/c++/16.2.0/tr1/special_function_util.h \
  C:/devtools/mingw64/include/c++/16.2.0/tr1/bessel_function.tcc \
@@ -173,9 +189,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/include/c++/16.2.0/cassert \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/assert.h \
  D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/simd/platform.h \
- C:/devtools/mingw64/include/c++/16.2.0/cstdint \
- C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/stdint.h \
- C:/devtools/mingw64/x86_64-w64-mingw32/include/stdint.h \
  C:/devtools/mingw64/include/c++/16.2.0/climits \
  C:/devtools/mingw64/include/c++/16.2.0/cfloat \
  C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/float.h \
@@ -313,12 +326,13 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/detail/func_integer.inl \
  D:/PROJECTSFIXING/OrbitScope/src/rendering/Shader.h \
  D:/PROJECTSFIXING/OrbitScope/src/rendering/Camera.h \
- D:/PROJECTSFIXING/OrbitScope/src/rendering/TextRenderer.h \
- D:/PROJECTSFIXING/OrbitScope/external/stb/stb_truetype.h \
+ D:/PROJECTSFIXING/OrbitScope/src/rendering/ImGuiLayer.h \
+ D:/PROJECTSFIXING/OrbitScope/src/rendering/Texture.h \
  D:/PROJECTSFIXING/OrbitScope/src/models/SolarSystem.h \
  D:/PROJECTSFIXING/OrbitScope/src/models/Planet.h \
  D:/PROJECTSFIXING/OrbitScope/src/models/PlanetRecord.h \
  D:/PROJECTSFIXING/OrbitScope/src/models/AsteroidRecord.h \
+ D:/PROJECTSFIXING/OrbitScope/src/models/AsteroidOrbitalElements.h \
  D:/PROJECTSFIXING/OrbitScope/src/simulation/Simulation.h \
  D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidListState.h \
  D:/PROJECTSFIXING/OrbitScope/src/data/MongoEnvironment.h \
@@ -339,7 +353,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/instance-fwd.hpp \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/logger-fwd.hpp \
  C:/devtools/mingw64/include/c++/16.2.0/system_error \
- C:/devtools/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/error_constants.h \
  C:/devtools/mingw64/include/c++/16.2.0/stdexcept \
  C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_except.h \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/logger-fwd.hpp \
@@ -382,7 +395,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/include/c++/16.2.0/pstl/glue_algorithm_defs.h \
  C:/devtools/mingw64/include/c++/16.2.0/functional \
  C:/devtools/mingw64/include/c++/16.2.0/bits/std_function.h \
- C:/devtools/mingw64/include/c++/16.2.0/bits/functexcept.h \
  C:/devtools/mingw64/include/c++/16.2.0/unordered_map \
  C:/devtools/mingw64/include/c++/16.2.0/bits/unordered_map.h \
  C:/devtools/mingw64/include/c++/16.2.0/bits/hashtable.h \
@@ -453,12 +465,8 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/types/view.hpp \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/decimal128.hpp \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/oid.hpp \
- C:/devtools/mingw64/include/c++/16.2.0/ctime \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/types/id.hpp \
  C:/devtools/mingw64/include/c++/16.2.0/chrono \
- C:/devtools/mingw64/include/c++/16.2.0/bits/chrono.h \
- C:/devtools/mingw64/include/c++/16.2.0/ratio \
- C:/devtools/mingw64/include/c++/16.2.0/bits/parse_numbers.h \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/client_session.hpp \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/client_session-fwd.hpp \
  D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/transaction_options-fwd.hpp \
@@ -799,9 +807,15 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_transform.hpp \
  D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/ext/matrix_transform.inl \
  D:/PROJECTSFIXING/OrbitScope/build/_deps/glm-src/glm/gtc/matrix_transform.inl \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/imgui-src/imgui.h \
+ D:/PROJECTSFIXING/OrbitScope/build/_deps/imgui-src/imconfig.h \
+ C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/stdarg.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/stdarg.h \
+ C:/devtools/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
  D:/PROJECTSFIXING/OrbitScope/src/data/PlanetRepository.h \
  D:/PROJECTSFIXING/OrbitScope/src/data/ConfigRepository.h \
  D:/PROJECTSFIXING/OrbitScope/src/simulation/SimulationConfig.h \
- D:/PROJECTSFIXING/OrbitScope/src/data/NASAClient.h \
  D:/PROJECTSFIXING/OrbitScope/src/data/AsteroidClient.h \
- D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidPositioner.h
+ D:/PROJECTSFIXING/OrbitScope/src/data/SBDBClient.h \
+ D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidPositioner.h \
+ D:/PROJECTSFIXING/OrbitScope/src/simulation/KeplerOrbitCalculator.h

@@ -7,6 +7,6 @@ struct SimulationConfig
     std::string name;
     float speed;
     bool orbitLinesEnabled;
-    bool visualScaleMode;
+    bool trueScaleMode;
     std::string selectedPlanet;
 };

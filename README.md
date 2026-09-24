@@ -78,22 +78,24 @@ Press K at any time to save your current simulation speed, orbit line visibility
 
 | Key | Action |
 |---|---|
-| W A S D | Move camera |
+| W A S D | Fly the camera |
 | Left Shift | Sprint |
 | Mouse | Look around |
 | Scroll | Zoom |
-| Space | Pause / resume |
+| Left Alt | Unlock the mouse cursor to click on-screen buttons |
+| Space | Pause / resume time |
 | + / - | Increase / decrease speed |
 | R | Reset simulation |
-| O | Toggle orbit lines |
-| V | Toggle visual scale mode |
-| 0-8 | Select Sun / a planet |
-| K | Save configuration |
-| L | Load configuration |
-| Up / Down | Move asteroid list selection |
-| Tab | Cycle asteroid planet filter |
-| Enter | Focus camera on selected asteroid |
-| Backspace | Exit focus mode |
+| O | Toggle orbit paths (off by default) |
+| V | Toggle easy-to-see vs true astronomical scale |
+| 0-8 | Zoom the camera onto a single planet, hiding everything else |
+| Backspace | Return to the full solar system view |
+| K | Save your current view |
+| L | Load your saved view |
+| Left Alt then click "View Asteroids", or T | Turn on live asteroid tracking |
+| Up / Down | Browse the asteroid list |
+| Tab | Switch the asteroid planet filter |
+| Enter | Fly to the selected asteroid |
 | H | Print controls to console |
 | Escape | Quit |
 

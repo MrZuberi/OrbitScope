@@ -26,7 +26,7 @@ bool ConfigRepository::SaveConfig(const SimulationConfig& config)
         kvp("name", config.name),
         kvp("speed", static_cast<double>(config.speed)),
         kvp("orbitLinesEnabled", config.orbitLinesEnabled),
-        kvp("visualScaleMode", config.visualScaleMode),
+        kvp("trueScaleMode", config.trueScaleMode),
         kvp("selectedPlanet", config.selectedPlanet)
     ));
 
@@ -44,20 +44,28 @@ bool ConfigRepository::LoadConfig(const std::string& name, SimulationConfig& out
     for (const bsoncxx::document::value& document : documents)
     {
         bsoncxx::document::view view = document.view();
-        std::string documentName = std::string(view["name"].get_string().value);
 
-        if (documentName != name)
+        try
+        {
+            std::string documentName = std::string(view["name"].get_string().value);
+
+            if (documentName != name)
+            {
+                continue;
+            }
+
+            outConfig.name = documentName;
+            outConfig.speed = static_cast<float>(view["speed"].get_double().value);
+            outConfig.orbitLinesEnabled = view["orbitLinesEnabled"].get_bool().value;
+            outConfig.trueScaleMode = view["trueScaleMode"].get_bool().value;
+            outConfig.selectedPlanet = std::string(view["selectedPlanet"].get_string().value);
+
+            return true;
+        }
+        catch (...)
         {
             continue;
         }
-
-        outConfig.name = documentName;
-        outConfig.speed = static_cast<float>(view["speed"].get_double().value);
-        outConfig.orbitLinesEnabled = view["orbitLinesEnabled"].get_bool().value;
-        outConfig.visualScaleMode = view["visualScaleMode"].get_bool().value;
-        outConfig.selectedPlanet = std::string(view["selectedPlanet"].get_string().value);
-
-        return true;
     }
 
     return false;

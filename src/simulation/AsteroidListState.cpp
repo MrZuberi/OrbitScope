@@ -5,38 +5,26 @@ AsteroidListState::AsteroidListState()
     : m_FilterIndex(0)
     , m_SelectedIndex(-1)
 {
-    m_FilterOptions.push_back("All");
 }
 
 void AsteroidListState::SetSource(const std::vector<AsteroidRecord>& asteroids, const std::vector<std::string>& planetNames)
 {
     m_AllAsteroids = asteroids;
-
-    m_FilterOptions.clear();
-    m_FilterOptions.push_back("All");
-
-    for (const std::string& name : planetNames)
-    {
-        m_FilterOptions.push_back(name);
-    }
-
+    m_FilterOptions = planetNames;
     m_FilterIndex = 0;
     Rebuild();
 }
 
 void AsteroidListState::Rebuild()
 {
-    const std::string& currentFilter = m_FilterOptions[m_FilterIndex];
-
-    if (currentFilter == "All")
+    if (m_FilterOptions.empty())
     {
-        m_VisibleAsteroids = m_AllAsteroids;
-    }
-    else
-    {
-        m_VisibleAsteroids = AsteroidFilter::ByPlanet(m_AllAsteroids, currentFilter);
+        m_VisibleAsteroids.clear();
+        m_SelectedIndex = -1;
+        return;
     }
 
+    m_VisibleAsteroids = AsteroidFilter::ByPlanet(m_AllAsteroids, m_FilterOptions[m_FilterIndex]);
     m_SelectedIndex = m_VisibleAsteroids.empty() ? -1 : 0;
 }
 
@@ -64,6 +52,11 @@ void AsteroidListState::MoveSelectionDown()
 
 void AsteroidListState::CycleFilter()
 {
+    if (m_FilterOptions.empty())
+    {
+        return;
+    }
+
     m_FilterIndex = (m_FilterIndex + 1) % static_cast<int>(m_FilterOptions.size());
     Rebuild();
 }
@@ -90,5 +83,6 @@ const AsteroidRecord& AsteroidListState::GetSelected() const
 
 const std::string& AsteroidListState::GetCurrentFilter() const
 {
-    return m_FilterOptions[m_FilterIndex];
+    static const std::string empty;
+    return m_FilterOptions.empty() ? empty : m_FilterOptions[m_FilterIndex];
 }

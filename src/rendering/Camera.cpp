@@ -10,8 +10,8 @@ namespace
 {
     const float DefaultYaw = -90.0f;
     const float DefaultPitch = 0.0f;
-    const float DefaultSpeed = 12.0f;
-    const float SprintMultiplier = 2.5f;
+    const float DefaultSpeed = 55.0f;
+    const float SprintMultiplier = 22.0f;
     const float DefaultSensitivity = 0.1f;
     const float DefaultFov = 45.0f;
     const float MinFov = 5.0f;
@@ -81,6 +81,11 @@ void Camera::ProcessScroll(float yOffset)
 glm::mat4 Camera::GetViewMatrix() const
 {
     return glm::lookAt(m_Position, m_Position + m_Front, m_Up);
+}
+
+glm::vec3 Camera::GetPosition() const
+{
+    return m_Position;
 }
 
 float Camera::GetFieldOfView() const

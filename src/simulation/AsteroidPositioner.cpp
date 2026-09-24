@@ -6,8 +6,8 @@
 namespace
 {
     const float Pi = 3.14159265358979323846f;
-    const float CloseUpBaseOffset = 3.0f;
-    const float CloseUpScaleFactor = 400.0f;
+    const float CloseUpBaseOffset = 46.0f;
+    const float CloseUpScaleFactor = 6270.0f;
 }
 
 glm::vec3 AsteroidPositioner::CalculateMarkerPosition(const glm::vec3& planetPosition, const std::string& designation, float markerOffset)

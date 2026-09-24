@@ -3,12 +3,22 @@
 #include <bsoncxx/builder/basic/document.hpp>
 #include <bsoncxx/builder/basic/kvp.hpp>
 
+#include <algorithm>
+#include <cctype>
+
 using bsoncxx::builder::basic::kvp;
 using bsoncxx::builder::basic::make_document;
 
 namespace
 {
     const std::string PlanetsCollection = "planets";
+
+    std::string ToLowerCase(const std::string& input)
+    {
+        std::string result = input;
+        std::transform(result.begin(), result.end(), result.begin(), [](unsigned char character) { return std::tolower(character); });
+        return result;
+    }
 }
 
 PlanetRepository::PlanetRepository(MongoRepository& mongoRepository)
@@ -30,16 +40,25 @@ bool PlanetRepository::LoadPlanets(std::vector<PlanetRecord>& outPlanets)
     {
         bsoncxx::document::view view = document.view();
 
-        PlanetRecord record;
-        record.name = std::string(view["name"].get_string().value);
-        record.radius = static_cast<float>(view["radius"].get_double().value);
-        record.distanceFromSun = static_cast<float>(view["distanceFromSun"].get_double().value);
-        record.orbitalPeriod = static_cast<float>(view["orbitalPeriod"].get_double().value);
-        record.colorR = static_cast<float>(view["colorR"].get_double().value);
-        record.colorG = static_cast<float>(view["colorG"].get_double().value);
-        record.colorB = static_cast<float>(view["colorB"].get_double().value);
+        try
+        {
+            PlanetRecord record;
+            record.name = std::string(view["name"].get_string().value);
+            record.radius = static_cast<float>(view["radius"].get_double().value);
+            record.distanceFromSun = static_cast<float>(view["distanceFromSun"].get_double().value);
+            record.orbitalPeriod = static_cast<float>(view["orbitalPeriod"].get_double().value);
+            record.colorR = static_cast<float>(view["colorR"].get_double().value);
+            record.colorG = static_cast<float>(view["colorG"].get_double().value);
+            record.colorB = static_cast<float>(view["colorB"].get_double().value);
+            record.texturePath = view.find("texturePath") != view.end() ? std::string(view["texturePath"].get_string().value) : ("resources/textures/" + ToLowerCase(record.name) + ".jpg");
+            record.rotationPeriodHours = view.find("rotationPeriodHours") != view.end() ? static_cast<float>(view["rotationPeriodHours"].get_double().value) : 24.0f;
 
-        outPlanets.push_back(record);
+            outPlanets.push_back(record);
+        }
+        catch (...)
+        {
+            continue;
+        }
     }
 
     return !outPlanets.empty();
@@ -58,7 +77,9 @@ bool PlanetRepository::SeedPlanets(const std::vector<PlanetRecord>& planets)
             kvp("orbitalPeriod", static_cast<double>(record.orbitalPeriod)),
             kvp("colorR", static_cast<double>(record.colorR)),
             kvp("colorG", static_cast<double>(record.colorG)),
-            kvp("colorB", static_cast<double>(record.colorB))
+            kvp("colorB", static_cast<double>(record.colorB)),
+            kvp("texturePath", record.texturePath),
+            kvp("rotationPeriodHours", static_cast<double>(record.rotationPeriodHours))
         ));
     }
 

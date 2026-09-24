@@ -11,14 +11,17 @@ ImGuiLayer::ImGuiLayer(GLFWwindow* window)
 
     ImGui::StyleColorsDark();
 
-    ImGuiStyle& style = ImGui::GetStyle();
-    style.WindowRounding = 6.0f;
-    style.FrameRounding = 4.0f;
-    style.WindowBorderSize = 0.0f;
-    style.WindowPadding = ImVec2(12.0f, 12.0f);
-    style.ItemSpacing = ImVec2(8.0f, 6.0f);
+    ImGuiIO& io = ImGui::GetIO();
+    io.FontGlobalScale = 1.15f;
 
-    ImGui_ImplGlfw_InitForOpenGL(window, false);
+    ImGuiStyle& style = ImGui::GetStyle();
+    style.WindowRounding = 8.0f;
+    style.FrameRounding = 5.0f;
+    style.WindowBorderSize = 0.0f;
+    style.WindowPadding = ImVec2(14.0f, 14.0f);
+    style.ItemSpacing = ImVec2(8.0f, 8.0f);
+
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 330 core");
 }
 

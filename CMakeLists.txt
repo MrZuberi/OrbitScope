@@ -4,6 +4,8 @@ project(OrbitScope CXX C)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+find_package(Threads REQUIRED)
+
 include(FetchContent)
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -64,6 +66,8 @@ add_executable(OrbitScope
     src/rendering/Shader.cpp
     src/rendering/Camera.cpp
     src/rendering/ImGuiLayer.cpp
+    src/rendering/Texture.cpp
+    src/rendering/StbImageImpl.cpp
     src/models/Planet.cpp
     src/models/SolarSystem.cpp
     src/simulation/Simulation.cpp
@@ -71,18 +75,19 @@ add_executable(OrbitScope
     src/simulation/AsteroidFilter.cpp
     src/simulation/AsteroidPositioner.cpp
     src/simulation/AsteroidListState.cpp
+    src/simulation/KeplerOrbitCalculator.cpp
     src/data/Http.cpp
     src/data/MongoEnvironment.cpp
     src/data/MongoRepository.cpp
     src/data/PlanetRepository.cpp
     src/data/ConfigRepository.cpp
-    src/data/NASAClient.cpp
     src/data/AsteroidClient.cpp
+    src/data/SBDBClient.cpp
 )
 
-target_include_directories(OrbitScope PRIVATE src)
+target_include_directories(OrbitScope PRIVATE src external/stb)
 
-target_link_libraries(OrbitScope PRIVATE glfw glad glm::glm nlohmann_json::nlohmann_json imgui)
+target_link_libraries(OrbitScope PRIVATE glfw glad glm::glm nlohmann_json::nlohmann_json imgui Threads::Threads)
 target_link_libraries(OrbitScope PRIVATE $<IF:$<TARGET_EXISTS:mongo::bsoncxx_static>,mongo::bsoncxx_static,mongo::bsoncxx_shared>)
 target_link_libraries(OrbitScope PRIVATE $<IF:$<TARGET_EXISTS:mongo::mongocxx_static>,mongo::mongocxx_static,mongo::mongocxx_shared>)
 

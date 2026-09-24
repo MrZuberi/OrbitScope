@@ -14,6 +14,7 @@ public:
     void ProcessScroll(float yOffset);
 
     glm::mat4 GetViewMatrix() const;
+    glm::vec3 GetPosition() const;
     float GetFieldOfView() const;
 
 private:
