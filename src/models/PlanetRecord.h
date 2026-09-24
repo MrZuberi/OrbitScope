@@ -7,6 +7,7 @@ struct PlanetRecord
     std::string name;
     float radius;
     float distanceFromSun;
+    float realDistanceAu;
     float orbitalPeriod;
     float colorR;
     float colorG;

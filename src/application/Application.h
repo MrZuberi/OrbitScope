@@ -33,7 +33,6 @@ private:
     bool Initialize();
     void Shutdown();
     void ProcessFrame();
-    void PrintSelectedPlanetInfo();
     void PrintControls();
     void SaveCurrentConfig();
     void LoadNamedConfig();
@@ -41,12 +40,11 @@ private:
     void EnableAsteroids();
     void AsteroidLoadWorker();
     void PollAsteroidLoad();
-    void DrawPlanetWithRing(const Planet& planet, float elapsedDays, size_t planetIndex);
+    void RecenterCamera(float elapsedDays, double currentJulianDate);
+    void DrawPlanetWithRing(const Planet& planet, const glm::vec3& position, float elapsedDays, size_t planetIndex);
     void RenderAsteroidMarkers(float elapsedDays, double currentJulianDate);
     void RenderUI();
-    float ComputeEffectiveRadius(const Planet& planet) const;
     const Planet* FindPlanetByName(const std::string& name) const;
-    glm::mat4 GetActiveViewMatrix(float elapsedDays, double currentJulianDate);
 
     static void MouseCallback(GLFWwindow* window, double xPos, double yPos);
     static void ScrollCallback(GLFWwindow* window, double xOffset, double yOffset);
@@ -65,6 +63,7 @@ private:
     AsteroidListState m_AsteroidListState;
     std::vector<std::unique_ptr<Texture>> m_PlanetTextures;
     std::unique_ptr<Texture> m_SaturnRingTexture;
+    std::unique_ptr<Texture> m_AsteroidTexture;
 
     std::thread m_AsteroidLoadThread;
     std::atomic<bool> m_AsteroidLoadInProgress;
@@ -81,11 +80,9 @@ private:
     int m_ViewportHeight;
 
     bool m_ShowOrbitLines;
-    bool m_TrueScaleMode;
-    int m_SelectedPlanetIndex;
-    bool m_FocusMode;
-    bool m_PlanetFocusActive;
     bool m_AsteroidsEnabled;
     bool m_AsteroidsLoaded;
+    bool m_ViewingAsteroid;
+    bool m_NeedsRecenter;
     bool m_CursorLocked;
 };

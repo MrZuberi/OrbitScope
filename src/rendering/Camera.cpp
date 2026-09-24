@@ -5,13 +5,14 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <algorithm>
+#include <cmath>
 
 namespace
 {
     const float DefaultYaw = -90.0f;
     const float DefaultPitch = 0.0f;
-    const float DefaultSpeed = 55.0f;
-    const float SprintMultiplier = 22.0f;
+    const float DefaultSpeed = 18.0f;
+    const float SprintMultiplier = 8.0f;
     const float DefaultSensitivity = 0.1f;
     const float DefaultFov = 45.0f;
     const float MinFov = 5.0f;
@@ -76,6 +77,18 @@ void Camera::ProcessScroll(float yOffset)
 {
     m_FieldOfView -= yOffset;
     m_FieldOfView = std::clamp(m_FieldOfView, MinFov, MaxFov);
+}
+
+void Camera::SetPositionAndTarget(const glm::vec3& position, const glm::vec3& target)
+{
+    m_Position = position;
+
+    glm::vec3 direction = glm::normalize(target - position);
+
+    m_Pitch = glm::degrees(asinf(direction.y));
+    m_Yaw = glm::degrees(atan2f(direction.z, direction.x));
+
+    UpdateVectors();
 }
 
 glm::mat4 Camera::GetViewMatrix() const

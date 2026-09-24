@@ -12,6 +12,7 @@ public:
     void ProcessKeyboard(GLFWwindow* window, float deltaTime);
     void ProcessMouseMovement(float xOffset, float yOffset);
     void ProcessScroll(float yOffset);
+    void SetPositionAndTarget(const glm::vec3& position, const glm::vec3& target);
 
     glm::mat4 GetViewMatrix() const;
     glm::vec3 GetPosition() const;

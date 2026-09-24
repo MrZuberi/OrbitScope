@@ -4,6 +4,7 @@
 CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/application/Application.cpp \
   C:/devtools/mingw64/include/c++/16.2.0/algorithm \
   C:/devtools/mingw64/include/c++/16.2.0/array \
+  C:/devtools/mingw64/include/c++/16.2.0/atomic \
   C:/devtools/mingw64/include/c++/16.2.0/backward/auto_ptr.h \
   C:/devtools/mingw64/include/c++/16.2.0/backward/binders.h \
   C:/devtools/mingw64/include/c++/16.2.0/bit \
@@ -69,6 +70,8 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: D:/PROJECTSFIXING
   C:/devtools/mingw64/include/c++/16.2.0/bits/specfun.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/std_abs.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/std_function.h \
+  C:/devtools/mingw64/include/c++/16.2.0/bits/std_mutex.h \
+  C:/devtools/mingw64/include/c++/16.2.0/bits/std_thread.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_except.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_throw.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_throwfwd.h \
@@ -96,7 +99,9 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: D:/PROJECTSFIXING
   C:/devtools/mingw64/include/c++/16.2.0/bits/streambuf_iterator.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/string_view.tcc \
   C:/devtools/mingw64/include/c++/16.2.0/bits/stringfwd.h \
+  C:/devtools/mingw64/include/c++/16.2.0/bits/this_thread_sleep.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/uniform_int_dist.h \
+  C:/devtools/mingw64/include/c++/16.2.0/bits/unique_lock.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/unique_ptr.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/unordered_map.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/uses_allocator.h \
@@ -143,6 +148,7 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: D:/PROJECTSFIXING
   C:/devtools/mingw64/include/c++/16.2.0/list \
   C:/devtools/mingw64/include/c++/16.2.0/map \
   C:/devtools/mingw64/include/c++/16.2.0/memory \
+  C:/devtools/mingw64/include/c++/16.2.0/mutex \
   C:/devtools/mingw64/include/c++/16.2.0/new \
   C:/devtools/mingw64/include/c++/16.2.0/ostream \
   C:/devtools/mingw64/include/c++/16.2.0/pstl/execution_defs.h \
@@ -156,6 +162,7 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: D:/PROJECTSFIXING
   C:/devtools/mingw64/include/c++/16.2.0/string \
   C:/devtools/mingw64/include/c++/16.2.0/string_view \
   C:/devtools/mingw64/include/c++/16.2.0/system_error \
+  C:/devtools/mingw64/include/c++/16.2.0/thread \
   C:/devtools/mingw64/include/c++/16.2.0/tr1/bessel_function.tcc \
   C:/devtools/mingw64/include/c++/16.2.0/tr1/beta_function.tcc \
   C:/devtools/mingw64/include/c++/16.2.0/tr1/ell_integral.tcc \
@@ -396,7 +403,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: D:/PROJECTSFIXING
   D:/PROJECTSFIXING/OrbitScope/src/data/ConfigRepository.h \
   D:/PROJECTSFIXING/OrbitScope/src/data/MongoEnvironment.h \
   D:/PROJECTSFIXING/OrbitScope/src/data/MongoRepository.h \
-  D:/PROJECTSFIXING/OrbitScope/src/data/NASAClient.h \
   D:/PROJECTSFIXING/OrbitScope/src/data/PlanetRepository.h \
   D:/PROJECTSFIXING/OrbitScope/src/data/SBDBClient.h \
   D:/PROJECTSFIXING/OrbitScope/src/models/AsteroidOrbitalElements.h \
@@ -3963,6 +3969,7 @@ CMakeFiles/OrbitScope.dir/src/data/SBDBClient.cpp.obj: D:/PROJECTSFIXING/OrbitSc
 CMakeFiles/OrbitScope.dir/src/main.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/main.cpp \
   C:/devtools/mingw64/include/c++/16.2.0/algorithm \
   C:/devtools/mingw64/include/c++/16.2.0/array \
+  C:/devtools/mingw64/include/c++/16.2.0/atomic \
   C:/devtools/mingw64/include/c++/16.2.0/backward/auto_ptr.h \
   C:/devtools/mingw64/include/c++/16.2.0/backward/binders.h \
   C:/devtools/mingw64/include/c++/16.2.0/bit \
@@ -4028,6 +4035,8 @@ CMakeFiles/OrbitScope.dir/src/main.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/mai
   C:/devtools/mingw64/include/c++/16.2.0/bits/specfun.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/std_abs.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/std_function.h \
+  C:/devtools/mingw64/include/c++/16.2.0/bits/std_mutex.h \
+  C:/devtools/mingw64/include/c++/16.2.0/bits/std_thread.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_except.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_throw.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/stdexcept_throwfwd.h \
@@ -4055,7 +4064,9 @@ CMakeFiles/OrbitScope.dir/src/main.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/mai
   C:/devtools/mingw64/include/c++/16.2.0/bits/streambuf_iterator.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/string_view.tcc \
   C:/devtools/mingw64/include/c++/16.2.0/bits/stringfwd.h \
+  C:/devtools/mingw64/include/c++/16.2.0/bits/this_thread_sleep.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/uniform_int_dist.h \
+  C:/devtools/mingw64/include/c++/16.2.0/bits/unique_lock.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/unique_ptr.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/unordered_map.h \
   C:/devtools/mingw64/include/c++/16.2.0/bits/uses_allocator.h \
@@ -4102,6 +4113,7 @@ CMakeFiles/OrbitScope.dir/src/main.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/mai
   C:/devtools/mingw64/include/c++/16.2.0/list \
   C:/devtools/mingw64/include/c++/16.2.0/map \
   C:/devtools/mingw64/include/c++/16.2.0/memory \
+  C:/devtools/mingw64/include/c++/16.2.0/mutex \
   C:/devtools/mingw64/include/c++/16.2.0/new \
   C:/devtools/mingw64/include/c++/16.2.0/ostream \
   C:/devtools/mingw64/include/c++/16.2.0/pstl/execution_defs.h \
@@ -4115,6 +4127,7 @@ CMakeFiles/OrbitScope.dir/src/main.cpp.obj: D:/PROJECTSFIXING/OrbitScope/src/mai
   C:/devtools/mingw64/include/c++/16.2.0/string \
   C:/devtools/mingw64/include/c++/16.2.0/string_view \
   C:/devtools/mingw64/include/c++/16.2.0/system_error \
+  C:/devtools/mingw64/include/c++/16.2.0/thread \
   C:/devtools/mingw64/include/c++/16.2.0/tr1/bessel_function.tcc \
   C:/devtools/mingw64/include/c++/16.2.0/tr1/beta_function.tcc \
   C:/devtools/mingw64/include/c++/16.2.0/tr1/ell_integral.tcc \
@@ -7896,13 +7909,17 @@ C:/devtools/mingw64/include/c++/16.2.0/backward/binders.h:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/hint.hpp:
 
+C:/devtools/mingw64/include/c++/16.2.0/atomic:
+
+C:/devtools/mingw64/x86_64-w64-mingw32/include/winscard.h:
+
+D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/array/view.hpp:
+
 C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/avx10_2mediaintrin.h:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/stl_list.h:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/memory_resource.h:
-
-C:/devtools/mingw64/x86_64-w64-mingw32/include/concurrencysal.h:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/array/value.hpp:
 
@@ -8038,6 +8055,8 @@ C:/devtools/mingw64/include/c++/16.2.0/bits/enable_special_members.h:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/ostream.h:
 
+C:/devtools/mingw64/include/c++/16.2.0/thread:
+
 C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/emmintrin.h:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/hash_bytes.h:
@@ -8054,15 +8073,7 @@ _deps/glm-src/glm/ext/matrix_projection.hpp:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/exception_defines.h:
 
-D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/config/version.hpp:
-
-C:/devtools/mingw64/x86_64-w64-mingw32/include/realtimeapiset.h:
-
-C:/devtools/mingw64/include/c++/16.2.0/bits/shared_ptr_atomic.h:
-
 C:/devtools/mingw64/include/c++/16.2.0/bits/exception_ptr.h:
-
-D:/PROJECTSFIXING/OrbitScope/src/data/NASAClient.h:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/search_index_view-fwd.hpp:
 
@@ -8144,9 +8155,9 @@ C:/devtools/mingw64/include/c++/16.2.0/version:
 
 C:/devtools/mingw64/x86_64-w64-mingw32/include/timeapi.h:
 
-C:/devtools/mingw64/include/c++/16.2.0/bits/shared_ptr.h:
-
 C:/devtools/mingw64/x86_64-w64-mingw32/include/consoleapi2.h:
+
+C:/devtools/mingw64/include/c++/16.2.0/bits/shared_ptr.h:
 
 C:/devtools/mingw64/x86_64-w64-mingw32/include/sched.h:
 
@@ -8161,6 +8172,12 @@ D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mon
 _deps/glm-src/glm/detail/type_mat2x3.inl:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/requires_hosted.h:
+
+D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/config/version.hpp:
+
+C:/devtools/mingw64/x86_64-w64-mingw32/include/realtimeapiset.h:
+
+C:/devtools/mingw64/include/c++/16.2.0/bits/shared_ptr_atomic.h:
 
 _deps/glm-src/glm/ext/scalar_uint_sized.hpp:
 
@@ -8181,6 +8198,12 @@ C:/devtools/mingw64/include/c++/16.2.0/bits/std_abs.h:
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/gridfs/upload_result-fwd.hpp:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/std_function.h:
+
+C:/devtools/mingw64/include/c++/16.2.0/bits/std_mutex.h:
+
+_deps/json-src/include/nlohmann/detail/meta/std_fs.hpp:
+
+C:/devtools/mingw64/include/c++/16.2.0/bits/std_thread.h:
 
 _deps/glm-src/glm/ext/vector_int4.hpp:
 
@@ -8232,15 +8255,15 @@ C:/devtools/mingw64/include/c++/16.2.0/bits/stl_iterator_base_types.h:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/stl_map.h:
 
-D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/apm.hpp:
+C:/devtools/mingw64/include/c++/16.2.0/bits/stl_uninitialized.h:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/stl_multimap.h:
+
+D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/apm.hpp:
 
 _deps/json-src/include/nlohmann/detail/macro_unscope.hpp:
 
 C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/avx512bf16vlintrin.h:
-
-C:/devtools/mingw64/include/c++/16.2.0/bits/stl_uninitialized.h:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/stl_pair.h:
 
@@ -8296,6 +8319,10 @@ C:/devtools/mingw64/include/c++/16.2.0/bits/streambuf.tcc:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/stringfwd.h:
 
+C:/devtools/mingw64/x86_64-w64-mingw32/include/pthread_time.h:
+
+C:/devtools/mingw64/include/c++/16.2.0/bits/this_thread_sleep.h:
+
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v_noabi/bsoncxx/builder/concatenate-fwd.hpp:
 
 C:/devtools/mingw64/include/c++/16.2.0/tr1/poly_laguerre.tcc:
@@ -8303,6 +8330,10 @@ C:/devtools/mingw64/include/c++/16.2.0/tr1/poly_laguerre.tcc:
 C:/devtools/mingw64/include/c++/16.2.0/bits/uniform_int_dist.h:
 
 C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/avxvnniint16intrin.h:
+
+C:/devtools/mingw64/include/c++/16.2.0/bits/unique_lock.h:
+
+_deps/glm-src/glm/mat4x4.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/document/view-fwd.hpp:
 
@@ -8527,6 +8558,12 @@ D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v_noabi/bson
 _deps/glm-src/glm/detail/type_half.inl:
 
 C:/devtools/mingw64/include/c++/16.2.0/memory:
+
+_deps/imgui-src/imgui.h:
+
+C:/devtools/mingw64/include/c++/16.2.0/mutex:
+
+D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/options/tls-fwd.hpp:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/valarray_after.h:
 
@@ -8762,9 +8799,9 @@ C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h:
 
 C:/devtools/mingw64/x86_64-w64-mingw32/include/crtdefs.h:
 
-C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt_wconio.h:
-
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/bulk_write-fwd.hpp:
+
+C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt_wconio.h:
 
 C:/devtools/mingw64/x86_64-w64-mingw32/include/corecrt_wctype.h:
 
@@ -8811,8 +8848,6 @@ D:/PROJECTSFIXING/OrbitScope/src/data/PlanetRepository.h:
 C:/devtools/mingw64/x86_64-w64-mingw32/include/pthread.h:
 
 C:/devtools/mingw64/x86_64-w64-mingw32/include/pthread_compat.h:
-
-C:/devtools/mingw64/x86_64-w64-mingw32/include/pthread_time.h:
 
 C:/devtools/mingw64/include/c++/16.2.0/bits/sstream.tcc:
 
@@ -9094,8 +9129,6 @@ _deps/glm-src/glm/ext/vector_float2_precision.hpp:
 
 _deps/glm-src/glm/ext/vector_float3.hpp:
 
-D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/aggregate_options.hpp:
-
 _deps/glm-src/glm/ext/vector_float4.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/events/server_opening.hpp:
@@ -9148,8 +9181,6 @@ _deps/glm-src/glm/mat4x2.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/hint.hpp:
 
-_deps/glm-src/glm/mat4x4.hpp:
-
 _deps/glm-src/glm/matrix.hpp:
 
 _deps/glm-src/glm/simd/platform.h:
@@ -9161,8 +9192,6 @@ C:/devtools/mingw64/x86_64-w64-mingw32/include/virtdisk.h:
 _deps/imgui-src/imconfig.h:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/client_encryption-fwd.hpp:
-
-_deps/imgui-src/imgui.h:
 
 D:/PROJECTSFIXING/OrbitScope/external/glad/include/KHR/khrplatform.h:
 
@@ -9208,8 +9237,6 @@ D:/PROJECTSFIXING/OrbitScope/src/rendering/ImGuiLayer.h:
 
 D:/PROJECTSFIXING/OrbitScope/src/rendering/Texture.h:
 
-C:/devtools/mingw64/x86_64-w64-mingw32/include/combaseapi.h:
-
 D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidListState.h:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/cursor-fwd.hpp:
@@ -9227,10 +9254,6 @@ D:/PROJECTSFIXING/OrbitScope/src/simulation/SimulationConfig.h:
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/gridfs/upload_result.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/array/value-fwd.hpp:
-
-C:/devtools/mingw64/x86_64-w64-mingw32/include/winscard.h:
-
-D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/array/view.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v1/config/export.hpp:
 
@@ -9370,9 +9393,9 @@ D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/estimate
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v_noabi/bsoncxx/stdx/type_traits.hpp:
 
-D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/auto_encryption_options.hpp:
-
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v_noabi/bsoncxx/string/view_or_value-fwd.hpp:
+
+D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/auto_encryption_options.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v_noabi/bsoncxx/types-fwd.hpp:
 
@@ -9390,9 +9413,11 @@ D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v_noabi/bson
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v_noabi/bsoncxx/vector/formats-fwd.hpp:
 
-D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/apm-fwd.hpp:
-
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/bsoncxx/v_noabi/bsoncxx/view_or_value.hpp:
+
+D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/aggregate_options.hpp:
+
+D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/apm-fwd.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/auto_encryption_options-fwd.hpp:
 
@@ -9540,8 +9565,6 @@ C:/devtools/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/avx512vldqintrin.h
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/gridfs/uploader.hpp:
 
-C:/devtools/mingw64/x86_64-w64-mingw32/include/consoleapi3.h:
-
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/indexes-fwd.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/write_concern-fwd.hpp:
@@ -9573,8 +9596,6 @@ C:/devtools/mingw64/include/c++/16.2.0/numeric:
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/instance.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/logger-fwd.hpp:
-
-C:/devtools/mingw64/x86_64-w64-mingw32/include/commdlg.h:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v1/oidc_callback.hpp:
 
@@ -9826,8 +9847,6 @@ D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mon
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/options/server_api.hpp:
 
-D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/options/tls-fwd.hpp:
-
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/options/tls.hpp:
 
 D:/PROJECTSFIXING/vcpkg/installed/x64-mingw-dynamic/include/mongocxx/v_noabi/mongocxx/options/transaction-fwd.hpp:
@@ -9950,8 +9969,6 @@ _deps/json-src/include/nlohmann/detail/string_concat.hpp:
 
 _deps/json-src/include/nlohmann/detail/meta/detected.hpp:
 
-_deps/json-src/include/nlohmann/detail/meta/std_fs.hpp:
-
 D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidFilter.cpp:
 
 _deps/json-src/include/nlohmann/detail/meta/type_traits.hpp:
@@ -10068,7 +10085,15 @@ C:/devtools/mingw64/x86_64-w64-mingw32/include/cderr.h:
 
 C:/devtools/mingw64/x86_64-w64-mingw32/include/cguid.h:
 
+C:/devtools/mingw64/x86_64-w64-mingw32/include/combaseapi.h:
+
+C:/devtools/mingw64/x86_64-w64-mingw32/include/commdlg.h:
+
+C:/devtools/mingw64/x86_64-w64-mingw32/include/concurrencysal.h:
+
 C:/devtools/mingw64/x86_64-w64-mingw32/include/consoleapi.h:
+
+C:/devtools/mingw64/x86_64-w64-mingw32/include/consoleapi3.h:
 
 C:/devtools/mingw64/x86_64-w64-mingw32/include/psdk_inc/_wsadata.h:
 

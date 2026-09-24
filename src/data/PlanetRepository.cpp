@@ -52,6 +52,7 @@ bool PlanetRepository::LoadPlanets(std::vector<PlanetRecord>& outPlanets)
             record.colorB = static_cast<float>(view["colorB"].get_double().value);
             record.texturePath = view.find("texturePath") != view.end() ? std::string(view["texturePath"].get_string().value) : ("resources/textures/" + ToLowerCase(record.name) + ".jpg");
             record.rotationPeriodHours = view.find("rotationPeriodHours") != view.end() ? static_cast<float>(view["rotationPeriodHours"].get_double().value) : 24.0f;
+            record.realDistanceAu = view.find("realDistanceAu") != view.end() ? static_cast<float>(view["realDistanceAu"].get_double().value) : 1.0f;
 
             outPlanets.push_back(record);
         }
@@ -79,7 +80,8 @@ bool PlanetRepository::SeedPlanets(const std::vector<PlanetRecord>& planets)
             kvp("colorG", static_cast<double>(record.colorG)),
             kvp("colorB", static_cast<double>(record.colorB)),
             kvp("texturePath", record.texturePath),
-            kvp("rotationPeriodHours", static_cast<double>(record.rotationPeriodHours))
+            kvp("rotationPeriodHours", static_cast<double>(record.rotationPeriodHours)),
+            kvp("realDistanceAu", static_cast<double>(record.realDistanceAu))
         ));
     }
 

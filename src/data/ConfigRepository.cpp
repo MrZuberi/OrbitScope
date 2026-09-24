@@ -26,7 +26,6 @@ bool ConfigRepository::SaveConfig(const SimulationConfig& config)
         kvp("name", config.name),
         kvp("speed", static_cast<double>(config.speed)),
         kvp("orbitLinesEnabled", config.orbitLinesEnabled),
-        kvp("trueScaleMode", config.trueScaleMode),
         kvp("selectedPlanet", config.selectedPlanet)
     ));
 
@@ -57,7 +56,6 @@ bool ConfigRepository::LoadConfig(const std::string& name, SimulationConfig& out
             outConfig.name = documentName;
             outConfig.speed = static_cast<float>(view["speed"].get_double().value);
             outConfig.orbitLinesEnabled = view["orbitLinesEnabled"].get_bool().value;
-            outConfig.trueScaleMode = view["trueScaleMode"].get_bool().value;
             outConfig.selectedPlanet = std::string(view["selectedPlanet"].get_string().value);
 
             return true;

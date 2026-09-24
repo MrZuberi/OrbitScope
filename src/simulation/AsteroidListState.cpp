@@ -61,6 +61,19 @@ void AsteroidListState::CycleFilter()
     Rebuild();
 }
 
+void AsteroidListState::SetFilterByName(const std::string& name)
+{
+    for (int i = 0; i < static_cast<int>(m_FilterOptions.size()); ++i)
+    {
+        if (m_FilterOptions[i] == name)
+        {
+            m_FilterIndex = i;
+            Rebuild();
+            return;
+        }
+    }
+}
+
 const std::vector<AsteroidRecord>& AsteroidListState::GetVisibleAsteroids() const
 {
     return m_VisibleAsteroids;

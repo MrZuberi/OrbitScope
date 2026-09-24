@@ -13,7 +13,6 @@
 #include "simulation/AsteroidPositioner.h"
 #include "simulation/KeplerOrbitCalculator.h"
 
-#include <cfloat>
 #include <cstdlib>
 #include <iostream>
 #include <vector>
@@ -24,8 +23,6 @@ namespace
     const double AsteroidMaxDistanceAu = 0.05;
     const int AsteroidLookAheadDays = 60;
     const float AuToUnitsScale = 110.0f;
-    const float PlanetTrueScaleFactor = 1.0f / 235.0f;
-    const float SunTrueScaleFactor = 1.0f / 20.0f;
 }
 
 Application::Application()
@@ -39,12 +36,10 @@ Application::Application()
     , m_ViewportWidth(1280)
     , m_ViewportHeight(720)
     , m_ShowOrbitLines(true)
-    , m_TrueScaleMode(false)
-    , m_SelectedPlanetIndex(-1)
-    , m_FocusMode(false)
-    , m_PlanetFocusActive(false)
     , m_AsteroidsEnabled(false)
     , m_AsteroidsLoaded(false)
+    , m_ViewingAsteroid(false)
+    , m_NeedsRecenter(false)
     , m_CursorLocked(true)
 {
 }
@@ -107,7 +102,7 @@ bool Application::Initialize()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     m_Renderer = std::make_unique<Renderer>();
-    m_Camera = std::make_unique<Camera>(glm::vec3(0.0f, 45.0f, 145.0f));
+    m_Camera = std::make_unique<Camera>(glm::vec3(0.0f, 70.0f, 230.0f));
     m_Simulation = std::make_unique<Simulation>();
     m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window);
 
@@ -163,25 +158,16 @@ void Application::LoadPlanetTextures()
     }
 
     m_SaturnRingTexture = std::make_unique<Texture>("resources/textures/saturn_rings.png");
-}
-
-float Application::ComputeEffectiveRadius(const Planet& planet) const
-{
-    if (!m_TrueScaleMode)
-    {
-        return planet.GetRadius();
-    }
-
-    return planet.GetRadius() * (planet.IsSun() ? SunTrueScaleFactor : PlanetTrueScaleFactor);
+    m_AsteroidTexture = std::make_unique<Texture>("resources/textures/asteroid.jpg");
 }
 
 void Application::EnableAsteroids()
 {
-    m_PlanetFocusActive = false;
-
     if (m_AsteroidsLoaded)
     {
         m_AsteroidsEnabled = true;
+        m_ViewingAsteroid = false;
+        m_NeedsRecenter = true;
         return;
     }
 
@@ -258,6 +244,8 @@ void Application::PollAsteroidLoad()
 
     m_AsteroidsLoaded = true;
     m_AsteroidsEnabled = true;
+    m_ViewingAsteroid = false;
+    m_NeedsRecenter = true;
     m_AsteroidLoadInProgress = false;
     m_AsteroidLoadComplete = false;
 
@@ -279,67 +267,63 @@ const Planet* Application::FindPlanetByName(const std::string& name) const
     return nullptr;
 }
 
-glm::mat4 Application::GetActiveViewMatrix(float elapsedDays, double currentJulianDate)
+void Application::RecenterCamera(float elapsedDays, double currentJulianDate)
 {
-    if (m_FocusMode && m_AsteroidListState.HasSelection())
+    if (m_ViewingAsteroid && m_AsteroidListState.HasSelection())
     {
         const AsteroidRecord& selected = m_AsteroidListState.GetSelected();
-        glm::vec3 markerPosition;
+        glm::vec3 target;
+        bool valid = false;
 
         if (selected.hasOrbitalElements)
         {
-            markerPosition = KeplerOrbitCalculator::CalculateHeliocentricPosition(selected.orbitalElements, currentJulianDate, AuToUnitsScale);
+            target = KeplerOrbitCalculator::CalculateHeliocentricPosition(selected.orbitalElements, currentJulianDate, AuToUnitsScale);
+            valid = true;
         }
         else
         {
             const Planet* targetPlanet = FindPlanetByName(selected.targetBody);
 
-            if (!targetPlanet)
+            if (targetPlanet)
             {
-                return m_Camera->GetViewMatrix();
+                glm::vec3 planetPosition = targetPlanet->GetRealHeliocentricPosition(elapsedDays, AuToUnitsScale);
+                float closeUpOffset = AsteroidPositioner::CalculateCloseUpOffset(selected.distanceAu);
+                target = AsteroidPositioner::CalculateMarkerPosition(planetPosition, selected.designation, closeUpOffset);
+                valid = true;
             }
-
-            glm::vec3 planetPosition = targetPlanet->GetPosition(elapsedDays);
-            float closeUpOffset = AsteroidPositioner::CalculateCloseUpOffset(selected.distanceAu);
-            markerPosition = AsteroidPositioner::CalculateMarkerPosition(planetPosition, selected.designation, closeUpOffset);
         }
 
-        glm::vec3 cameraPosition = markerPosition + glm::vec3(2.5f, 2.0f, 2.5f);
-        return glm::lookAt(cameraPosition, markerPosition, glm::vec3(0.0f, 1.0f, 0.0f));
-    }
-
-    if (m_PlanetFocusActive)
-    {
-        const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
-
-        if (m_SelectedPlanetIndex >= 0 && m_SelectedPlanetIndex < static_cast<int>(planets.size()))
+        if (valid)
         {
-            const Planet& planet = planets[m_SelectedPlanetIndex];
-            glm::vec3 planetPosition = planet.GetPosition(elapsedDays);
-            float effectiveRadius = ComputeEffectiveRadius(planet);
-            float distance = effectiveRadius * 6.0f + 3.0f;
-
-            glm::vec3 cameraPosition = planetPosition + glm::vec3(distance, distance * 0.4f, distance);
-            return glm::lookAt(cameraPosition, planetPosition, glm::vec3(0.0f, 1.0f, 0.0f));
+            glm::vec3 cameraPosition = target + glm::vec3(2.5f, 2.0f, 2.5f);
+            m_Camera->SetPositionAndTarget(cameraPosition, target);
         }
     }
+    else
+    {
+        const Planet* planet = FindPlanetByName(m_AsteroidListState.GetCurrentFilter());
 
-    return m_Camera->GetViewMatrix();
+        if (planet)
+        {
+            glm::vec3 target = planet->GetRealHeliocentricPosition(elapsedDays, AuToUnitsScale);
+            float distance = planet->GetRadius() * 6.0f + 4.0f;
+            glm::vec3 cameraPosition = target + glm::vec3(distance, distance * 0.4f, distance);
+            m_Camera->SetPositionAndTarget(cameraPosition, target);
+        }
+    }
 }
 
-void Application::DrawPlanetWithRing(const Planet& planet, float elapsedDays, size_t planetIndex)
+void Application::DrawPlanetWithRing(const Planet& planet, const glm::vec3& position, float elapsedDays, size_t planetIndex)
 {
-    float effectiveRadius = ComputeEffectiveRadius(planet);
+    float effectiveRadius = planet.GetRadius();
     unsigned int textureId = (planetIndex < m_PlanetTextures.size() && m_PlanetTextures[planetIndex]->IsValid()) ? m_PlanetTextures[planetIndex]->GetId() : 0;
 
-    m_Renderer->DrawSphere(planet.GetModelMatrix(elapsedDays, effectiveRadius), planet.GetColor(), planet.IsSun(), textureId);
+    m_Renderer->DrawSphere(planet.GetModelMatrixAtPosition(position, elapsedDays, effectiveRadius), planet.GetColor(), planet.IsSun(), textureId);
 
     if (planet.GetName() == "Saturn")
     {
-        glm::vec3 planetPosition = planet.GetPosition(elapsedDays);
-
         glm::mat4 ringModel(1.0f);
-        ringModel = glm::translate(ringModel, planetPosition);
+        ringModel = glm::translate(ringModel, position);
         ringModel = glm::rotate(ringModel, glm::radians(26.7f), glm::vec3(0.0f, 0.0f, 1.0f));
         ringModel = glm::scale(ringModel, glm::vec3(effectiveRadius * 1.6f));
 
@@ -351,6 +335,7 @@ void Application::DrawPlanetWithRing(const Planet& planet, float elapsedDays, si
 void Application::RenderAsteroidMarkers(float elapsedDays, double currentJulianDate)
 {
     const std::vector<AsteroidRecord>& visible = m_AsteroidListState.GetVisibleAsteroids();
+    unsigned int asteroidTextureId = (m_AsteroidTexture && m_AsteroidTexture->IsValid()) ? m_AsteroidTexture->GetId() : 0;
 
     for (int i = 0; i < static_cast<int>(visible.size()); ++i)
     {
@@ -363,8 +348,11 @@ void Application::RenderAsteroidMarkers(float elapsedDays, double currentJulianD
         {
             markerPosition = KeplerOrbitCalculator::CalculateHeliocentricPosition(asteroid.orbitalElements, currentJulianDate, AuToUnitsScale);
 
-            glm::vec3 lineColor = isSelected ? glm::vec3(1.0f, 0.85f, 0.2f) : glm::vec3(0.5f, 0.5f, 0.55f);
-            m_Renderer->DrawDynamicLineLoop(asteroid.orbitPathPoints, lineColor);
+            if (m_ShowOrbitLines)
+            {
+                glm::vec3 lineColor = isSelected ? glm::vec3(1.0f, 0.85f, 0.2f) : glm::vec3(0.5f, 0.5f, 0.55f);
+                m_Renderer->DrawDynamicLineLoop(asteroid.orbitPathPoints, lineColor);
+            }
         }
         else
         {
@@ -375,19 +363,19 @@ void Application::RenderAsteroidMarkers(float elapsedDays, double currentJulianD
                 continue;
             }
 
-            glm::vec3 planetPosition = targetPlanet->GetPosition(elapsedDays);
-            float overviewOffset = ComputeEffectiveRadius(*targetPlanet) * 3.0f;
+            glm::vec3 planetPosition = targetPlanet->GetRealHeliocentricPosition(elapsedDays, AuToUnitsScale);
+            float overviewOffset = targetPlanet->GetRadius() * 3.0f;
             markerPosition = AsteroidPositioner::CalculateMarkerPosition(planetPosition, asteroid.designation, overviewOffset);
         }
 
-        glm::vec3 color = isSelected ? glm::vec3(1.0f, 0.5f, 0.05f) : glm::vec3(0.9f, 0.9f, 0.9f);
+        glm::vec3 color = isSelected ? glm::vec3(1.0f, 0.5f, 0.05f) : glm::vec3(0.85f, 0.85f, 0.85f);
         float radius = isSelected ? 0.35f : 0.18f;
 
         glm::mat4 model(1.0f);
         model = glm::translate(model, markerPosition);
         model = glm::scale(model, glm::vec3(radius));
 
-        m_Renderer->DrawSphere(model, color, true, 0);
+        m_Renderer->DrawSphere(model, color, true, asteroidTextureId);
     }
 }
 
@@ -403,7 +391,6 @@ void Application::RenderUI()
     ImGui::Text(m_Simulation->IsPaused() ? "Simulation is paused" : "Simulation is running");
     ImGui::Text("Time speed: %.2fx", m_Simulation->GetSpeedMultiplier());
     ImGui::Text("Orbit paths: %s", m_ShowOrbitLines ? "Shown" : "Hidden");
-    ImGui::Text("Planet sizes: %s", m_TrueScaleMode ? "True astronomical scale" : "Easy to see");
     ImGui::Separator();
 
     if (m_AsteroidLoadInProgress)
@@ -425,20 +412,27 @@ void Application::RenderUI()
     }
     else
     {
-        ImGui::Text(m_AsteroidsEnabled ? "Asteroid tracking is on" : "Asteroid tracking is off");
+        ImGui::Text(m_AsteroidsEnabled ? "Asteroid mode is on" : "Asteroid mode is off");
 
         if (!m_CursorLocked)
         {
-            if (ImGui::Button(m_AsteroidsEnabled ? "Hide Asteroids" : "Show Asteroids"))
+            if (ImGui::Button(m_AsteroidsEnabled ? "Exit Asteroid Mode" : "Enter Asteroid Mode"))
             {
-                m_AsteroidsEnabled = !m_AsteroidsEnabled;
+                if (m_AsteroidsEnabled)
+                {
+                    m_AsteroidsEnabled = false;
+                }
+                else
+                {
+                    EnableAsteroids();
+                }
             }
         }
     }
 
     ImGui::End();
 
-    if (m_AsteroidsEnabled && !m_PlanetFocusActive)
+    if (m_AsteroidsEnabled)
     {
         float panelWidth = 380.0f;
         ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x - panelWidth - 20.0f, 20.0f), ImGuiCond_Always);
@@ -446,7 +440,7 @@ void Application::RenderUI()
         ImGui::SetNextWindowBgAlpha(0.82f);
         ImGui::Begin("Asteroid Watch", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 
-        ImGui::Text("Filter by planet:");
+        ImGui::Text("Now viewing:");
         ImGui::SameLine();
         ImGui::TextColored(ImVec4(1.0f, 0.85f, 0.2f, 1.0f), "%s", m_AsteroidListState.GetCurrentFilter().c_str());
         ImGui::TextDisabled("Press Tab to switch planets");
@@ -481,45 +475,34 @@ void Application::RenderUI()
 
         ImGui::End();
 
-        if (m_AsteroidListState.HasSelection())
+        ImGui::SetNextWindowPos(ImVec2(20.0f, 190.0f), ImGuiCond_Always);
+        ImGui::SetNextWindowBgAlpha(0.82f);
+        ImGui::Begin("Currently Viewing", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
+
+        if (m_ViewingAsteroid && m_AsteroidListState.HasSelection())
         {
             const AsteroidRecord& selected = m_AsteroidListState.GetSelected();
-
-            ImGui::SetNextWindowPos(ImVec2(20.0f, 200.0f), ImGuiCond_Always);
-            ImGui::SetNextWindowBgAlpha(0.82f);
-            ImGui::Begin("Selected Asteroid", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
-            ImGui::Text("Name: %s", selected.designation.c_str());
+            ImGui::Text("Asteroid: %s", selected.designation.c_str());
             ImGui::Text("Heading toward: %s", selected.targetBody.c_str());
             ImGui::Text("Closest approach: %s", selected.closeApproachDate.c_str());
             ImGui::Text("Distance at closest: %.5f AU", selected.distanceAu);
             ImGui::Text("Speed: %.2f km per second", selected.relativeVelocityKmS);
-            ImGui::Spacing();
-            ImGui::TextDisabled(m_FocusMode ? "Press Backspace to return to free flight" : "Press Enter to fly to this asteroid");
-            ImGui::End();
         }
-    }
-
-    if (m_PlanetFocusActive)
-    {
-        const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
-
-        if (m_SelectedPlanetIndex >= 0 && m_SelectedPlanetIndex < static_cast<int>(planets.size()))
+        else
         {
-            const Planet& planet = planets[m_SelectedPlanetIndex];
+            const Planet* planet = FindPlanetByName(m_AsteroidListState.GetCurrentFilter());
 
-            ImGui::SetNextWindowPos(ImVec2(20.0f, 200.0f), ImGuiCond_Always);
-            ImGui::SetNextWindowBgAlpha(0.82f);
-            ImGui::Begin("Selected Planet", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
-            ImGui::Text("Name: %s", planet.GetName().c_str());
-            ImGui::Text("Distance from Sun: %.2f units", planet.GetDistanceFromSun());
-            ImGui::Text("Orbital period: %.1f days", planet.GetOrbitalPeriod());
-            ImGui::Spacing();
-            ImGui::TextDisabled("Press Backspace to return to the full solar system");
-            ImGui::End();
+            if (planet)
+            {
+                ImGui::Text("Planet: %s", planet->GetName().c_str());
+                ImGui::TextDisabled("Use Up and Down to pick an asteroid to view");
+            }
         }
+
+        ImGui::End();
     }
 
-    ImGui::SetNextWindowPos(ImVec2(20.0f, io.DisplaySize.y - 360.0f), ImGuiCond_Always);
+    ImGui::SetNextWindowPos(ImVec2(20.0f, io.DisplaySize.y - 320.0f), ImGuiCond_Always);
     ImGui::SetNextWindowBgAlpha(0.78f);
     ImGui::Begin("How to Play", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
 
@@ -534,19 +517,13 @@ void Application::RenderUI()
     ImGui::Spacing();
     ImGui::TextColored(ImVec4(0.6f, 0.8f, 1.0f, 1.0f), "TIME");
     ImGui::Text("Space to pause, + and - to change speed, R to reset");
-
-    ImGui::Spacing();
-    ImGui::TextColored(ImVec4(0.6f, 0.8f, 1.0f, 1.0f), "VIEW OPTIONS");
     ImGui::Text("O to show or hide orbit paths");
-    ImGui::Text("V to switch between easy-to-see and true scale sizes");
-    ImGui::Text("Number keys 1 to 8 to zoom in on one planet");
-    ImGui::Text("Backspace to return to the full solar system");
 
     ImGui::Spacing();
-    ImGui::TextColored(ImVec4(0.6f, 0.8f, 1.0f, 1.0f), "ASTEROIDS");
-    ImGui::Text("T to turn asteroid tracking on or off");
-    ImGui::Text("Up and Down to browse, Tab to switch planets");
-    ImGui::Text("Enter to fly closer, Backspace to fly back");
+    ImGui::TextColored(ImVec4(0.6f, 0.8f, 1.0f, 1.0f), "ASTEROID MODE");
+    ImGui::Text("T to enter or exit asteroid mode");
+    ImGui::Text("Tab to switch which planet you are viewing");
+    ImGui::Text("Up and Down to pick an asteroid to fly to");
 
     ImGui::Spacing();
     ImGui::TextColored(ImVec4(0.6f, 0.8f, 1.0f, 1.0f), "SAVING");
@@ -573,15 +550,17 @@ void Application::ProcessFrame()
         glfwSetWindowShouldClose(m_Window, true);
     }
 
-    if (!m_FocusMode && !m_PlanetFocusActive)
-    {
-        m_Camera->ProcessKeyboard(m_Window, deltaTime);
-    }
-
+    m_Camera->ProcessKeyboard(m_Window, deltaTime);
     m_Simulation->Update(deltaTime);
 
     float elapsedDays = m_Simulation->GetElapsedDays();
     double currentJulianDate = KeplerOrbitCalculator::GetCurrentJulianDate(static_cast<double>(elapsedDays));
+
+    if (m_AsteroidsEnabled && m_NeedsRecenter)
+    {
+        RecenterCamera(elapsedDays, currentJulianDate);
+        m_NeedsRecenter = false;
+    }
 
     glm::mat4 projection = glm::perspective(
         glm::radians(m_Camera->GetFieldOfView()),
@@ -590,8 +569,7 @@ void Application::ProcessFrame()
         6500.0f
     );
 
-    glm::mat4 view = GetActiveViewMatrix(elapsedDays, currentJulianDate);
-    m_Renderer->SetViewProjection(view, projection);
+    m_Renderer->SetViewProjection(m_Camera->GetViewMatrix(), projection);
     m_Renderer->SetCameraPosition(m_Camera->GetPosition());
 
     glClearColor(0.02f, 0.02f, 0.05f, 1.0f);
@@ -601,9 +579,19 @@ void Application::ProcessFrame()
 
     const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
 
-    if (m_PlanetFocusActive && m_SelectedPlanetIndex >= 0 && m_SelectedPlanetIndex < static_cast<int>(planets.size()))
+    if (m_AsteroidsEnabled)
     {
-        DrawPlanetWithRing(planets[m_SelectedPlanetIndex], elapsedDays, static_cast<size_t>(m_SelectedPlanetIndex));
+        for (size_t i = 0; i < planets.size(); ++i)
+        {
+            if (planets[i].GetName() == m_AsteroidListState.GetCurrentFilter())
+            {
+                glm::vec3 realPosition = planets[i].GetRealHeliocentricPosition(elapsedDays, AuToUnitsScale);
+                DrawPlanetWithRing(planets[i], realPosition, elapsedDays, i);
+                break;
+            }
+        }
+
+        RenderAsteroidMarkers(elapsedDays, currentJulianDate);
     }
     else
     {
@@ -617,12 +605,7 @@ void Application::ProcessFrame()
 
         for (size_t i = 0; i < planets.size(); ++i)
         {
-            DrawPlanetWithRing(planets[i], elapsedDays, i);
-        }
-
-        if (m_AsteroidsEnabled)
-        {
-            RenderAsteroidMarkers(elapsedDays, currentJulianDate);
+            DrawPlanetWithRing(planets[i], planets[i].GetPosition(elapsedDays), elapsedDays, i);
         }
     }
 
@@ -655,6 +638,7 @@ void Application::Shutdown()
         m_AsteroidLoadThread.join();
     }
 
+    m_AsteroidTexture.reset();
     m_SaturnRingTexture.reset();
     m_PlanetTextures.clear();
     m_ImGuiLayer.reset();
@@ -674,26 +658,10 @@ void Application::Shutdown()
     glfwTerminate();
 }
 
-void Application::PrintSelectedPlanetInfo()
-{
-    const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
-
-    if (m_SelectedPlanetIndex < 0 || m_SelectedPlanetIndex >= static_cast<int>(planets.size()))
-    {
-        return;
-    }
-
-    const Planet& planet = planets[m_SelectedPlanetIndex];
-
-    std::cout << "Selected: " << planet.GetName() << std::endl;
-    std::cout << "Radius: " << planet.GetRadius() << std::endl;
-    std::cout << "Distance from Sun: " << planet.GetDistanceFromSun() << std::endl;
-    std::cout << "Orbital period: " << planet.GetOrbitalPeriod() << " days" << std::endl;
-}
-
 void Application::PrintControls()
 {
     std::cout << "OrbitScope controls" << std::endl;
+    std::cout << "The app opens showing all planets and their orbit lines" << std::endl;
     std::cout << "W A S D always moves the camera" << std::endl;
     std::cout << "Mouse looks around, only while the cursor is locked" << std::endl;
     std::cout << "Left Shift sprints while moving" << std::endl;
@@ -704,15 +672,11 @@ void Application::PrintControls()
     std::cout << "Minus decreases simulation speed" << std::endl;
     std::cout << "R resets the simulation" << std::endl;
     std::cout << "O toggles orbit lines" << std::endl;
-    std::cout << "V toggles between easy-to-see planet sizes and true astronomical scale" << std::endl;
-    std::cout << "1 through 8 zooms the camera onto that single planet" << std::endl;
-    std::cout << "Backspace returns to the full solar system view" << std::endl;
+    std::cout << "T enters or exits asteroid mode, showing one planet and its live asteroids" << std::endl;
+    std::cout << "Tab, while in asteroid mode, switches which planet you are viewing" << std::endl;
+    std::cout << "Up and Down arrows pick an asteroid, which then centers the camera on it" << std::endl;
     std::cout << "K saves the current configuration" << std::endl;
     std::cout << "L loads the saved configuration" << std::endl;
-    std::cout << "T turns live asteroid tracking on or off" << std::endl;
-    std::cout << "Up and Down arrows move the asteroid list selection" << std::endl;
-    std::cout << "Tab cycles the asteroid planet filter" << std::endl;
-    std::cout << "Enter focuses the camera on the selected asteroid" << std::endl;
     std::cout << "H prints this control list again" << std::endl;
     std::cout << "Escape closes the application" << std::endl;
 }
@@ -725,20 +689,11 @@ void Application::SaveCurrentConfig()
         return;
     }
 
-    const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
-    std::string selectedName;
-
-    if (m_SelectedPlanetIndex >= 0 && m_SelectedPlanetIndex < static_cast<int>(planets.size()))
-    {
-        selectedName = planets[m_SelectedPlanetIndex].GetName();
-    }
-
     SimulationConfig config;
     config.name = "quicksave";
     config.speed = m_Simulation->GetSpeedMultiplier();
     config.orbitLinesEnabled = m_ShowOrbitLines;
-    config.trueScaleMode = m_TrueScaleMode;
-    config.selectedPlanet = selectedName;
+    config.selectedPlanet = m_AsteroidsEnabled ? m_AsteroidListState.GetCurrentFilter() : std::string();
 
     ConfigRepository configRepository(*m_MongoRepository);
 
@@ -771,16 +726,13 @@ void Application::LoadNamedConfig()
 
     m_Simulation->SetSpeedMultiplier(config.speed);
     m_ShowOrbitLines = config.orbitLinesEnabled;
-    m_TrueScaleMode = config.trueScaleMode;
 
-    const std::vector<Planet>& planets = m_SolarSystem->GetPlanets();
-    for (int i = 0; i < static_cast<int>(planets.size()); ++i)
+    if (!config.selectedPlanet.empty() && m_AsteroidsLoaded)
     {
-        if (planets[i].GetName() == config.selectedPlanet)
-        {
-            m_SelectedPlanetIndex = i;
-            break;
-        }
+        m_AsteroidListState.SetFilterByName(config.selectedPlanet);
+        m_AsteroidsEnabled = true;
+        m_ViewingAsteroid = false;
+        m_NeedsRecenter = true;
     }
 
     std::cout << "Loaded simulation configuration" << std::endl;
@@ -857,10 +809,6 @@ void Application::KeyCallback(GLFWwindow* window, int key, int scancode, int act
     {
         app->m_ShowOrbitLines = !app->m_ShowOrbitLines;
     }
-    else if (key == GLFW_KEY_V)
-    {
-        app->m_TrueScaleMode = !app->m_TrueScaleMode;
-    }
     else if (key == GLFW_KEY_K)
     {
         app->SaveCurrentConfig();
@@ -875,9 +823,9 @@ void Application::KeyCallback(GLFWwindow* window, int key, int scancode, int act
     }
     else if (key == GLFW_KEY_T)
     {
-        if (app->m_AsteroidsLoaded)
+        if (app->m_AsteroidsEnabled)
         {
-            app->m_AsteroidsEnabled = !app->m_AsteroidsEnabled;
+            app->m_AsteroidsEnabled = false;
         }
         else
         {
@@ -892,46 +840,29 @@ void Application::KeyCallback(GLFWwindow* window, int key, int scancode, int act
     }
     else if (key == GLFW_KEY_UP)
     {
-        app->m_AsteroidListState.MoveSelectionUp();
+        if (app->m_AsteroidsEnabled)
+        {
+            app->m_AsteroidListState.MoveSelectionUp();
+            app->m_ViewingAsteroid = true;
+            app->m_NeedsRecenter = true;
+        }
     }
     else if (key == GLFW_KEY_DOWN)
     {
-        app->m_AsteroidListState.MoveSelectionDown();
+        if (app->m_AsteroidsEnabled)
+        {
+            app->m_AsteroidListState.MoveSelectionDown();
+            app->m_ViewingAsteroid = true;
+            app->m_NeedsRecenter = true;
+        }
     }
     else if (key == GLFW_KEY_TAB)
     {
-        app->m_AsteroidListState.CycleFilter();
-    }
-    else if (key == GLFW_KEY_ENTER)
-    {
-        if (app->m_AsteroidListState.HasSelection())
+        if (app->m_AsteroidsEnabled)
         {
-            app->m_FocusMode = true;
-        }
-    }
-    else if (key == GLFW_KEY_BACKSPACE)
-    {
-        app->m_FocusMode = false;
-        app->m_PlanetFocusActive = false;
-    }
-    else if (key >= GLFW_KEY_0 && key <= GLFW_KEY_9)
-    {
-        int index = key - GLFW_KEY_0;
-        const std::vector<Planet>& planets = app->m_SolarSystem->GetPlanets();
-
-        if (index >= 0 && index < static_cast<int>(planets.size()))
-        {
-            if (planets[index].IsSun())
-            {
-                std::cout << "The Sun cannot be focused on" << std::endl;
-            }
-            else
-            {
-                app->m_SelectedPlanetIndex = index;
-                app->m_PlanetFocusActive = true;
-                app->m_FocusMode = false;
-                app->PrintSelectedPlanetInfo();
-            }
+            app->m_AsteroidListState.CycleFilter();
+            app->m_ViewingAsteroid = false;
+            app->m_NeedsRecenter = true;
         }
     }
 }

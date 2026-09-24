@@ -14,6 +14,7 @@ public:
     void MoveSelectionUp();
     void MoveSelectionDown();
     void CycleFilter();
+    void SetFilterByName(const std::string& name);
 
     const std::vector<AsteroidRecord>& GetVisibleAsteroids() const;
     int GetSelectedIndex() const;
