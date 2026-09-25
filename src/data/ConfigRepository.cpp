@@ -1,3 +1,4 @@
+// Contains source code for the ConfigRepository.cpp file
 #include "data/ConfigRepository.h"
 
 #include <bsoncxx/builder/basic/document.hpp>

@@ -1,3 +1,4 @@
+// Contains source code for the Texture.cpp file
 #include "rendering/Texture.h"
 
 #include <glad/glad.h>

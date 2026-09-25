@@ -1,3 +1,4 @@
+// Contains source code for the Renderer.cpp file
 #include "rendering/Renderer.h"
 
 #include <glad/glad.h>

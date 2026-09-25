@@ -1,3 +1,4 @@
+// Contains functions for loading planetary textures and managing rendering resources
 #include "application/Application.h"
 
 #include <glad/glad.h>

@@ -1,3 +1,4 @@
+// Implements the Texture class that loads and manages texture images
 #pragma once
 
 #include <string>

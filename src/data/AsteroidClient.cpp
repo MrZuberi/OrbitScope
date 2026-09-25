@@ -1,3 +1,4 @@
+// Contains source code for the AsteroidClient.cpp file
 #include "data/AsteroidClient.h"
 #include "data/Http.h"
 

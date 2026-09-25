@@ -1,3 +1,4 @@
+# Configures the build process using CMake to compile the OrbitScope application
 cmake_minimum_required(VERSION 3.20)
 project(OrbitScope CXX C)
 

@@ -1,3 +1,4 @@
+// Contains source code for the ImGuiLayer.cpp file
 #include "rendering/ImGuiLayer.h"
 
 #include <imgui.h>

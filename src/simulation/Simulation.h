@@ -1,3 +1,4 @@
+// Implements the Simulation class that manages the simulation state and time progression
 #pragma once
 
 class Simulation

@@ -1,3 +1,4 @@
+// Contains source code for the SolarSystem.cpp file
 #include "models/SolarSystem.h"
 
 SolarSystem::SolarSystem()

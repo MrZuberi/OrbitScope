@@ -1,3 +1,4 @@
+// Contains source code for the Camera.cpp file
 #include "rendering/Camera.h"
 
 #include <glad/glad.h>

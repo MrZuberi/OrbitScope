@@ -1,3 +1,4 @@
+// Implements the Planet class representing a celestial body with orbital properties
 #pragma once
 
 #include <string>

@@ -1,3 +1,4 @@
+// Implements the Camera class that handles view transformations and user input for navigation
 #pragma once
 
 #include <glm/glm.hpp>

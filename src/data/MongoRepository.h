@@ -1,3 +1,4 @@
+// Implements the MongoRepository class that interacts with MongoDB for data storage
 #pragma once
 
 #include <string>

@@ -1,3 +1,4 @@
+// Contains source code for the Shader.cpp file
 #include "rendering/Shader.h"
 
 #include <glad/glad.h>

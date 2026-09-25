@@ -1,3 +1,4 @@
+// Implements the Renderer class responsible for rendering 3D objects using OpenGL
 #pragma once
 
 #include <memory>

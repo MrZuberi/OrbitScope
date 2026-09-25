@@ -1,3 +1,4 @@
+// Contains source code for the OrbitCalculator.cpp file
 #include "simulation/OrbitCalculator.h"
 
 #include <cmath>

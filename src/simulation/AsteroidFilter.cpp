@@ -1,3 +1,4 @@
+// Contains source code for the AsteroidFilter.cpp file
 #include "simulation/AsteroidFilter.h"
 
 std::vector<AsteroidRecord> AsteroidFilter::ByPlanet(const std::vector<AsteroidRecord>& asteroids, const std::string& planetName)

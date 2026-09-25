@@ -1,3 +1,4 @@
+// Implements the MongoEnvironment class that manages the MongoDB environment
 #pragma once
 
 #include <mongocxx/instance.hpp>

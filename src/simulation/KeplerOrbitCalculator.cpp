@@ -1,3 +1,4 @@
+// Contains source code for the KeplerOrbitCalculator.cpp file
 #include "simulation/KeplerOrbitCalculator.h"
 
 #include <cmath>

@@ -1,3 +1,4 @@
+// Implements the AsteroidListState class representing an asteroid with orbital elements
 #pragma once
 
 #include <string>

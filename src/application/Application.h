@@ -1,3 +1,4 @@
+// Implements the Application class that initializes the window, handles input, manages the simulation, rendering, and UI
 #pragma once
 
 #include <atomic>

@@ -1,3 +1,4 @@
+// Declares the OrbitalElements struct and related functions
 #pragma once
 
 struct OrbitalElements

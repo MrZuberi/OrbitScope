@@ -1,3 +1,4 @@
+// Declares the AsteroidRecord struct and related functions
 #pragma once
 
 #include <string>

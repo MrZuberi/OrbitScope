@@ -1,3 +1,4 @@
+// Contains source code for the Simulation.cpp file
 #include "simulation/Simulation.h"
 
 #include <algorithm>

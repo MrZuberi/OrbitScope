@@ -1,3 +1,4 @@
+// Implements the Http class that provides HTTP client functionality
 #pragma once
 
 #include <string>

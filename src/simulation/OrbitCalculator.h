@@ -1,3 +1,4 @@
+// Implements the OrbitCalculator class that calculates orbital positions using Kepler's equation
 #pragma once
 
 #include <glm/glm.hpp>

@@ -1,3 +1,4 @@
+// Contains source code for the Planet.cpp file
 #include "models/Planet.h"
 
 #include <glm/gtc/matrix_transform.hpp>

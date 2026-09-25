@@ -1,3 +1,4 @@
+// Implements the Shader class that manages OpenGL shader programs
 #pragma once
 
 #include <string>

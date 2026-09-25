@@ -1,3 +1,4 @@
+// Implements the PlanetRepository class representing a celestial body with orbital properties
 #pragma once
 
 #include <vector>

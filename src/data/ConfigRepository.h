@@ -1,3 +1,4 @@
+// Implements the ConfigRepository class that handles application configuration
 #pragma once
 
 #include <string>

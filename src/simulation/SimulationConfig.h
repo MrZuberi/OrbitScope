@@ -1,3 +1,4 @@
+// Declares the SimulationConfig struct and related functions
 #pragma once
 
 #include <string>

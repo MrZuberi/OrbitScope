@@ -1,3 +1,4 @@
+// Declares the PlanetRecord struct and related functions
 #pragma once
 
 #include <string>

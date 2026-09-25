@@ -1,3 +1,4 @@
+// Implements the SolarSystem class that manages planetary data and their positions
 #pragma once
 
 #include <vector>
