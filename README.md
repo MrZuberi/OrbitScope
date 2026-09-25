@@ -1,4 +1,4 @@
-# OrbitScope: Interactive 3D Solar System & Asteroid Tracker
+# OrbitScope: Interactive 3D Solar System Asteroid Tracker
 
 OrbitScope is a desktop application built using C++ and OpenGL for exploring the solar system in real time and viewing asteroids around all planets in our solar system. It opens on a view of the Sun and all eight planets with their orbit paths, then lets you switch into a focused asteroid mode that isolates a single planet and shows real, live near-Earth asteroids currently approaching it, using data from NASA and JPL. Planetary data persists through MongoDB.
 
