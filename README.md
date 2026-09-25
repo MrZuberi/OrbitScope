@@ -13,7 +13,7 @@ OrbitScope is a desktop application built using C++ and OpenGL for exploring the
 
 ## Technologies Used
 
-- **C++**
+- **C++** and - **C++ standard threading**: Background loading of asteroid data so the app never freezes
 - **OpenGL** with multisampled anti-aliasing
 - **GLAD**: OpenGL function loader
 - **GLM**: Vector and matrix math
@@ -21,7 +21,6 @@ OrbitScope is a desktop application built using C++ and OpenGL for exploring the
 - **stb_image**: Planet, ring, and asteroid texture loading
 - **MongoDB C++ Driver (mongocxx / bsoncxx)**: Compiled from source via vcpkg
 - **JPL Small-Body Database Close Approach API** and **Small-Body Database API**: Live asteroid data sources
-- **C++ standard threading**: Background loading of asteroid data so the app never freezes
 
 ## A note on scale
 
