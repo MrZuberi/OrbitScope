@@ -1,32 +1,25 @@
 # OrbitScope: An Interactive Solar System 3D asteroid tracking simulation with Live NASA Data
 
-OrbitScope is a desktop application built using C++ and OpenGL for exploring the solar system in real time and viewing asteroids around all planets in our solar system. It opens on a clean, generously spaced view of the Sun and all eight planets with their orbit paths, then lets you switch into a focused asteroid mode that isolates a single planet and shows real, live near-Earth asteroids currently approaching it, using data from NASA and JPL. Planetary data persists through MongoDB.
+OrbitScope is a desktop application built using C++ and OpenGL for exploring the solar system in real time and viewing asteroids around all planets in our solar system. It opens on a view of the Sun and all eight planets with their orbit paths, then lets you switch into a focused asteroid mode that isolates a single planet and shows real, live near-Earth asteroids currently approaching it, using data from NASA and JPL. Planetary data persists through MongoDB.
 
 ## Key Features
 
-- **Clean Overview**: The Sun and all eight planets, plus their orbit paths, always visible on launch, spaced out for clarity rather than jammed together.
-- **Textured, Self-Rotating Planets**: Earth, Mars, Jupiter, and every other planet render with real surface imagery and spin on their own axis, including Venus and Uranus spinning in their real retrograde direction. Saturn renders with a separate, textured, tilted ring.
-- **Fullscreen by Default**: Launches directly into your monitor's native fullscreen resolution.
-- **Free-Flight Camera**: WASD movement, mouse look, sprinting, and scroll-wheel zoom, always active.
-- **Asteroid Mode**: Press T to isolate a single planet, starting with Earth. Only that planet, its real position, and the real orbital paths of every asteroid currently approaching it are shown, each asteroid rendered as a unique, randomly-shaped rocky mesh rather than a smooth sphere. Switch planets with Tab. Selecting one asteroid from the list hides every other asteroid and orbit line, leaving only that asteroid, its orbit path, and the planet it orbits, and centers the camera on it, after which you fly freely as normal.
-- **Never Lose the Planet**: When you're zoomed into a single asteroid at true scale, an on-screen arrow points toward the planet whenever it drifts out of view, so you can always find your way back.
-- **Live Data, Loaded in the Background**: Fetching real close-approach and orbital data from JPL never freezes the app, it loads on a background thread while you keep flying around.
-- **MongoDB-Backed Persistence**: Planetary data is loaded from MongoDB on startup, with automatic seeding of default data if the database is empty.
-- **Graceful Fallback Everywhere**: The application runs correctly with built-in default data and flat-colored planets even with no MongoDB connection and no texture files present.
+- **Clean Overview**: The Sun and all eight planets, plus their orbit paths, always visible on launch
+- **Textured, Self-Rotating Planets**: Earth, Mars, Jupiter, and every other planet render with real surface imagery and spin on their own axis
+- **Asteroid Mode**: Press T to isolate a single planet, starting with Earth. Only that planet, its real position, and the real orbital paths of every asteroid currently approaching it are shown
+- **Never Lose the Planet**: When you're zoomed into a single asteroid at true scale, an on-screen arrow points toward the planet whenever it drifts out of view, so you can always find your way back
+- **Live Data, Loaded in the Background**: Fetching real close-approach and orbital data from JPL never freezes the app, it loads on a background thread while you keep flying around
+- **MongoDB-Backed Persistence**: Planetary data is loaded from MongoDB on startup, with automatic seeding of default data if the database is empty
 
 ## Technologies Used
 
-- **C++17**
-- **OpenGL 3.3 (Core Profile)** with multisampled anti-aliasing
-- **GLFW**: Windowing, fullscreen, input, OpenGL context
+- **C++**
+- **OpenGL** with multisampled anti-aliasing
 - **GLAD**: OpenGL function loader
 - **GLM**: Vector and matrix math
 - **Dear ImGui**: All on-screen panels and buttons
 - **stb_image**: Planet, ring, and asteroid texture loading
 - **MongoDB C++ Driver (mongocxx / bsoncxx)**: Compiled from source via vcpkg
-- **nlohmann/json**: Parsing JPL API responses
-- **CMake**: Build system, with dependencies fetched automatically via FetchContent
-- **WinHTTP**: Native Windows HTTPS client
 - **JPL Small-Body Database Close Approach API** and **Small-Body Database API**: Live asteroid data sources
 - **C++ standard threading**: Background loading of asteroid data so the app never freezes
 
@@ -36,11 +29,11 @@ Planet sizes and orbital distances in the main view are deliberately not astrono
 
 ## Prerequisites
 
-- A C++17 compiler (portable MinGW GCC works, no admin rights required)
+- A C++ compiler (portable MinGW GCC works, no admin rights required)
 - CMake 3.20 or later
 - [vcpkg](https://github.com/microsoft/vcpkg), used to build the MongoDB C++ driver
-- A MongoDB Atlas cluster (optional, enables persistence)
-- Planet, ring, and asteroid texture images in `resources/textures/` (optional, falls back to flat colors)
+- A MongoDB Atlas cluster
+- Planet, ring, and asteroid texture images in `resources/textures/`
 
 ## Installation
 
@@ -61,7 +54,6 @@ Create a free MongoDB Atlas cluster and copy its connection string
 
 cmake -S . -B build -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE=path/to/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic -DVCPKG_HOST_TRIPLET=x64-mingw-dynamic
 cmake --build build
-
 
 Run from the project root, not from inside `build/`, since shaders and textures load using relative paths.
 
@@ -86,7 +78,7 @@ Run from the project root, not from inside `build/`, since shaders and textures 
 
 ## How It Works
 
-This section walks through the codebase in the order it was actually built, each link points to the file in the repository so you can read the real implementation, in the order it makes sense to learn it.
+This section walks through the codebase in the order it was actually built
 
 1. [`src/main.cpp`](https://github.com/MrZuberi/OrbitScope/blob/main/src/main.cpp) creates the single `Application` object and starts its run loop. This is the entire entry point of the program.
 2. [`src/application/Application.h`](https://github.com/MrZuberi/OrbitScope/blob/main/src/application/Application.h) declares the `Application` class, the central hub that owns the window, every subsystem, and the main loop, and defines the shape of the whole program.
@@ -120,13 +112,6 @@ This section walks through the codebase in the order it was actually built, each
 - **external**: GLAD, stb_image
 - **resources**: Shaders and textures
 
-## Known Limitations
-
-- Overview spacing is illustrative, not astronomically exact.
-- Asteroids without published orbital elements use an approximate marker position near their target planet rather than a true trajectory.
-- Asteroid shapes are procedurally generated rocky variants, not models of the actual physical shape of each real asteroid, since real shape data isn't available for most catalogued objects.
-- All UI interaction happens through the keyboard by default; Left Alt frees the mouse for clicking buttons.
-
 ## License
 
 MIT License.
@@ -134,8 +119,3 @@ MIT License.
 ## Acknowledgments
 
 - NASA and the Jet Propulsion Laboratory, for the Small-Body Database Close Approach API and Small-Body Database API
-- MongoDB, for the official mongocxx and bsoncxx drivers
-- Omar Cornut and contributors, for Dear ImGui
-- Sean Barrett, for stb_image
-- Solar System Scope, for the free, Creative Commons licensed planet textures
-- The GLFW, GLAD, GLM, and nlohmann/json project maintainers
