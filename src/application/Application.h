@@ -34,8 +34,6 @@ private:
     void Shutdown();
     void ProcessFrame();
     void PrintControls();
-    void SaveCurrentConfig();
-    void LoadNamedConfig();
     void LoadPlanetTextures();
     void EnableAsteroids();
     void AsteroidLoadWorker();

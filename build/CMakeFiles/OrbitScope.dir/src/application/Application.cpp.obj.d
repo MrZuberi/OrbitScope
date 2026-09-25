@@ -813,8 +813,6 @@ CMakeFiles/OrbitScope.dir/src/application/Application.cpp.obj: \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/stdarg.h \
  C:/devtools/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
  D:/PROJECTSFIXING/OrbitScope/src/data/PlanetRepository.h \
- D:/PROJECTSFIXING/OrbitScope/src/data/ConfigRepository.h \
- D:/PROJECTSFIXING/OrbitScope/src/simulation/SimulationConfig.h \
  D:/PROJECTSFIXING/OrbitScope/src/data/AsteroidClient.h \
  D:/PROJECTSFIXING/OrbitScope/src/data/SBDBClient.h \
  D:/PROJECTSFIXING/OrbitScope/src/simulation/AsteroidPositioner.h \

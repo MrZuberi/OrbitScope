@@ -6,10 +6,8 @@
 #include <imgui.h>
 
 #include "data/PlanetRepository.h"
-#include "data/ConfigRepository.h"
 #include "data/AsteroidClient.h"
 #include "data/SBDBClient.h"
-#include "simulation/SimulationConfig.h"
 #include "simulation/AsteroidPositioner.h"
 #include "simulation/KeplerOrbitCalculator.h"
 
@@ -588,10 +586,6 @@ void Application::RenderUI(const glm::mat4& view, const glm::mat4& projection, f
     ImGui::Text("Up and Down to pick an asteroid to fly to");
 
     ImGui::Spacing();
-    ImGui::TextColored(ImVec4(0.6f, 0.8f, 1.0f, 1.0f), "SAVING");
-    ImGui::Text("K to save your view, L to load it back");
-
-    ImGui::Spacing();
     ImGui::Text("Escape to quit");
 
     ImGui::End();
@@ -738,67 +732,8 @@ void Application::PrintControls()
     std::cout << "T enters or exits asteroid mode, showing one planet and its live asteroids" << std::endl;
     std::cout << "Tab, while in asteroid mode, switches which planet you are viewing" << std::endl;
     std::cout << "Up and Down arrows pick an asteroid, which then centers the camera on it" << std::endl;
-    std::cout << "K saves the current configuration" << std::endl;
-    std::cout << "L loads the saved configuration" << std::endl;
     std::cout << "H prints this control list again" << std::endl;
     std::cout << "Escape closes the application" << std::endl;
-}
-
-void Application::SaveCurrentConfig()
-{
-    if (!m_MongoRepository)
-    {
-        std::cout << "MongoDB not connected, cannot save configuration" << std::endl;
-        return;
-    }
-
-    SimulationConfig config;
-    config.name = "quicksave";
-    config.speed = m_Simulation->GetSpeedMultiplier();
-    config.orbitLinesEnabled = m_ShowOrbitLines;
-    config.selectedPlanet = m_AsteroidsEnabled ? m_AsteroidListState.GetCurrentFilter() : std::string();
-
-    ConfigRepository configRepository(*m_MongoRepository);
-
-    if (configRepository.SaveConfig(config))
-    {
-        std::cout << "Saved simulation configuration" << std::endl;
-    }
-    else
-    {
-        std::cout << "Failed to save simulation configuration" << std::endl;
-    }
-}
-
-void Application::LoadNamedConfig()
-{
-    if (!m_MongoRepository)
-    {
-        std::cout << "MongoDB not connected, cannot load configuration" << std::endl;
-        return;
-    }
-
-    ConfigRepository configRepository(*m_MongoRepository);
-    SimulationConfig config;
-
-    if (!configRepository.LoadConfig("quicksave", config))
-    {
-        std::cout << "No saved configuration found" << std::endl;
-        return;
-    }
-
-    m_Simulation->SetSpeedMultiplier(config.speed);
-    m_ShowOrbitLines = config.orbitLinesEnabled;
-
-    if (!config.selectedPlanet.empty() && m_AsteroidsLoaded)
-    {
-        m_AsteroidListState.SetFilterByName(config.selectedPlanet);
-        m_AsteroidsEnabled = true;
-        m_ViewingAsteroid = false;
-        m_NeedsRecenter = true;
-    }
-
-    std::cout << "Loaded simulation configuration" << std::endl;
 }
 
 void Application::MouseCallback(GLFWwindow* window, double xPos, double yPos)
@@ -871,14 +806,6 @@ void Application::KeyCallback(GLFWwindow* window, int key, int scancode, int act
     else if (key == GLFW_KEY_O)
     {
         app->m_ShowOrbitLines = !app->m_ShowOrbitLines;
-    }
-    else if (key == GLFW_KEY_K)
-    {
-        app->SaveCurrentConfig();
-    }
-    else if (key == GLFW_KEY_L)
-    {
-        app->LoadNamedConfig();
     }
     else if (key == GLFW_KEY_H)
     {
