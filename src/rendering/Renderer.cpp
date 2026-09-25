@@ -14,6 +14,8 @@ namespace
     const int StarCount = 1200;
     const float StarShellRadius = 4800.0f;
     const int RingSegments = 96;
+    const int AsteroidStacks = 10;
+    const int AsteroidSectors = 14;
     const float Pi = 3.14159265358979323846f;
 }
 
@@ -41,6 +43,7 @@ Renderer::Renderer()
     BuildOrbitMesh();
     BuildStarMesh();
     BuildRingMesh();
+    BuildAsteroidMeshes();
 
     glGenVertexArrays(1, &m_DynamicLineVertexArray);
     glGenBuffers(1, &m_DynamicLineVertexBuffer);
@@ -67,6 +70,13 @@ Renderer::~Renderer()
     glDeleteBuffers(1, &m_DynamicLineVertexBuffer);
     glDeleteVertexArrays(1, &m_RingVertexArray);
     glDeleteBuffers(1, &m_RingVertexBuffer);
+
+    for (int i = 0; i < AsteroidVariantCount; ++i)
+    {
+        glDeleteVertexArrays(1, &m_AsteroidVertexArrays[i]);
+        glDeleteBuffers(1, &m_AsteroidVertexBuffers[i]);
+        glDeleteBuffers(1, &m_AsteroidIndexBuffers[i]);
+    }
 }
 
 void Renderer::BuildSphereMesh()
@@ -253,6 +263,95 @@ void Renderer::BuildRingMesh()
     glBindVertexArray(0);
 }
 
+void Renderer::BuildAsteroidMeshes()
+{
+    for (int variant = 0; variant < AsteroidVariantCount; ++variant)
+    {
+        srand(9000 + variant * 37);
+
+        std::vector<float> vertices;
+        std::vector<unsigned int> indices;
+
+        for (int stack = 0; stack <= AsteroidStacks; ++stack)
+        {
+            float stackAngle = Pi / 2.0f - stack * (Pi / AsteroidStacks);
+            float xy = cosf(stackAngle);
+            float z = sinf(stackAngle);
+
+            for (int sector = 0; sector <= AsteroidSectors; ++sector)
+            {
+                float sectorAngle = sector * (2.0f * Pi / AsteroidSectors);
+
+                float dirX = xy * cosf(sectorAngle);
+                float dirY = xy * sinf(sectorAngle);
+                float dirZ = z;
+
+                float jitter = 0.62f + (static_cast<float>(rand()) / static_cast<float>(RAND_MAX)) * 0.58f;
+
+                float u = static_cast<float>(sector) / static_cast<float>(AsteroidSectors);
+                float v = static_cast<float>(stack) / static_cast<float>(AsteroidStacks);
+
+                vertices.push_back(dirX * jitter);
+                vertices.push_back(dirY * jitter);
+                vertices.push_back(dirZ * jitter);
+                vertices.push_back(dirX);
+                vertices.push_back(dirY);
+                vertices.push_back(dirZ);
+                vertices.push_back(u);
+                vertices.push_back(v);
+            }
+        }
+
+        for (int stack = 0; stack < AsteroidStacks; ++stack)
+        {
+            int k1 = stack * (AsteroidSectors + 1);
+            int k2 = k1 + AsteroidSectors + 1;
+
+            for (int sector = 0; sector < AsteroidSectors; ++sector, ++k1, ++k2)
+            {
+                if (stack != 0)
+                {
+                    indices.push_back(k1);
+                    indices.push_back(k2);
+                    indices.push_back(k1 + 1);
+                }
+
+                if (stack != (AsteroidStacks - 1))
+                {
+                    indices.push_back(k1 + 1);
+                    indices.push_back(k2);
+                    indices.push_back(k2 + 1);
+                }
+            }
+        }
+
+        m_AsteroidIndexCounts[variant] = static_cast<unsigned int>(indices.size());
+
+        glGenVertexArrays(1, &m_AsteroidVertexArrays[variant]);
+        glGenBuffers(1, &m_AsteroidVertexBuffers[variant]);
+        glGenBuffers(1, &m_AsteroidIndexBuffers[variant]);
+
+        glBindVertexArray(m_AsteroidVertexArrays[variant]);
+
+        glBindBuffer(GL_ARRAY_BUFFER, m_AsteroidVertexBuffers[variant]);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_AsteroidIndexBuffers[variant]);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
+
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+        glEnableVertexAttribArray(2);
+
+        glBindVertexArray(0);
+    }
+}
+
 void Renderer::SetViewProjection(const glm::mat4& view, const glm::mat4& projection)
 {
     m_View = view;
@@ -290,6 +389,43 @@ void Renderer::DrawSphere(const glm::mat4& model, const glm::vec3& color, bool i
 
     glBindVertexArray(m_VertexArray);
     glDrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
+
+    m_Shader->Unbind();
+}
+
+void Renderer::DrawAsteroid(const glm::mat4& model, const glm::vec3& color, unsigned int textureId, int variantIndex)
+{
+    int index = variantIndex % AsteroidVariantCount;
+    if (index < 0)
+    {
+        index += AsteroidVariantCount;
+    }
+
+    m_Shader->Bind();
+    m_Shader->SetMat4("uModel", model);
+    m_Shader->SetMat4("uView", m_View);
+    m_Shader->SetMat4("uProjection", m_Projection);
+    m_Shader->SetVec3("uColor", color);
+    m_Shader->SetVec3("uLightPos", glm::vec3(0.0f, 0.0f, 0.0f));
+    m_Shader->SetVec3("uViewPos", m_CameraPosition);
+    m_Shader->SetBool("uUseLighting", true);
+    m_Shader->SetBool("uIsLightSource", false);
+
+    if (textureId != 0)
+    {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, textureId);
+        m_Shader->SetInt("uTexture", 0);
+        m_Shader->SetBool("uUseTexture", true);
+    }
+    else
+    {
+        m_Shader->SetBool("uUseTexture", false);
+    }
+
+    glBindVertexArray(m_AsteroidVertexArrays[index]);
+    glDrawElements(GL_TRIANGLES, m_AsteroidIndexCounts[index], GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 
     m_Shader->Unbind();

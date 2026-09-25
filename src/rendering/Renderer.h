@@ -16,6 +16,7 @@ public:
     void SetViewProjection(const glm::mat4& view, const glm::mat4& projection);
     void SetCameraPosition(const glm::vec3& position);
     void DrawSphere(const glm::mat4& model, const glm::vec3& color, bool isLightSource, unsigned int textureId);
+    void DrawAsteroid(const glm::mat4& model, const glm::vec3& color, unsigned int textureId, int variantIndex);
     void DrawOrbitLine(const glm::mat4& model, const glm::vec3& color);
     void DrawDynamicLineLoop(const std::vector<glm::vec3>& points, const glm::vec3& color);
     void DrawRing(const glm::mat4& model, unsigned int textureId);
@@ -26,6 +27,9 @@ private:
     void BuildOrbitMesh();
     void BuildStarMesh();
     void BuildRingMesh();
+    void BuildAsteroidMeshes();
+
+    static const int AsteroidVariantCount = 6;
 
     unsigned int m_VertexArray;
     unsigned int m_VertexBuffer;
@@ -46,6 +50,11 @@ private:
     unsigned int m_RingVertexArray;
     unsigned int m_RingVertexBuffer;
     unsigned int m_RingVertexCount;
+
+    unsigned int m_AsteroidVertexArrays[AsteroidVariantCount];
+    unsigned int m_AsteroidVertexBuffers[AsteroidVariantCount];
+    unsigned int m_AsteroidIndexBuffers[AsteroidVariantCount];
+    unsigned int m_AsteroidIndexCounts[AsteroidVariantCount];
 
     std::unique_ptr<Shader> m_Shader;
     glm::mat4 m_View;

@@ -43,7 +43,7 @@ private:
     void RecenterCamera(float elapsedDays, double currentJulianDate);
     void DrawPlanetWithRing(const Planet& planet, const glm::vec3& position, float elapsedDays, size_t planetIndex);
     void RenderAsteroidMarkers(float elapsedDays, double currentJulianDate);
-    void RenderUI();
+    void RenderUI(const glm::mat4& view, const glm::mat4& projection, float elapsedDays);
     const Planet* FindPlanetByName(const std::string& name) const;
 
     static void MouseCallback(GLFWwindow* window, double xPos, double yPos);

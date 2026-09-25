@@ -13,7 +13,9 @@
 #include "simulation/AsteroidPositioner.h"
 #include "simulation/KeplerOrbitCalculator.h"
 
+#include <cmath>
 #include <cstdlib>
+#include <functional>
 #include <iostream>
 #include <vector>
 
@@ -339,9 +341,14 @@ void Application::RenderAsteroidMarkers(float elapsedDays, double currentJulianD
 
     for (int i = 0; i < static_cast<int>(visible.size()); ++i)
     {
-        const AsteroidRecord& asteroid = visible[i];
         bool isSelected = m_AsteroidListState.HasSelection() && i == m_AsteroidListState.GetSelectedIndex();
 
+        if (m_ViewingAsteroid && !isSelected)
+        {
+            continue;
+        }
+
+        const AsteroidRecord& asteroid = visible[i];
         glm::vec3 markerPosition;
 
         if (asteroid.hasOrbitalElements)
@@ -370,22 +377,23 @@ void Application::RenderAsteroidMarkers(float elapsedDays, double currentJulianD
 
         glm::vec3 color = isSelected ? glm::vec3(1.0f, 0.5f, 0.05f) : glm::vec3(0.85f, 0.85f, 0.85f);
         float radius = isSelected ? 0.35f : 0.18f;
+        int variantIndex = static_cast<int>(std::hash<std::string>{}(asteroid.designation) % 6);
 
         glm::mat4 model(1.0f);
         model = glm::translate(model, markerPosition);
         model = glm::scale(model, glm::vec3(radius));
 
-        m_Renderer->DrawSphere(model, color, true, asteroidTextureId);
+        m_Renderer->DrawAsteroid(model, color, asteroidTextureId, variantIndex);
     }
 }
 
-void Application::RenderUI()
+void Application::RenderUI(const glm::mat4& view, const glm::mat4& projection, float elapsedDays)
 {
     m_ImGuiLayer->BeginFrame();
 
     ImGuiIO& io = ImGui::GetIO();
 
-    ImGui::SetNextWindowPos(ImVec2(20.0f, 20.0f), ImGuiCond_Always);
+    ImGui::SetNextWindowPos(ImVec2(20.0f, 20.0f), ImGuiCond_Always, ImVec2(0.0f, 0.0f));
     ImGui::SetNextWindowBgAlpha(0.82f);
     ImGui::Begin("Mission Control", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
     ImGui::Text(m_Simulation->IsPaused() ? "Simulation is paused" : "Simulation is running");
@@ -435,8 +443,8 @@ void Application::RenderUI()
     if (m_AsteroidsEnabled)
     {
         float panelWidth = 380.0f;
-        ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x - panelWidth - 20.0f, 20.0f), ImGuiCond_Always);
-        ImGui::SetNextWindowSize(ImVec2(panelWidth, 0.0f), ImGuiCond_Always);
+        ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x - 20.0f, 20.0f), ImGuiCond_Always, ImVec2(1.0f, 0.0f));
+        ImGui::SetNextWindowSizeConstraints(ImVec2(panelWidth, 0.0f), ImVec2(panelWidth, io.DisplaySize.y - 240.0f));
         ImGui::SetNextWindowBgAlpha(0.82f);
         ImGui::Begin("Asteroid Watch", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 
@@ -475,7 +483,7 @@ void Application::RenderUI()
 
         ImGui::End();
 
-        ImGui::SetNextWindowPos(ImVec2(20.0f, 190.0f), ImGuiCond_Always);
+        ImGui::SetNextWindowPos(ImVec2(20.0f, 190.0f), ImGuiCond_Always, ImVec2(0.0f, 0.0f));
         ImGui::SetNextWindowBgAlpha(0.82f);
         ImGui::Begin("Currently Viewing", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
 
@@ -500,9 +508,63 @@ void Application::RenderUI()
         }
 
         ImGui::End();
+
+        if (m_ViewingAsteroid)
+        {
+            const Planet* planet = FindPlanetByName(m_AsteroidListState.GetCurrentFilter());
+
+            if (planet)
+            {
+                glm::vec3 planetPosition = planet->GetRealHeliocentricPosition(elapsedDays, AuToUnitsScale);
+                glm::vec4 clip = projection * view * glm::vec4(planetPosition, 1.0f);
+
+                if (clip.w < 0.0f)
+                {
+                    clip.x = -clip.x;
+                    clip.y = -clip.y;
+                }
+
+                float absW = fabsf(clip.w) > 0.0001f ? fabsf(clip.w) : 0.0001f;
+                float ndcX = clip.x / absW;
+                float ndcY = clip.y / absW;
+
+                bool onScreen = clip.w > 0.0f && ndcX > -0.92f && ndcX < 0.92f && ndcY > -0.92f && ndcY < 0.92f;
+
+                if (!onScreen)
+                {
+                    float screenCenterX = io.DisplaySize.x * 0.5f;
+                    float screenCenterY = io.DisplaySize.y * 0.5f;
+
+                    float dirX = ndcX;
+                    float dirY = -ndcY;
+                    float length = sqrtf(dirX * dirX + dirY * dirY);
+                    if (length < 0.0001f)
+                    {
+                        length = 0.0001f;
+                    }
+                    dirX /= length;
+                    dirY /= length;
+
+                    float edgeRadius = (io.DisplaySize.y < io.DisplaySize.x ? io.DisplaySize.y : io.DisplaySize.x) * 0.42f;
+                    float arrowX = screenCenterX + dirX * edgeRadius;
+                    float arrowY = screenCenterY + dirY * edgeRadius;
+
+                    float angle = atan2f(dirY, dirX);
+                    float arrowSize = 22.0f;
+
+                    ImVec2 tip(arrowX + cosf(angle) * arrowSize, arrowY + sinf(angle) * arrowSize);
+                    ImVec2 left(arrowX + cosf(angle + 2.6f) * arrowSize, arrowY + sinf(angle + 2.6f) * arrowSize);
+                    ImVec2 right(arrowX + cosf(angle - 2.6f) * arrowSize, arrowY + sinf(angle - 2.6f) * arrowSize);
+
+                    ImDrawList* drawList = ImGui::GetForegroundDrawList();
+                    drawList->AddTriangleFilled(tip, left, right, IM_COL32(255, 210, 60, 255));
+                    drawList->AddText(ImVec2(arrowX - 30.0f, arrowY + 24.0f), IM_COL32(255, 210, 60, 255), planet->GetName().c_str());
+                }
+            }
+        }
     }
 
-    ImGui::SetNextWindowPos(ImVec2(20.0f, io.DisplaySize.y - 320.0f), ImGuiCond_Always);
+    ImGui::SetNextWindowPos(ImVec2(20.0f, io.DisplaySize.y - 20.0f), ImGuiCond_Always, ImVec2(0.0f, 1.0f));
     ImGui::SetNextWindowBgAlpha(0.78f);
     ImGui::Begin("How to Play", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
 
@@ -569,7 +631,8 @@ void Application::ProcessFrame()
         6500.0f
     );
 
-    m_Renderer->SetViewProjection(m_Camera->GetViewMatrix(), projection);
+    glm::mat4 view = m_Camera->GetViewMatrix();
+    m_Renderer->SetViewProjection(view, projection);
     m_Renderer->SetCameraPosition(m_Camera->GetPosition());
 
     glClearColor(0.02f, 0.02f, 0.05f, 1.0f);
@@ -609,7 +672,7 @@ void Application::ProcessFrame()
         }
     }
 
-    RenderUI();
+    RenderUI(view, projection, elapsedDays);
 
     glfwSwapBuffers(m_Window);
     glfwPollEvents();
