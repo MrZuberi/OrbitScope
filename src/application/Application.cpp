@@ -395,6 +395,7 @@ void Application::RenderUI(const glm::mat4& view, const glm::mat4& projection, f
     ImGui::SetNextWindowPos(ImVec2(20.0f, 20.0f), ImGuiCond_Always, ImVec2(0.0f, 0.0f));
     ImGui::SetNextWindowBgAlpha(0.82f);
     ImGui::Begin("Mission Control", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::Text("FPS: %.1f", io.Framerate);
     ImGui::Text(m_Simulation->IsPaused() ? "Simulation is paused" : "Simulation is running");
     ImGui::Text("Time speed: %.2fx", m_Simulation->GetSpeedMultiplier());
     ImGui::Text("Orbit paths: %s", m_ShowOrbitLines ? "Shown" : "Hidden");
@@ -584,7 +585,7 @@ void Application::RenderUI(const glm::mat4& view, const glm::mat4& projection, f
     ImGui::TextColored(ImVec4(0.6f, 0.8f, 1.0f, 1.0f), "ASTEROID MODE");
     ImGui::Text("T to enter or exit asteroid mode");
     ImGui::Text("Tab to switch which planet you are viewing");
-    ImGui::Text("Up and Down to pick an asteroid to fly to");
+    ImGui::Text("Up and Down to pick an asteroid to view");
 
     ImGui::Spacing();
     ImGui::Text("Escape to quit");
